@@ -6,7 +6,8 @@ import accrue.query.TopLevel;
  * A query is a sequence of lets followed by an expression and evaluates to a
  * Graph
  */
-public abstract class Query { //implements TopLevel<ProgramDependenceGraph> {
+// TODO used to implement TopLevel<ProgramDependenceGraph>
+public abstract class Query implements TopLevel<Object> {
 
     @Override
     public abstract boolean equals(Object obj);

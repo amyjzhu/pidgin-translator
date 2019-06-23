@@ -15,8 +15,6 @@ import accrue.query.query.*;
 import accrue.query.util.*;
 import accrue.query.bool.*;
 import accrue.query.TopLevel;
-import accrue.pdg.node.PDGNodeType;
-import accrue.pdg.PDGEdgeType;
 
 parser code {:
     PidginLexer lexer;
@@ -88,8 +86,8 @@ terminal                NODE_BY_ID, POSITION, NODES_IN_CONTEXT, RESTRICT;
 terminal                COMMA, LPAR, RPAR, DOT;
 
 /* Other */
-terminal PDGEdgeType    EDGE_TYPE;
-terminal PDGNodeType    NODE_TYPE;
+terminal EdgeType    EDGE_TYPE;
+terminal NodeType    NODE_TYPE;
 terminal String         STRING_LITERAL, INT_LITERAL, IDENTIFIER;
 
 
@@ -167,8 +165,8 @@ formals ::= formal:f
 /* Actual Arguments */
 arg ::= base_str_arg:s {: RESULT = s; :}
        | expression:e {: RESULT = new Argument<Expression>(e); :} 
-       | EDGE_TYPE:et {: RESULT = new Argument<PDGEdgeType>(et); :} 
-       | NODE_TYPE:nt {: RESULT = new Argument<PDGNodeType>(nt); :}    
+       | EDGE_TYPE:et {: RESULT = new Argument<EdgeType>(et); :}
+       | NODE_TYPE:nt {: RESULT = new Argument<NodeType>(nt); :}
        ;
        
 args ::= arg:a COMMA args:as {: as.add(0,a); RESULT = as; :}
@@ -280,7 +278,7 @@ str_arg ::= base_str_arg:s {: RESULT = s; :}
          RESULT = new Argument<Expression>(e); :} 
        ;
        
-nt_arg ::= NODE_TYPE:nt {: RESULT = new Argument<PDGNodeType>(nt); :}  
+nt_arg ::= NODE_TYPE:nt {: RESULT = new Argument<NodeType>(nt); :}
        | expression:e {: 
          if (!(e instanceof Variable)) {
             parser.report_error("Passing non-variable expression: " + e + ". NodeType was expected.", e);
@@ -288,7 +286,7 @@ nt_arg ::= NODE_TYPE:nt {: RESULT = new Argument<PDGNodeType>(nt); :}
          RESULT = new Argument<Expression>(e); :} 
        ;
        
-et_arg ::= EDGE_TYPE:et {: RESULT = new Argument<PDGEdgeType>(et); :} 
+et_arg ::= EDGE_TYPE:et {: RESULT = new Argument<EdgeType>(et); :}
        | expression:e {: 
          if (!(e instanceof Variable)) {
             parser.report_error("Passing non-variable expression: " + e + ". EdgeType was expected.", e);

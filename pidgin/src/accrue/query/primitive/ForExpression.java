@@ -8,7 +8,7 @@ import accrue.query.util.Environment;
 /**
  * Get nodes matching a particular expression
  */
-public class ForExpression { // extends PrimitiveNodeMatchingExpression {
+public class ForExpression extends PrimitiveExpression { // extends PrimitiveNodeMatchingExpression {
 
     /**
      * name of the expression
