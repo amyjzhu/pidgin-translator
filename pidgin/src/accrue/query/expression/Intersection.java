@@ -2,11 +2,6 @@ package accrue.query.expression;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
-
-import accrue.pdg.PDGEdge;
-import accrue.pdg.ProgramDependenceGraph;
-import accrue.pdg.graph.PDGFactory;
-import accrue.pdg.node.AbstractPDGNode;
 import accrue.query.util.Environment;
 import accrue.util.OrderedPair;
 
@@ -37,33 +32,33 @@ public class Intersection extends Expression {
         this.e2 = e2;
     }
 
-    @Override
-    public ProgramDependenceGraph evaluate(Environment env) {
-        ProgramDependenceGraph p1 = e1.evaluate(env);
-        ProgramDependenceGraph p2 = e2.evaluate(env);
-
-        long start = System.currentTimeMillis();
-        // TODO should be unordered
-        OrderedPair<ProgramDependenceGraph, ProgramDependenceGraph> cacheKey = 
-                new OrderedPair<ProgramDependenceGraph, ProgramDependenceGraph>(p1, p2);
-        ProgramDependenceGraph cacheResults;
-        if ((cacheResults = getCachedResults(this.getClass(), cacheKey)) != null) {
-            System.err.println(this.toString() + ": " + (System.currentTimeMillis() - start) + " (cached)");
-            return cacheResults;
-        }
-        
-        Set<PDGEdge> s1 = new LinkedHashSet<PDGEdge>(p1.edgeSet());
-        s1.retainAll(p2.edgeSet());
-
-        Set<AbstractPDGNode> n1 = new LinkedHashSet<AbstractPDGNode>(p1.vertexSet());
-        n1.retainAll(p2.vertexSet());
-        
-        ProgramDependenceGraph res = PDGFactory.graphSubgraph(p1, n1, s1);
-
-        storeCachedResults(this.getClass(), res, cacheKey);
-        System.err.println(this.toString() + ": " + (System.currentTimeMillis() - start) + " (no cached)");
-        return res;
-    }
+//    @Override
+//    public ProgramDependenceGraph evaluate(Environment env) {
+//        ProgramDependenceGraph p1 = e1.evaluate(env);
+//        ProgramDependenceGraph p2 = e2.evaluate(env);
+//
+//        long start = System.currentTimeMillis();
+//        // TODO should be unordered
+//        OrderedPair<ProgramDependenceGraph, ProgramDependenceGraph> cacheKey =
+//                new OrderedPair<ProgramDependenceGraph, ProgramDependenceGraph>(p1, p2);
+//        ProgramDependenceGraph cacheResults;
+//        if ((cacheResults = getCachedResults(this.getClass(), cacheKey)) != null) {
+//            System.err.println(this.toString() + ": " + (System.currentTimeMillis() - start) + " (cached)");
+//            return cacheResults;
+//        }
+//
+//        Set<PDGEdge> s1 = new LinkedHashSet<PDGEdge>(p1.edgeSet());
+//        s1.retainAll(p2.edgeSet());
+//
+//        Set<AbstractPDGNode> n1 = new LinkedHashSet<AbstractPDGNode>(p1.vertexSet());
+//        n1.retainAll(p2.vertexSet());
+//
+//        ProgramDependenceGraph res = PDGFactory.graphSubgraph(p1, n1, s1);
+//
+//        storeCachedResults(this.getClass(), res, cacheKey);
+//        System.err.println(this.toString() + ": " + (System.currentTimeMillis() - start) + " (no cached)");
+//        return res;
+//    }
 
     @Override
     public boolean equals(Object obj) {

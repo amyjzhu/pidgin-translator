@@ -6,6 +6,8 @@
       <sourceFolder url="file://$MODULE_DIR$/accrue-bytecode/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/accrue-bytecode/test" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/deps" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/pidgin/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/pidgin/test" isTestSource="true" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

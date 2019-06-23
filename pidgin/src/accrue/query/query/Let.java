@@ -2,7 +2,6 @@ package accrue.query.query;
 
 import java.util.Collections;
 
-import accrue.pdg.ProgramDependenceGraph;
 import accrue.query.expression.Expression;
 import accrue.query.util.Closure;
 import accrue.query.util.Environment;
@@ -42,12 +41,12 @@ public class Let extends Query {
         this.q = q;
     }
 
-    @Override
-    public ProgramDependenceGraph evaluate(Environment env) {
-        Closure c = new Closure(e, env);
-        Lambda lam = new Lambda(Collections.<String> emptyList(), c);
-        return q.evaluate(env.extend(name, lam));
-    }
+//    @Override
+//    public ProgramDependenceGraph evaluate(Environment env) {
+//        Closure c = new Closure(e, env);
+//        Lambda lam = new Lambda(Collections.<String> emptyList(), c);
+//        return q.evaluate(env.extend(name, lam));
+//    }
 
     @Override
     public boolean equals(Object obj) {

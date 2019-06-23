@@ -4,7 +4,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import accrue.pdg.ProgramDependenceGraph;
 import accrue.query.expression.OriginalGraph;
 
 /**
@@ -15,7 +14,7 @@ public class Environment {
     /**
      * Original PDG
      */
-    private static ProgramDependenceGraph originalPDG;
+   // private static ProgramDependenceGraph originalPDG;
 
     /**
      * Variable map
@@ -35,17 +34,15 @@ public class Environment {
     /**
      * Create an empty environment
      * 
-     * @param pdg
-     *            Original program dependence graph
-     * 
      * @return environment with just "pdg" bound to the original graph
      */
-    public static Environment fresh(ProgramDependenceGraph pdg) {
+    public static Environment fresh() {
         Environment env = new Environment(
-                Collections.<String, Object> singletonMap("pdg", OriginalGraph.newInstance(pdg)));
-        Environment.originalPDG = pdg;
+                Collections.<String, Object> singletonMap("pdg", new HashMap<String, Object>()));
+        //Environment.originalPDG = pdg;
         return env;
-    }
+    } // Probably should not have deleted PDG but I don't think
+    // it was necessary for conversation
 
     /**
      * Create a new environment with the new mapping
@@ -86,9 +83,9 @@ public class Environment {
      * 
      * @return original PDG
      */
-    public ProgramDependenceGraph originalPDG() {
-        return originalPDG;
-    }
+   // public ProgramDependenceGraph originalPDG() {
+//        return originalPDG;
+//    }
 
     @Override
     public String toString() {

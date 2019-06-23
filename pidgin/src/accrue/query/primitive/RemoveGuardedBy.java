@@ -3,11 +3,6 @@ package accrue.query.primitive;
 import java.util.Collections;
 import java.util.Set;
 
-import accrue.algorithm.restrict.FindPCNodesRestrictor;
-import accrue.algorithm.restrict.RemoveGuardedCF;
-import accrue.pdg.PDGEdgeType;
-import accrue.pdg.ProgramDependenceGraph;
-import accrue.pdg.node.AbstractPDGNode;
 import accrue.query.expression.Expression;
 import accrue.query.util.Argument;
 import accrue.query.util.Environment;
@@ -45,46 +40,46 @@ public class RemoveGuardedBy extends PrimitiveExpression {
         this.et = et;
     }
 
-    @Override
-    public ProgramDependenceGraph evaluate(ProgramDependenceGraph g, Environment env) {
-
-        FindPCNodesRestrictor findPC;
-
-        if (!et.isAbsent()) {
-            PDGEdgeType type = Argument.getEdgeTypeForArg(et, env);
-
-            if (type == PDGEdgeType.TRUE) {
-                findPC = new FindPCNodesRestrictor(true, false);
-            } else if (type == PDGEdgeType.FALSE) {
-                findPC = new FindPCNodesRestrictor(false, true);
-            } else {
-                throw new IllegalArgumentException("Invalid edge type in RemoveGuardedBy: " + type);
-            }
-        } else {
-            findPC = new FindPCNodesRestrictor(true, true);
-        }
-
-        ProgramDependenceGraph pcNodes = findPC.restrict(g, getGuardNodes(env), Collections.<AbstractPDGNode> emptySet());
-
-        RemoveGuardedCF rg = new RemoveGuardedCF();
-        return rg.restrict(g, pcNodes.vertexSet(), Collections.<AbstractPDGNode> emptySet());
-    }
-
-    /**
-     * Get the set of nodes representing guards
-     * 
-     * @param env
-     *            current variable environment
-     * @return set of guard nodes
-     */
-    private Set<AbstractPDGNode> getGuardNodes(Environment env) {
-        return e.evaluate(env).vertexSet();
-    }
-
-    @Override
-    public Object getAdditionalCacheKey(Environment env) {
-        return new OrderedPair<PDGEdgeType, Set<AbstractPDGNode>>(Argument.getEdgeTypeForArg(et, env), getGuardNodes(env));
-    }
+//    @Override
+//    public ProgramDependenceGraph evaluate(ProgramDependenceGraph g, Environment env) {
+//
+//        FindPCNodesRestrictor findPC;
+//
+//        if (!et.isAbsent()) {
+//            PDGEdgeType type = Argument.getEdgeTypeForArg(et, env);
+//
+//            if (type == PDGEdgeType.TRUE) {
+//                findPC = new FindPCNodesRestrictor(true, false);
+//            } else if (type == PDGEdgeType.FALSE) {
+//                findPC = new FindPCNodesRestrictor(false, true);
+//            } else {
+//                throw new IllegalArgumentException("Invalid edge type in RemoveGuardedBy: " + type);
+//            }
+//        } else {
+//            findPC = new FindPCNodesRestrictor(true, true);
+//        }
+//
+//        ProgramDependenceGraph pcNodes = findPC.restrict(g, getGuardNodes(env), Collections.<AbstractPDGNode> emptySet());
+//
+//        RemoveGuardedCF rg = new RemoveGuardedCF();
+//        return rg.restrict(g, pcNodes.vertexSet(), Collections.<AbstractPDGNode> emptySet());
+//    }
+//
+//    /**
+//     * Get the set of nodes representing guards
+//     *
+//     * @param env
+//     *            current variable environment
+//     * @return set of guard nodes
+//     */
+//    private Set<AbstractPDGNode> getGuardNodes(Environment env) {
+//        return e.evaluate(env).vertexSet();
+//    }
+//
+//    @Override
+//    public Object getAdditionalCacheKey(Environment env) {
+//        return new OrderedPair<PDGEdgeType, Set<AbstractPDGNode>>(Argument.getEdgeTypeForArg(et, env), getGuardNodes(env));
+//    }
 
     @Override
     public boolean equals(Object obj) {

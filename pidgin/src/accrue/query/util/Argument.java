@@ -1,6 +1,5 @@
 package accrue.query.util;
 
-import accrue.pdg.PDGEdgeType;
 import accrue.query.expression.Expression;
 import accrue.query.expression.Variable;
 
@@ -157,32 +156,32 @@ public class Argument<T> {
         }
         return str;
     }
-
-    /**
-     * Get an edgetype from an argument. It is either a PDGEdgeType or a
-     * variable that needs to be looked up in env
-     * 
-     * @param arg
-     *            argument to get the PDGEdgeType for
-     * @param env
-     *            current variable environment
-     * @return PDGEdgeType for arg
-     */
-    public static PDGEdgeType getEdgeTypeForArg(Argument<?> arg, Environment env) {
-        PDGEdgeType e;
-        if (arg.isAbsent()) {
-            return null;
-        }
-        if (arg.value() instanceof PDGEdgeType) {
-            e = (PDGEdgeType) arg.value();
-        } else if (arg.value() instanceof Variable) {
-            e = ((Variable) arg.value()).evaluateEdgeType(env);
-        } else {
-            throw new IllegalArgumentException("Argument is the wrong type. Expected: String, got: "
-                    + arg.value().getClass().getSimpleName()
-                    + ", Value: "
-                    + arg.value());
-        }
-        return e;
-    }
+//
+//    /**
+//     * Get an edgetype from an argument. It is either a PDGEdgeType or a
+//     * variable that needs to be looked up in env
+//     *
+//     * @param arg
+//     *            argument to get the PDGEdgeType for
+//     * @param env
+//     *            current variable environment
+//     * @return PDGEdgeType for arg
+//     */
+//    public static PDGEdgeType getEdgeTypeForArg(Argument<?> arg, Environment env) {
+//        PDGEdgeType e;
+//        if (arg.isAbsent()) {
+//            return null;
+//        }
+//        if (arg.value() instanceof PDGEdgeType) {
+//            e = (PDGEdgeType) arg.value();
+//        } else if (arg.value() instanceof Variable) {
+//            e = ((Variable) arg.value()).evaluateEdgeType(env);
+//        } else {
+//            throw new IllegalArgumentException("Argument is the wrong type. Expected: String, got: "
+//                    + arg.value().getClass().getSimpleName()
+//                    + ", Value: "
+//                    + arg.value());
+//        }
+//        return e;
+//    }
 }

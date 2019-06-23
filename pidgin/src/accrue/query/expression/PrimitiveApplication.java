@@ -1,6 +1,5 @@
 package accrue.query.expression;
 
-import accrue.pdg.ProgramDependenceGraph;
 import accrue.query.primitive.PrimitiveExpression;
 import accrue.query.util.Environment;
 
@@ -33,12 +32,12 @@ public class PrimitiveApplication extends Expression {
         this.primitive = pe;
     }
 
-    @Override
-    public ProgramDependenceGraph evaluate(Environment env) {
-        ProgramDependenceGraph g = baseGraph.evaluate(env);
-        return primitive.evaluateCached(g, env);
-    }
-
+//    @Override
+//    public ProgramDependenceGraph evaluate(Environment env) {
+//        ProgramDependenceGraph g = baseGraph.evaluate(env);
+//        return primitive.evaluateCached(g, env);
+//    }
+//
     @Override
     public boolean equals(Object obj) {
         if (!(obj instanceof PrimitiveApplication)) {

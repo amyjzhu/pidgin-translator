@@ -1,8 +1,5 @@
 package accrue.query.expression;
 
-import accrue.pdg.PDGEdgeType;
-import accrue.pdg.ProgramDependenceGraph;
-import accrue.pdg.node.PDGNodeType;
 import accrue.query.util.Environment;
 
 /**
@@ -26,23 +23,23 @@ public class Variable extends Expression {
         this.name = name;
     }
 
-    @Override
-    public ProgramDependenceGraph evaluate(Environment env) {
-        Expression e;
-        Object o = env.lookup(name);
-        if (o == null) {
-            throw new IllegalArgumentException("No value found for Expression: " + name);
-        }
-
-        if (o instanceof Expression) {
-            e = (Expression) o;
-            return e.evaluate(env);
-        } else if (o instanceof ProgramDependenceGraph) {
-            return (ProgramDependenceGraph) o;
-        } else {
-            throw new IllegalArgumentException("Argument is the wrong type. Expected Expression or ProgramDependenceGraph, got " + o.getClass().getSimpleName() + " value is " + o);
-        }
-    }
+//    @Override
+//    public ProgramDependenceGraph evaluate(Environment env) {
+//        Expression e;
+//        Object o = env.lookup(name);
+//        if (o == null) {
+//            throw new IllegalArgumentException("No value found for Expression: " + name);
+//        }
+//
+//        if (o instanceof Expression) {
+//            e = (Expression) o;
+//            return e.evaluate(env);
+//        } else if (o instanceof ProgramDependenceGraph) {
+//            return (ProgramDependenceGraph) o;
+//        } else {
+//            throw new IllegalArgumentException("Argument is the wrong type. Expected Expression or ProgramDependenceGraph, got " + o.getClass().getSimpleName() + " value is " + o);
+//        }
+//    }
 
     /**
      * Evaluate this variable to a String
@@ -87,50 +84,51 @@ public class Variable extends Expression {
         }
         return e;
     }
+// TODO might come in handy? but not in this format
 
-    /**
-     * Evaluate this variable to a PDGNodeType
-     * 
-     * @param env
-     *            environment
-     * @return PDGNodeType for varname
-     */
-    public PDGNodeType evaluateNodeType(Environment env) {
-        PDGNodeType e;
-        Object o = env.lookup(name);
-        if (o == null) {
-            throw new IllegalArgumentException("No value found for NodeType: " + name);
-        }
-
-        if (o instanceof PDGNodeType) {
-            e = (PDGNodeType) o;
-        } else {
-            throw new IllegalArgumentException("Argument is the wrong type. Expected PDGNodeType, got " + o.getClass().getSimpleName() + " value is " + o);
-        }
-        return e;
-    }
-
-    /**
-     * Evaluate this variable to a PDGEdgeType
-     * 
-     * @param env
-     *            environment
-     * @return PDGEdgeType for varname
-     */
-    public PDGEdgeType evaluateEdgeType(Environment env) {
-        PDGEdgeType e;
-        Object o = env.lookup(name);
-        if (o == null) {
-            throw new IllegalArgumentException("No value found for EdgeType: " + name);
-        }
-
-        if (o instanceof PDGEdgeType) {
-            e = (PDGEdgeType) o;
-        } else {
-            throw new IllegalArgumentException("Argument is the wrong type. Expected PDGEdgeType, got " + o.getClass().getSimpleName() + " value is " + o);
-        }
-        return e;
-    }
+//    /**
+//     * Evaluate this variable to a PDGNodeType
+//     *
+//     * @param env
+//     *            environment
+//     * @return PDGNodeType for varname
+//     */
+//    public PDGNodeType evaluateNodeType(Environment env) {
+//        PDGNodeType e;
+//        Object o = env.lookup(name);
+//        if (o == null) {
+//            throw new IllegalArgumentException("No value found for NodeType: " + name);
+//        }
+//
+//        if (o instanceof PDGNodeType) {
+//            e = (PDGNodeType) o;
+//        } else {
+//            throw new IllegalArgumentException("Argument is the wrong type. Expected PDGNodeType, got " + o.getClass().getSimpleName() + " value is " + o);
+//        }
+//        return e;
+//    }
+//
+//    /**
+//     * Evaluate this variable to a PDGEdgeType
+//     *
+//     * @param env
+//     *            environment
+//     * @return PDGEdgeType for varname
+//     */
+//    public PDGEdgeType evaluateEdgeType(Environment env) {
+//        PDGEdgeType e;
+//        Object o = env.lookup(name);
+//        if (o == null) {
+//            throw new IllegalArgumentException("No value found for EdgeType: " + name);
+//        }
+//
+//        if (o instanceof PDGEdgeType) {
+//            e = (PDGEdgeType) o;
+//        } else {
+//            throw new IllegalArgumentException("Argument is the wrong type. Expected PDGEdgeType, got " + o.getClass().getSimpleName() + " value is " + o);
+//        }
+//        return e;
+//    }
 
     @Override
     public boolean equals(Object obj) {

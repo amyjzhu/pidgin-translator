@@ -1,6 +1,5 @@
 package accrue.query.query;
 
-import accrue.pdg.ProgramDependenceGraph;
 import accrue.query.expression.Expression;
 import accrue.query.util.Environment;
 
@@ -23,11 +22,11 @@ public class ExpressionQuery extends Query {
     public ExpressionQuery(Expression e) {
         this.e = e;
     }
-
-    @Override
-    public ProgramDependenceGraph evaluate(Environment env) {
-        return e.evaluate(env);
-    }
+//
+//    @Override
+//    public ProgramDependenceGraph evaluate(Environment env) {
+//        return e.evaluate(env);
+//    }
 
     @Override
     public boolean equals(Object obj) {

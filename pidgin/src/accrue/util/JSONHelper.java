@@ -6,40 +6,39 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import accrue.pdg.util.Position;
 
 /**
  * Helper class to deserilize JSON
  */
 public class JSONHelper {
-
-    /**
-     * Get a polyglot {@link Position} object from a (non-null) JSON object
-     * 
-     * @param json
-     *            {@link JSONObject} we are deserializing from
-     * @return new {@link Position} object
-     */
-    public static Position positionFromJSON(JSONObject json) {
-        if (!json.has("path"))
-            return null;
-        Position pos = null;
-        try {
-            String path = null;
-            if (json.has("path")) {
-                path = getCanonical(json.getString("path"));
-            }
-            pos = new Position(path, getCanonical(json.getString("file")),
-                    json.getInt("line"), json.getInt("column"),
-                    json.getInt("endLine"), json.getInt("endColumn"),
-                    json.getInt("offset"), json.getInt("endOffset"));
-        } catch (JSONException e) {
-            System.err.println("Trouble unpacking JSON Position: "
-                    + e.getMessage());
-        }
-        return pos;
-    }
-    
+//
+//    /**
+//     * Get a polyglot {@link Position} object from a (non-null) JSON object
+//     *
+//     * @param json
+//     *            {@link JSONObject} we are deserializing from
+//     * @return new {@link Position} object
+//     */
+//    public static Position positionFromJSON(JSONObject json) {
+//        if (!json.has("path"))
+//            return null;
+//        Position pos = null;
+//        try {
+//            String path = null;
+//            if (json.has("path")) {
+//                path = getCanonical(json.getString("path"));
+//            }
+//            pos = new Position(path, getCanonical(json.getString("file")),
+//                    json.getInt("line"), json.getInt("column"),
+//                    json.getInt("endLine"), json.getInt("endColumn"),
+//                    json.getInt("offset"), json.getInt("endOffset"));
+//        } catch (JSONException e) {
+//            System.err.println("Trouble unpacking JSON Position: "
+//                    + e.getMessage());
+//        }
+//        return pos;
+//    }
+//
     /**
      * In an attempt to reduce the memory footprint, memoize strings
      */

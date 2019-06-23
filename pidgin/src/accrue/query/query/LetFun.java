@@ -1,6 +1,5 @@
 package accrue.query.query;
 
-import accrue.pdg.ProgramDependenceGraph;
 import accrue.query.expression.Expression;
 import accrue.query.util.Closure;
 import accrue.query.util.Environment;
@@ -40,14 +39,14 @@ public class LetFun extends Query {
         this.e = e;
         this.q = q;
     }
-
-    @Override
-    public ProgramDependenceGraph evaluate(Environment env) {
-        Closure c = new Closure(e, env);
-        Lambda lam = new Lambda(fun.getArgs(), c);
-
-        return q.evaluate(env.extend(fun.getName(), lam));
-    }
+//
+//    @Override
+//    public ProgramDependenceGraph evaluate(Environment env) {
+//        Closure c = new Closure(e, env);
+//        Lambda lam = new Lambda(fun.getArgs(), c);
+//
+//        return q.evaluate(env.extend(fun.getName(), lam));
+//    }
 
     @Override
     public boolean equals(Object obj) {

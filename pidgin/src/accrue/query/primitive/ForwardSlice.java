@@ -2,9 +2,6 @@ package accrue.query.primitive;
 
 import java.util.Set;
 
-import accrue.algorithm.SlicingAlgorithms;
-import accrue.pdg.ProgramDependenceGraph;
-import accrue.pdg.node.AbstractPDGNode;
 import accrue.query.expression.Expression;
 import accrue.query.expression.Variable;
 import accrue.query.util.Argument;
@@ -39,10 +36,10 @@ public class ForwardSlice extends PrimitiveExpression {
         this.depth = d;
     }
 
-    @Override
-    public ProgramDependenceGraph evaluate(ProgramDependenceGraph g, Environment env) {
-        return SlicingAlgorithms.forwardSlice(g, getStartNodes(env), getDepth(env));
-    }
+//    @Override
+//    public ProgramDependenceGraph evaluate(ProgramDependenceGraph g, Environment env) {
+//        return SlicingAlgorithms.forwardSlice(g, getStartNodes(env), getDepth(env));
+//    }
 
     /**
      * Get the depth to slice to
@@ -73,14 +70,14 @@ public class ForwardSlice extends PrimitiveExpression {
      *            current variable environment
      * @return set of nodes to slice from
      */
-    private Set<AbstractPDGNode> getStartNodes(Environment env) {
-        return e.evaluate(env).vertexSet();
-    }
-
-    @Override
-    public Object getAdditionalCacheKey(Environment env) {
-        return new OrderedPair<Integer, Set<AbstractPDGNode>>(getDepth(env), getStartNodes(env));
-    }
+//    private Set<AbstractPDGNode> getStartNodes(Environment env) {
+//        return e.evaluate(env).vertexSet();
+//    }
+//
+//    @Override
+//    public Object getAdditionalCacheKey(Environment env) {
+//        return new OrderedPair<Integer, Set<AbstractPDGNode>>(getDepth(env), getStartNodes(env));
+//    }
 
     @Override
     public boolean equals(Object obj) {

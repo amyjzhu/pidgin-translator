@@ -2,8 +2,6 @@ package accrue.query.primitive;
 
 import java.util.Set;
 
-import accrue.pdg.ProgramDependenceGraph;
-import accrue.pdg.node.AbstractPDGNode;
 import accrue.query.expression.Expression;
 import accrue.query.util.Environment;
 import accrue.util.OrderedPair;
@@ -34,40 +32,40 @@ public class ShortestPath extends PrimitiveExpression {
         this.e1 = e1;
         this.e2 = e2;
     }
-
-    @Override
-    public ProgramDependenceGraph evaluate(ProgramDependenceGraph g, Environment env) {
-        accrue.algorithm.restrict.ShortestPath sp = new accrue.algorithm.restrict.ShortestPath();
-
-        return sp.restrict(g, getSources(env), getTargets(env));
-    }
-
-    /**
-     * Get the set of nodes for the sources
-     * 
-     * @param env
-     *            current variable environment
-     * @return set of source nodes
-     */
-    private Set<AbstractPDGNode> getSources(Environment env) {
-        return e1.evaluate(env).vertexSet();
-    }
-
-    /**
-     * Get the set of nodes for the targets
-     * 
-     * @param env
-     *            current variable environment
-     * @return set of target nodes
-     */
-    private Set<AbstractPDGNode> getTargets(Environment env) {
-        return e2.evaluate(env).vertexSet();
-    }
-
-    @Override
-    public Object getAdditionalCacheKey(Environment env) {
-        return new OrderedPair<Set<AbstractPDGNode>, Set<AbstractPDGNode>>(getSources(env), getTargets(env));
-    }
+//
+//    @Override
+//    public ProgramDependenceGraph evaluate(ProgramDependenceGraph g, Environment env) {
+//        accrue.algorithm.restrict.ShortestPath sp = new accrue.algorithm.restrict.ShortestPath();
+//
+//        return sp.restrict(g, getSources(env), getTargets(env));
+//    }
+//
+//    /**
+//     * Get the set of nodes for the sources
+//     *
+//     * @param env
+//     *            current variable environment
+//     * @return set of source nodes
+//     */
+//    private Set<AbstractPDGNode> getSources(Environment env) {
+//        return e1.evaluate(env).vertexSet();
+//    }
+//
+//    /**
+//     * Get the set of nodes for the targets
+//     *
+//     * @param env
+//     *            current variable environment
+//     * @return set of target nodes
+//     */
+//    private Set<AbstractPDGNode> getTargets(Environment env) {
+//        return e2.evaluate(env).vertexSet();
+//    }
+//
+//    @Override
+//    public Object getAdditionalCacheKey(Environment env) {
+//        return new OrderedPair<Set<AbstractPDGNode>, Set<AbstractPDGNode>>(getSources(env), getTargets(env));
+//    }
 
     @Override
     public boolean equals(Object obj) {

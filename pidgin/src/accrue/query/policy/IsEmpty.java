@@ -1,6 +1,5 @@
 package accrue.query.policy;
 
-import accrue.pdg.ProgramDependenceGraph;
 import accrue.query.query.Query;
 import accrue.query.util.Environment;
 
@@ -21,8 +20,9 @@ public class IsEmpty extends Policy {
 
     @Override
     protected boolean assertion(Query q, Environment c) {
-        ProgramDependenceGraph pdg = q.evaluate(c);
-        return pdg.isEmpty();
+     //   ProgramDependenceGraph pdg = q.evaluate(c);
+     //   return pdg.isEmpty();
+        return false;
     }
 
     @Override

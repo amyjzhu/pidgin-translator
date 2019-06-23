@@ -3,9 +3,6 @@ package accrue.query.primitive;
 import java.util.Collections;
 import java.util.Set;
 
-import accrue.algorithm.restrict.RemoveGuardedCF;
-import accrue.pdg.ProgramDependenceGraph;
-import accrue.pdg.node.AbstractPDGNode;
 import accrue.query.expression.Expression;
 import accrue.query.util.Environment;
 
@@ -34,30 +31,30 @@ public class RemoveGuardedByPC extends PrimitiveExpression {
         this.e = e;
     }
 
-    @Override
-    public ProgramDependenceGraph evaluate(ProgramDependenceGraph g, Environment env) {
-
-        // For this we must have already computed the PC nodes
-        ProgramDependenceGraph pcNodes = e.evaluate(env);                
-        RemoveGuardedCF rg = new RemoveGuardedCF();
-        return rg.restrict(g, pcNodes.vertexSet(), Collections.<AbstractPDGNode> emptySet());
-    }
-
-    /**
-     * Get the set of nodes representing guards
-     * 
-     * @param env
-     *            current variable environment
-     * @return set of guard nodes
-     */
-    private Set<AbstractPDGNode> getGuardNodes(Environment env) {
-        return e.evaluate(env).vertexSet();
-    }
-
-    @Override
-    public Object getAdditionalCacheKey(Environment env) {
-        return getGuardNodes(env);
-    }
+//    @Override
+//    public ProgramDependenceGraph evaluate(ProgramDependenceGraph g, Environment env) {
+//
+//        // For this we must have already computed the PC nodes
+//        ProgramDependenceGraph pcNodes = e.evaluate(env);
+//        RemoveGuardedCF rg = new RemoveGuardedCF();
+//        return rg.restrict(g, pcNodes.vertexSet(), Collections.<AbstractPDGNode> emptySet());
+//    }
+//
+//    /**
+//     * Get the set of nodes representing guards
+//     *
+//     * @param env
+//     *            current variable environment
+//     * @return set of guard nodes
+//     */
+//    private Set<AbstractPDGNode> getGuardNodes(Environment env) {
+//        return e.evaluate(env).vertexSet();
+//    }
+//
+//    @Override
+//    public Object getAdditionalCacheKey(Environment env) {
+//        return getGuardNodes(env);
+//    }
 
     @Override
     public boolean equals(Object obj) {

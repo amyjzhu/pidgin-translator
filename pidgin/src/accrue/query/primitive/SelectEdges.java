@@ -1,7 +1,5 @@
 package accrue.query.primitive;
 
-import accrue.pdg.ProgramDependenceGraph;
-import accrue.pdg.graph.PDGFactory;
 import accrue.query.util.Argument;
 import accrue.query.util.Environment;
 
@@ -25,15 +23,15 @@ public class SelectEdges extends PrimitiveExpression {
         this.et = et;
     }
 
-    @Override
-    public ProgramDependenceGraph evaluate(ProgramDependenceGraph g, Environment env) {
-        return PDGFactory.retainEdges(g, g.getEdgesOfType(Argument.getEdgeTypeForArg(et, env)));
-    } 
-    
-    @Override
-    public Object getAdditionalCacheKey(Environment env) {
-        return Argument.getEdgeTypeForArg(et, env);
-    }
+//    @Override
+//    public ProgramDependenceGraph evaluate(ProgramDependenceGraph g, Environment env) {
+//        return PDGFactory.retainEdges(g, g.getEdgesOfType(Argument.getEdgeTypeForArg(et, env)));
+//    }
+//
+//    @Override
+//    public Object getAdditionalCacheKey(Environment env) {
+//        return Argument.getEdgeTypeForArg(et, env);
+//    }
 
     @Override
     public boolean equals(Object obj) {

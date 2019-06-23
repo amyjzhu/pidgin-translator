@@ -2,7 +2,6 @@ package accrue.query.util;
 
 import java.util.List;
 
-import accrue.pdg.ProgramDependenceGraph;
 import accrue.query.expression.Expression;
 
 /**
@@ -48,7 +47,7 @@ public class Lambda {
      *            actual arguments
      * @return Results of applying the function to the given actuals
      */
-    public ProgramDependenceGraph apply(List<Object> actuals) {
+    public Object apply(List<Object> actuals) {
         if (formals.size() != actuals.size()) {
             throw new RuntimeException(
                     "Applying function to: "
@@ -62,7 +61,9 @@ public class Lambda {
         for (int i = 0; i < actuals.size(); i++) {
             bodyEnv = bodyEnv.extend(formals.get(i), actuals.get(i));
         }
-        return body.evaluate(bodyEnv);
+       // return body.evaluate(bodyEnv);
+        // TODO
+        return null;
     }
 
     @Override

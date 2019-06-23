@@ -3,9 +3,6 @@ package accrue.query.primitive;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import accrue.pdg.ProgramDependenceGraph;
-import accrue.pdg.graph.PDGFactory;
-import accrue.pdg.node.AbstractPDGNode;
 import accrue.query.util.Argument;
 import accrue.query.util.Environment;
 import accrue.query.util.StringMatcher;
@@ -31,36 +28,36 @@ public class ForProcedure extends PrimitiveExpression {
 
     }
 
-    @Override
-    public ProgramDependenceGraph evaluate(ProgramDependenceGraph g, Environment env) {
-
-        String str = Argument.getStringForArg(name, env);
-
-        Set<AbstractPDGNode> matchingNodes;
-        if (g.getAllProcedureNames().size() > g.vertexSet().size()) {
-            // mode procedures than nodes so use nodes
-            matchingNodes = new StringMatcherForNodes().getMatches(g.vertexSet(), str);
-        } else {
-            Set<String> matches = new StringMatcherForStrings().getMatches(g.getAllProcedureNames(), str);
-            matchingNodes = new LinkedHashSet<AbstractPDGNode>();
-            for (String s : matches) {
-                matchingNodes.addAll(g.getNodesByProcedure(s));
-            }
-        }
-
-        ProgramDependenceGraph newG = PDGFactory.retainNodes(g, matchingNodes);
-        if (newG.isEmpty()) {
-            throw new RuntimeException(this 
-                    + " evaluated to an empty graph.\nArgument was:\n\n\"" + str + "\"");
-        }
-
-        return newG;
-    }   
+//    @Override
+//    public ProgramDependenceGraph evaluate(ProgramDependenceGraph g, Environment env) {
+//
+//        String str = Argument.getStringForArg(name, env);
+//
+//        Set<AbstractPDGNode> matchingNodes;
+//        if (g.getAllProcedureNames().size() > g.vertexSet().size()) {
+//            // mode procedures than nodes so use nodes
+//            matchingNodes = new StringMatcherForNodes().getMatches(g.vertexSet(), str);
+//        } else {
+//            Set<String> matches = new StringMatcherForStrings().getMatches(g.getAllProcedureNames(), str);
+//            matchingNodes = new LinkedHashSet<AbstractPDGNode>();
+//            for (String s : matches) {
+//                matchingNodes.addAll(g.getNodesByProcedure(s));
+//            }
+//        }
+//
+//        ProgramDependenceGraph newG = PDGFactory.retainNodes(g, matchingNodes);
+//        if (newG.isEmpty()) {
+//            throw new RuntimeException(this
+//                    + " evaluated to an empty graph.\nArgument was:\n\n\"" + str + "\"");
+//        }
+//
+//        return newG;
+//    }
     
-    @Override
-    public Object getAdditionalCacheKey(Environment env) {
-        return Argument.getStringForArg(name, env);
-    }
+//    @Override
+//    public Object getAdditionalCacheKey(Environment env) {
+//        return Argument.getStringForArg(name, env);
+//    }
 
     @Override
     public boolean equals(Object obj) {
@@ -94,10 +91,10 @@ public class ForProcedure extends PrimitiveExpression {
     /**
      * String matcher for AbstractPDGNode
      */
-    private static class StringMatcherForNodes extends StringMatcher<AbstractPDGNode> {
-        @Override
-        public String getStringToMatch(AbstractPDGNode t) {
-            return t.groupingName();
-        }     
-    }
+//    private static class StringMatcherForNodes extends StringMatcher<AbstractPDGNode> {
+//        @Override
+//        public String getStringToMatch(AbstractPDGNode t) {
+//            return t.groupingName();
+//        }
+//    }
 }
