@@ -1,0 +1,311 @@
+//From root:
+//java -jar lib/java-cup-11a.jar -destdir src/accrue/parser -parser PidginParser -interface cup/PidginQL.cup 
+package accrue.parser;
+
+import java.util.*;
+import java.io.*;
+import java_cup.runtime.Symbol;
+
+import accrue.util.OrderedPair;
+import accrue.query.cheat.*;
+import accrue.query.expression.*;
+import accrue.query.policy.*;
+import accrue.query.primitive.*;
+import accrue.query.query.*;
+import accrue.query.util.*;
+import accrue.query.bool.*;
+import accrue.query.TopLevel;
+import accrue.pdg.node.PDGNodeType;
+import accrue.pdg.PDGEdgeType;
+
+parser code {:
+    PidginLexer lexer;
+    Map<String,Integer> arities = new LinkedHashMap<String,Integer>();
+
+    public PidginParser(InputStream str) {
+        super(new PidginLexer(str));
+        lexer = (PidginLexer)getScanner();
+    }
+    
+    public PidginParser(Reader r) {
+          super( new PidginLexer(r) );
+          lexer = (PidginLexer)getScanner();
+      }
+
+    public static TopLevel parse(String query) throws Exception {
+        StringReader reader = new StringReader(query);
+        PidginParser p = new PidginParser(reader);
+        return (TopLevel) p.parse().value;  
+    }
+
+    public void report_error(String message) {
+        throw new RuntimeException("Parser error: " + message);
+    }
+
+    public void report_error(String message, Object info) {
+        if ( !(info instanceof Symbol) ) report_error(message);
+        Symbol symbol = (Symbol) info;
+        String val = (symbol.value == null) ? "NO VALUE" : symbol.value.toString();
+        if ( symbol.left < 0 || symbol.right < 0 ) report_error(message + ", symbol was \"" + val +"\"");
+        
+        throw new RuntimeException("Parse error at line " + symbol.left + ", column " + symbol.right + ": " + message + ", symbol was \"" + val + "\"");
+  }
+
+:};
+
+
+/* Query keywords */
+terminal                LET, EQUALS, IN;
+
+/* Expression keywords */
+terminal                AND, OR, PDG;
+
+/* Primitive Expression keywords */
+terminal                FORWARD_SLICE, BACKWARD_SLICE, SHORTEST_PATH;
+terminal                REMOVE_NODES, REMOVE_EDGES;
+terminal                SELECT_NODES, SELECT_EDGES;
+terminal                FOR_EXPRESSION;
+terminal                FOR_PROCEDURE;
+terminal                REMOVE_GUARDED_BY;
+terminal                REMOVE_GUARDED_BY_BOOL;
+terminal                REMOVE_GUARDED_BY_PC;
+terminal                FIND_PC_NODES;
+
+/* Boolean expression keywords */
+terminal                BOOL_NOT, BOOL_AND, BOOL_OR, LBRACK, RBRACK;
+
+/* Not needed can be implemented in terms of other primitives
+terminal                FORMALS_OF, RETURNS_OF, ACTUALS_OF, ENTRIES_OF, DIRECT_CONTROL_DEPS;
+*/
+
+/* Policy keywords */
+terminal                IS_EMPTY;
+
+/* Cheats */
+terminal                NODE_BY_ID, POSITION, NODES_IN_CONTEXT, RESTRICT;
+
+/* Separators */
+terminal                COMMA, LPAR, RPAR, DOT;
+
+/* Other */
+terminal PDGEdgeType    EDGE_TYPE;
+terminal PDGNodeType    NODE_TYPE;
+terminal String         STRING_LITERAL, INT_LITERAL, IDENTIFIER;
+
+
+non terminal TopLevel<?>                            top;
+non terminal Query                                  query;
+non terminal Policy                                 policy;
+non terminal Expression                             expression;
+non terminal PrimitiveExpression                    primitive;
+
+non terminal BooleanExpression                      boolean_expression;
+non terminal String                                 formal;
+non terminal List<String>                           formals;
+non terminal OrderedPair<String,Expression>         binder;
+non terminal OrderedPair<FunctionDecl,Expression>   arg_binder;
+non terminal FunctionDecl                           fun_decl;
+non terminal Argument<String>                       base_str_arg;
+non terminal Argument<Integer>                      base_int_arg;
+non terminal Argument<?>                            arg, str_arg, int_arg, optional_int, nt_arg, et_arg, optional_et;
+non terminal LinkedList<Argument<?>>                args;
+non terminal LinkedList<Argument<?>>                dot_args;
+
+precedence left OR;
+precedence left AND;
+precedence left DOT;
+
+precedence left BOOL_OR;
+precedence left BOOL_AND;
+precedence right BOOL_NOT;
+
+/* Top level is either a Query or a Policy */
+top ::=   query:q {: RESULT = q; :}
+        | policy:p {: RESULT = p; :}
+        ;
+
+/* Queries */
+query ::= expression:e {: RESULT = new ExpressionQuery(e); :}
+        | LET binder:b IN query:q
+            {:  RESULT = new Let(b.fst(),b.snd(),q); :}
+        | LET arg_binder:b IN query:q
+            {:  RESULT = new LetFun(b.fst(),b.snd(),q); :}
+        ;
+
+/* Policies */        
+policy ::= query:q IS_EMPTY {:  RESULT = new IsEmpty(q); :}
+        ;
+
+/* Let binding */      
+binder ::= IDENTIFIER:i EQUALS expression:e 
+         {:   parser.arities.put(i,0);
+              RESULT = new OrderedPair<String,Expression>(i,e); :}
+         ;
+
+arg_binder ::= fun_decl:f EQUALS expression:e 
+             {:  parser.arities.put(f.getName(),f.getArgs().size());
+                 RESULT = new OrderedPair<FunctionDecl,Expression>(f,e); :}
+             ;
+             
+/* Function Declaration */         
+fun_decl ::= IDENTIFIER:f LPAR formals:a RPAR
+           {: RESULT = new FunctionDecl(f,a); :}
+           ;
+             
+/* Formal Arguments */
+formal ::= IDENTIFIER:i {: RESULT = i; :}
+         ;
+
+formals ::= formal:f
+      {: List<String> args = new ArrayList<String>();
+         args.add(f);
+         RESULT = args; :}
+       | formals:as COMMA formal:f
+               {: as.add(f); RESULT = as; :}
+       ;
+
+/* Actual Arguments */
+arg ::= base_str_arg:s {: RESULT = s; :}
+       | expression:e {: RESULT = new Argument<Expression>(e); :} 
+       | EDGE_TYPE:et {: RESULT = new Argument<PDGEdgeType>(et); :} 
+       | NODE_TYPE:nt {: RESULT = new Argument<PDGNodeType>(nt); :}    
+       ;
+       
+args ::= arg:a COMMA args:as {: as.add(0,a); RESULT = as; :}
+       | arg:a {: LinkedList<Argument<?>> as = new LinkedList<Argument<?>>(); as.add(a); RESULT = as; :}
+       ;
+       
+dot_args ::= LPAR args:as RPAR {: RESULT = as; :}    
+             | /* empty */ {: RESULT = new LinkedList<Argument<?>>(); :}  
+             ;       
+
+/* Expressions */
+expression ::= PDG
+                {: RESULT = new Variable("pdg"); :}
+             | expression:e DOT primitive:pe
+                {: RESULT = new PrimitiveApplication(e, pe); :}
+             | IDENTIFIER:i LPAR args:as RPAR
+                {: if (!parser.arities.containsKey(i)) {
+                        parser.report_error("Function not found: " + i, as);
+                   } else if(!parser.arities.get(i).equals(as.size())) {
+                        parser.report_error("Calling \"" + i + "\" with the wrong number of arguments. Expected: " + parser.arities.get(i) + " Got: " + as.size(), as);
+                   } else {
+                        RESULT = new FunctionApplication(i,as); 
+                   } 
+                :}
+             | IDENTIFIER:i 
+                {: RESULT = new Variable(i); :}                    
+             | expression:e1 OR expression:e2
+                {: RESULT = new Union(e1, e2); :}
+             | expression:e1 AND expression:e2
+                {: RESULT = new Intersection(e1, e2); :}    
+             | LPAR expression:e RPAR
+                    {: RESULT = e; :}   
+             | expression:e DOT IDENTIFIER:i dot_args:as
+                {: if (!parser.arities.containsKey(i)) {
+                        parser.report_error("Function not found (called using dot): " + i, as);
+                   } else if(!parser.arities.get(i).equals(as.size() + 1)) {
+                        parser.report_error("Calling \"" + i + "\" (with dot) with the wrong number of arguments. Expected: " + parser.arities.get(i) + " Got: " + (as.size() + 1), as);
+                   } else {
+                        as.addFirst(new Argument<Expression>(e));
+                        RESULT = new FunctionApplication(i,as); 
+                   } 
+                :}
+             ;   
+
+/* Primitive Expressions */                
+primitive     ::= FORWARD_SLICE LPAR expression:e optional_int:d RPAR
+                    {: RESULT = new ForwardSlice(e, d); :}
+                 | BACKWARD_SLICE LPAR expression:e optional_int:d RPAR
+                     {: RESULT = new BackwardSlice(e, d); :}
+                 | SHORTEST_PATH LPAR expression:e1 COMMA expression:e2 RPAR
+                    {: RESULT = new ShortestPath(e1, e2); :}
+                 | REMOVE_NODES LPAR expression:e RPAR
+                    {: RESULT = new RemoveNodes(e); :}
+                 | REMOVE_EDGES LPAR expression:e RPAR
+                    {: RESULT = new RemoveEdges(e); :}                           
+                 | SELECT_NODES LPAR nt_arg:nt RPAR
+                    {: RESULT = new SelectNodes(nt); :}
+                 | SELECT_EDGES LPAR et_arg:et RPAR
+                    {: RESULT = new SelectEdges(et); :}                 
+                 | FOR_EXPRESSION LPAR str_arg:a RPAR
+                    {: RESULT = new ForExpression(a); :}
+                 | FOR_PROCEDURE LPAR str_arg:a RPAR
+                    {: RESULT = new ForProcedure(a); :}
+                 | REMOVE_GUARDED_BY LPAR expression:e optional_et:et RPAR
+                    {: RESULT = new RemoveGuardedBy(e,et); :}
+                 | REMOVE_GUARDED_BY_PC LPAR expression:e RPAR
+                    {: RESULT = new RemoveGuardedByPC(e); :}
+                 | REMOVE_GUARDED_BY_BOOL LPAR boolean_expression:b RPAR
+                    {: RESULT = new RemoveGuardedByBool(b); :}     
+                 | FIND_PC_NODES LPAR boolean_expression:b RPAR
+                    {: RESULT = new FindPCNodes(b); :} 
+                 | LPAR primitive:p RPAR
+                    {: RESULT = p; :}                     
+                        
+/* Cheats (not part of language) */             
+                 | NODE_BY_ID LPAR int_arg:a RPAR
+                    {: RESULT = new NodeByID(a); :} 
+                 | POSITION LPAR str_arg:a RPAR
+                    {: RESULT = new Position(a); :}  
+                 | NODES_IN_CONTEXT LPAR str_arg:a RPAR
+                    {: RESULT = new NodesInContext(a); :}  
+                 | RESTRICT LPAR str_arg:a COMMA expression:ins COMMA expression:outs RPAR
+                    {: RESULT = new Restrict(a, ins, outs); :}                                                                       
+                 ;
+
+/* Boolean expressions (syntactic sugar for a bunch of calls to pdg.findPCNodes and combining the results */
+boolean_expression ::= expression:e {: RESULT = new BooleanVariable(e); :}
+    | BOOL_NOT boolean_expression:b {: RESULT = new BooleanNot(b); :}
+    | boolean_expression:b1 BOOL_AND boolean_expression:b2 {: RESULT = new BooleanAnd(b1,b2); :}
+    | boolean_expression:b1 BOOL_OR boolean_expression:b2 {: RESULT = new BooleanOr(b1,b2); :}
+    | LBRACK boolean_expression:b RBRACK {: RESULT = b; :}   
+    ;
+    
+
+/* Base types */
+base_str_arg ::= STRING_LITERAL:s {: RESULT = new Argument<String>(s); :};
+                
+base_int_arg ::= INT_LITERAL:i 
+                {: RESULT = new Argument<Integer>(Integer.parseInt(i)); :};
+            
+
+
+/* Arguments to Primitive Expressions */     
+str_arg ::= base_str_arg:s {: RESULT = s; :}
+       | expression:e {: 
+         if (!(e instanceof Variable)) {
+            parser.report_error("Passing non-variable expression: " + e + ". String was expected.", e);
+         }
+         RESULT = new Argument<Expression>(e); :} 
+       ;
+       
+nt_arg ::= NODE_TYPE:nt {: RESULT = new Argument<PDGNodeType>(nt); :}  
+       | expression:e {: 
+         if (!(e instanceof Variable)) {
+            parser.report_error("Passing non-variable expression: " + e + ". NodeType was expected.", e);
+         }
+         RESULT = new Argument<Expression>(e); :} 
+       ;
+       
+et_arg ::= EDGE_TYPE:et {: RESULT = new Argument<PDGEdgeType>(et); :} 
+       | expression:e {: 
+         if (!(e instanceof Variable)) {
+            parser.report_error("Passing non-variable expression: " + e + ". EdgeType was expected.", e);
+         }
+         RESULT = new Argument<Expression>(e); :} 
+       ;    
+       
+optional_et ::= COMMA et_arg:a {: RESULT = a; :} 
+                | /* empty */ {: RESULT = Argument.absent(); :};
+
+int_arg ::= base_int_arg:i {: RESULT = i; :} 
+       | expression:e {: 
+         if (!(e instanceof Variable)) {
+            parser.report_error("Passing non-variable expression: " + e + ". Integer was expected.", e);
+         }
+         RESULT = new Argument<Expression>(e); :} 
+       ;
+
+optional_int ::= COMMA int_arg:a {: RESULT = a; :} 
+                | /* empty */ {: RESULT = Argument.absent(); :};

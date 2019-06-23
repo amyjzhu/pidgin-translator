@@ -1,0 +1,60 @@
+First make sure that you are using an approppriate version of javac. We do not support Java 1.8 or higher. We recommend 1.7.
+>> javac -version
+
+Compile the HelloWorld example
+>> javac example/hello/HelloWorld.java
+
+Set up accrue-bytecode:
+- Edit accrue-bytecode/data/wala.properties so that java_runtime_dir points to a directory containing the JDK 1.6 classes. (You can find the installation directory for JDK 1.6 by executing “/usr/libexec/java_home -v 1.6”.)
+
+Build accrue-bytecode:
+>> cd accrue-bytecode
+>> ant
+
+
+
+Build pidgin:
+>> cd pidgin
+>> ant
+
+run accrue-bytecode
+>> cd accrue-bytecode
+>> bin/runAnalysis.sh -cp ../example/ -e hello.HelloWorld -n pdg -out tests -useSingleAllocPerThrowableType -useSingleAllocForStrings
+This will generate a PDG and put the gzipped JSON file in the tests directory of the current directory. The last two command line arguments are not necessary, but improve performance significantly (at the cost of some precision). See the useage and PLDI paper for more info.
+
+For other options use:
+>> bin/runAnalysis.sh --help 
+
+run pidgin:
+>> cd pidgin
+>> bin/launchServer.sh ../accrue-bytecode/tests/pdg_hello.HelloWorld.json.gz
+
+(This last command may take about a minute, as it is parsing in the PDG.)
+
+open browser and point to http://localhost:8080/
+    in query window try:
+    
+    pgm.forExpression("Hello World")  
+    (This selects all nodes that are expressions with "Hello World"
+    appearing in the expression. It selects both the node for the
+    string constant and  node for the assignment to the formal
+    argument of the println method.)
+
+    pgm.formalsOf("java.io.PrintStream.println")
+    (This selects node for the formal arguments of all methods named
+    "println" in the class java.io.PrintStream, including the implicit
+    "this" argument.)
+
+    let hello = pgm.forExpression("Hello World") in
+    pgm.backwardSlice(pgm.formalsOf("java.io.PrintStream.println"), 1) AND hello
+    (Selects the node for the assignment form "Hello World" to the argument of the println method)
+
+    pgm.forProcedure("hello.HelloWorld.main")
+    (Selects all nodes and edges for the main method of the
+    hello.HelloWorld class.)
+
+Try clicking the radio buttons to see the different
+representations. NOTE: the "graph" view is currently disabled because
+it crashes the browser when the graph is too large (~10,000 nodes) and
+it is accidentally clicked. Default will try to do the best thing
+(either summary, nodes, or edges) based on the results.

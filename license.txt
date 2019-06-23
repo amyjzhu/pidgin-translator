@@ -1,0 +1,137 @@
+Copyright (c) 2012-2015 Harvard University
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+
+    Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+
+    Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the
+    distribution.
+
+    Neither the name of Pidgin, Harvard University nor the
+    names of its contributors may be used to endorse or promote
+    products derived from this software without specific prior written
+    permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+
+This release includes third party libraries. These libraries are
+listed below, and where appropriate, their licenses are included in
+this release.
+
+- WALA
+  http://wala.sourceforge.net/wiki/index.php/Main_Page
+
+  The library included is from a fork of WALA, avaiable at
+  https://github.com/aaandrewww/WALA.
+
+  Files included in this release:
+    ./accrue-bytecode/lib/wala-fork.jar 
+
+  License file:
+    ./licenses/Eclipse\ Public\ License\ -\ Version\ 1.0.html
+
+
+
+- Apache Commons
+  https://commons.apache.org/
+  
+  Files included in this release:
+    ./pidgin/lib/commons-lang3-3.3.2.jar
+
+  License file:
+    ./licenses/Apache-LICENSE-2.0.txt
+
+
+
+- Jetty
+  http://www.eclipse.org/jetty/
+  
+  Files included in this release:
+    ./pidgin/lib/jetty-all.jar 
+
+  License file:
+    ./licenses/Apache-LICENSE-2.0.txt
+
+
+
+- CUP
+  Copyright 1996-2015 by Scott Hudson, Frank Flannery, C. Scott
+  Ananian, Michael Petter
+  http://www2.cs.tum.edu/projects/cup/
+    
+  Files included in this release:
+    ./accrue-bytecode/lib/java-cup-11a.jar
+    ./pidgin/lib/java-cup-11a.jar 
+
+  License file:
+    ./licenses/CUP-license.txt
+
+
+
+- JCommander
+  http://jcommander.org/
+  
+  Files included in this release:
+    ./accrue-bytecode/lib/jcommander-1.35-src.jar 
+    ./accrue-bytecode/lib/jcommander-1.35.jar 
+
+  License file:
+    ./licenses/Apache-LICENSE-2.0.txt
+
+
+
+- JFlex
+  Copyright (c) Gerwin Klein, Steve Rowe, Regis Decamp. All rights reserved.
+  http://jflex.de/
+  
+  Files included in this release:
+    ./accrue-bytecode/lib/JFlex.jar 
+    ./pidgin/lib/JFlex.jar
+
+  License file:
+    ./licenses/JFlex-license.txt
+
+
+
+- JSON
+  Copyright (c) 2002 JSON.org
+  https://github.com/douglascrockford/JSON-java
+  http://www.json.org/
+  
+  Files included in this release:
+    ./accrue-bytecode/lib/JSON-java.jar 
+    ./pidgin/lib/JSON-java-source.jar
+    ./pidgin/lib/JSON-java.jar
+
+  License file:
+    ./licenses/JSON-license.txt
+
+
+
+- JUnit
+  http://junit.org/
+  
+  Files included in this release:
+    ./pidgin/lib/junit-4.10-src.jar 
+    ./pidgin/lib/junit-4.10.jar 
+
+  License file:
+    ./licenses/Eclipse\ Public\ License\ -\ Version\ 1.0.html

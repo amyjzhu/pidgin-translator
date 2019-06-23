@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+<title>Graph Visualization</title>
+<script src="http://d3js.org/d3.v2.js?2.9.1"></script>
+<style>
+ 
+.link {
+    fill: none;
+    stroke: #666;
+    stroke-width: 1.5px;
+}
+ 
+.node rect {
+    stroke: #000;
+    stroke-width: 1.0px;
+}
+
+path.hull {
+      fill-opacity: 0.3;
+}
+ 
+text {
+    font: 10px sans-serif;
+    pointer-events: none;
+}
+
+h1 {
+	font-size:20px;
+}
+
+#graph {
+	border:1px solid black;
+}
+
+h2 {
+	font-size:18px;
+	border-bottom:1px solid #666;
+}
+
+#node-details {
+	padding-top: 10px;
+}
+
+#footer {
+	margin-top:50px;
+	padding-top:10px;
+	width:500px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+	color:#666;
+	border-top:1px solid #666;
+	font-size:10px;
+}
+
+#querybox {
+	font: 14px "Courier New";
+	width:800px;
+	height:70px;
+	border:1px solid #666;
+}
+
+.table-result table {
+	width:100%;
+}
+.table-result td {
+	font-size:12px;
+	border-bottom:1px solid black;
+	padding:3px;
+	max-width:500px;
+}
+
+.table-result th {
+	font-size:12px;
+	padding:5px;
+	background-color:#ccc;
+	border-bottom:1px solid black;
+}
+
+</style>
+</head>
+<body>
+<h1>Interactive graph visualization for <span class="graph-name">loading</span></h1>
+
+<div id="query-window">
+<h2>Query</h2>
+<textarea id="querybox"></textarea>
+<input type="button" value="Go" id="submit-query"> <br>
+<b>Requested Response Type</b>:
+<label><input type="radio" name="request-type" class="requesttype" value="DEFAULT" onclick="updateRequestType(this.value)" > Default</label>
+<label><input type="radio" name="request-type" class="requesttype" value="NODES"  onclick="updateRequestType(this.value)" >  Nodes</label>
+<label><input type="radio" name="request-type" class="requesttype" value="EDGES"  onclick="updateRequestType(this.value)" > Edges</label>
+<label><input type="radio" name="request-type" class="requesttype" value="GRAPH"  onclick="updateRequestType(this.value)" > Graph</label>
+<label><input type="radio" name="request-type" class="requesttype" value="SUMMARY"  onclick="updateRequestType(this.value)" > Summary</label>
+</div>
+
+<div id="filters">
+The following filters are present on this graph [<a href="/q/add_filter?type=reset">reset</a>]:
+<ul></ul>
+</div>
+
+<div id="graph"></div>
+
+<!-- 
+	[<a href="/q/add_filter?type=explicit-only">Show only explicit paths</a>]
+ -->
+ 
+<div id="nodes-result" class="table-result">
+<table>
+<tr>
+	<th>Name</th>
+	<th>Group ID</th>
+	<th>Actions</th>
+</tr>
+</table>
+</div> 
+
+<div id="edges-result" class="table-result">
+<table>
+<tr>
+	<th>From</th>
+	<th>To</th>
+	<th>Type</th>
+</tr>
+</table>
+</div> 
+
+<div id="summary-result" class="table-result">
+<table>
+<tr>
+	<th>Result</th>
+</tr>
+</table>
+</div> 
+ 
+<div id="node-details">
+<h2>Node Details</h2>
+
+<p>
+	<b>Name:</b> <span class="node-name"></span>
+</p>
+<p>
+	<b>Position:</b> <span class="node-position"></span>
+</p>
+
+<p>
+	<b>Filters:</b> [Truncate back paths] [Truncate forward paths] [<span class="crawl-link"></span>]
+</p>
+
+<!--  yes i know this is hacky for html5, sue me. -->
+<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
+<tr style="vertical-align:top">
+	<td>
+	<b>Groupings that depend on this node:</b>
+	<ul id="groupings-depends-on"></ul>
+	</td>
+	<td>
+	<b>This node depends on these groupings:</b>
+	<ul id="groupings-depends"></ul>
+	</td>
+</tr>
+<tr>
+	<td>
+	<b>Values that depend on this node:</b>
+	<ul id="values-depends-on"></ul>
+	</td>
+	<td><b>This node depends on these values:</b>
+	<ul id="values-depends"></ul>
+	</td>
+</tr>
+</table>
+
+</div>
+
+
+<script>
+var links = [],
+	nodes = [],
+	expandedFunctions = [],
+	activeNodes = {},
+	width = 1260,
+	height = 750,
+	boxWidth = 190,
+	boxHeight = 18,
+	arrowThickness = 6;
+
+var svg = d3.select("#graph").append("svg")
+	.attr("width", width)
+	.attr("height", height);
+
+var node = svg.selectAll(".node"),
+	link = svg.selectAll(".link"),
+	path_text = svg.selectAll(".path"),
+	force, focusNode, numNodes = 0,
+	hullg = svg.append("g"),
+	crawling = getParam("crawl"),
+	curve = d3.svg.line().interpolate("cardinal-closed").tension(.85),
+    fill = d3.scale.category10(),
+    hull = hullg.selectAll("path.hull");
+
+d3.select("#node-details").style("display", "none");
+
+function handleInitialLoad() {
+	hideResultsPanels();
+	d3.select("#submit-query").on("click", function() {
+		qry = d3.select("#querybox").node().value;
+		d3.json("/q/query?q=" + encodeURIComponent(qry), handleQueryResponse);
+	});
+}
+
+function updateRequestType(val) {
+    d3.json("/q/response-type?value=" + val, handleQueryResponse);
+}
+
+
+
+function hideResultsPanels() {
+	d3.select("#nodes-result").style("display", "none");
+	d3.select("#edges-result").style("display", "none");
+	d3.select("#summary-result").style("display", "none");
+	d3.select("#graph").style("display", "none");
+	if (force) {
+		force.stop();
+		d3.select("#graph").selectAll().remove();
+		svg = d3.select("#graph").append("svg")
+		reinit();
+	}
+}
+
+function handleQueryResponse(resp) {
+	hideResultsPanels();
+	
+	if (resp.error) {
+		alert("Error: " + resp.error);
+		return;
+	}
+	
+	if (resp.graphLoaded) {
+		showGraphForSessionPDG();
+	} else if (resp.result.type == "NODES") {
+		tbl = d3.select("#nodes-result table");
+		tbl.selectAll(".data").remove();
+		for (var i in resp.result.nodes) {
+			nd = resp.result.nodes[i];
+			tbl.append("tr").attr("class", "data").html("<td><code>" + nd.name + "</code></td><td>" + nd.grouping + "</td><td>actions todo</td>");
+		}
+
+		d3.select("#nodes-result").style("display", "block");
+	} else if (resp.result.type == "EDGES") {
+		tbl = d3.select("#edges-result table");
+		tbl.selectAll(".data").remove();
+		for (var i in resp.result.edges) {
+			nd = resp.result.edges[i];
+			tbl.append("tr").attr("class", "data").html("<td><code>" + nd.fromName + "</code></td><td><code>" + nd.toName + "</code></td><td>" + nd.type + "</td>");
+		}
+
+		d3.select("#edges-result").style("display", "block");
+	} else if (resp.result.type == "SUMMARY") {
+		tbl = d3.select("#summary-result table");
+		tbl.selectAll(".data").remove();
+		for (var i in resp.result.results) {
+			tbl.append("tr").attr("class", "data").html("<td>" + resp.result.results[i] +"<td>");
+		}
+
+		d3.select("#summary-result").style("display", "block");
+	} else {
+		alert("Unimplemented response type: " + resp.result.type);
+	}
+	
+}
+ 
+function showGraphForSessionPDG() {
+	getStats();
+	
+	d3.json("/q/collapsed_edges", function(resp) {
+		links = resp.graph.edges;
+		nodes = computeNodesFromEdges(links);
+		numNodes = nodes.length;
+		reinit();
+		d3.select("#graph").style("display", "block");
+		
+	});
+}
+
+function handleCrawl() {
+	d3.json("/q/direct_edges?n=" + crawling, function(resp) {
+		nodes = resp.nodes;
+		for (var i in resp.edges) {
+			resp.edges[i].source = findNodeByNodeId(resp.edges[i].source);
+			resp.edges[i].target = findNodeByNodeId(resp.edges[i].target);
+		}
+		links = resp.edges;
+		numNodes = nodes.length;
+		reinit();
+	});
+}
+
+function updateFocusNode(resp) {
+	d3.select(".node-name").html(resp.name);
+	d3.select(".node-position").html(resp.position);
+	d3.select(".crawl-link").html("<a href=\"/?crawl=" + focusNode.nodeid + "\">Crawl</a>");
+	var groupingsDepends = d3.select("#groupings-depends");
+	groupingsDepends.selectAll("li").remove();
+	for (var group in resp.group_back_counts) {
+		groupingsDepends.append("li").html(group + " [" 
+			    + "<a href=\"/q/add_filter?type=back-group&amp;grouping=" + group + "&amp;source=" + focusNode.id.toString() 
+			    + "\">" + resp.group_back_counts[group] 
+				+ " / " + resp.total_back_paths + "</a>] ["
+				+ "<a href=\"/q/add_filter?type=back-group-exclusive&amp;grouping=" + group + "&amp;source=" + focusNode.id.toString() 
+			    + "\">See Excluded</a>]");
+	}
+	var groupingsDependsOn = d3.select("#groupings-depends-on");
+	groupingsDependsOn.selectAll("li").remove();
+	for (var group in resp.group_forward_counts) {
+		groupingsDependsOn.append("li").html(group + " [" 
+			    + "<a href=\"/q/add_filter?type=forward-group&amp;grouping=" + group + "&amp;source=" + focusNode.id.toString() 
+			    + "\">" + resp.group_forward_counts[group] 
+				+ " / " + resp.total_forward_paths + "</a>] ["
+				+ "<a href=\"/q/add_filter?type=forward-group-exclusive&amp;grouping=" + group + "&amp;source=" + focusNode.id.toString() 
+			    + "\">See Excluded</a>]");
+	}
+	d3.select("#node-details").style("display", "block");
+}
+
+function reinit() {
+	if (force) force.stop();
+	
+	force = d3.layout.force()
+		.nodes(nodes)
+		.links(links)
+		.size([width, height])
+		.gravity(0.1)
+		.charge(-1000)
+		.on("tick", tick)
+		.start();
+	
+	drawHullData();
+	drawLinks();
+	drawNodes();
+	drawArrows();
+	drawEdgeLabels();
+	
+	//TODO: parameterize this 
+	force.linkDistance(function(e) {
+		//if (!e.source.nodeid || !e.target.nodeid) {
+		//	return 400;
+		//}
+		if (e.source.grouping == e.target.grouping) {
+			return 200;
+	 	} else {
+	 		return 300;
+	 	}
+	}); /*
+	force.linkStrength(function(e) {
+		//if (!e.source.nodeid || !e.target.nodeid) {
+		//	return 0.9;
+		//}
+		if (e.source.grouping == e.target.grouping) {
+			return 0.3;
+		} else {
+			return 0.7;
+		}
+	}); */
+	
+	resetOpacities();
+	
+	force.start();
+	
+}
+
+function setDefaultColor(d) {
+	if(crawling && d.nodeid == crawling) 
+		return 'green';
+	if (!d.is_inside_function) {
+		return '#aaaaff';
+	} else {
+		return '#fff';
+	}
+}
+
+function resetOpacities() {
+	node.selectAll("rect").attr("fill", setDefaultColor);
+	node.style("opacity", 1);
+	link.style("opacity", 1);
+	path_text.style("opacity", 1);
+}
+
+function tick(e) {
+	tickHulls(e);
+	tickFoci(e);
+	tickMove(e);
+	tickLinks(e);
+	tickEdgeLabels(e);
+}
+
+function tickEdgeLabels(e) {
+	path_text.attr("transform", function(d) {
+		var dx = (d.target.x - d.source.x),
+			dy = (d.target.y - d.source.y);
+		var dr = Math.sqrt(dx * dx + dy * dy);
+		var sinus = dy/dr;
+		var cosinus = dx/dr;
+		var l = d.type.length*6;
+		var offset = (1 - (l / dr )) / 2;
+		var x= (d.source.x + dx*offset);
+		var y= (d.source.y + dy*offset);
+		if (!isNaN(x) && !isNaN(y)) //XXX: ugly check 
+		  return "translate(" + x + "," + y + ") matrix("+cosinus+", "+sinus+", "+-sinus+", "+cosinus+", 0 , 0)";
+		else
+		  return "";
+	});
+}
+
+function tickMove(e) {
+	node.attr("transform", function(d) { 
+	   return "translate("+d.x+","+d.y+")";
+	});
+}
+
+//TODO: make this actually bound to the box. 
+function tickLinks(e) {
+	link.attr("x1", function(d) {
+			return d.source.x;
+		})
+		.attr("y1", function(d) { 
+			return d.source.y; 
+		})
+		.attr("x2", function(d) { 
+			var border = 1;
+			if (Math.abs(d.source.y - d.target.y) < boxHeight * 3) {
+				if (d.source.x < d.target.x) {
+					return d.target.x - boxWidth/2 - arrowThickness - border;
+				} else {
+					return d.target.x + boxWidth/2 + arrowThickness + border;
+				}
+			}
+			return d.target.x;
+		})
+		.attr("y2", function(d) { 
+			var border = 1;
+			if (Math.abs(d.source.y - d.target.y) < boxHeight * 3) {
+				return d.target.y;
+			}
+			if (d.source.y > d.target.y) {
+				return d.target.y + boxHeight/2 + arrowThickness + border; 
+			} else {
+				return d.target.y - boxHeight/2 - arrowThickness - border;
+			}
+		});
+}
+
+function tickFoci(e) {
+	var k = .1 * e.alpha;
+	//TODO: better specify these focus points 
+	nodes.forEach(function(o, i) {
+		if (expandedFunctions.length == 0) {
+			o.x += (width/2 - o.x) *k;
+			o.y += (height/2 - o.y) * k;
+		} else {
+			if (getGroup(o) == 1) {
+			  o.y += (height/3 - o.y) * k;
+			  o.x += (width/4 - o.x) * k;
+			} else {
+			  o.y += (2*height/3 - o.y) * k;
+			  o.x += (3*width/4 - o.x) * k;
+			}
+		}
+	});
+}
+
+function tickHulls(e) {
+	// if(!hull.empty()) 
+	hull.data(convexHulls(nodes, getGroup, 45))
+    	.attr("d", drawCluster)
+    	.style("fill", function(d) { return fill(d.group); })
+}
+
+function drawHullData() {
+	  hullg.selectAll("path.hull").remove();
+	  hull = hullg.selectAll("path.hull")
+	      .data(convexHulls(nodes, getGroup, 45))
+	      .enter().append("path")
+	      .attr("class", "hull")
+	      .attr("d", drawCluster)
+	      .style("fill", function(d) { return fill(getGroup(d)); })
+	      .on("click", function(e) {
+	        console.log("TODO: collapse", e);
+	      })
+}
+
+function drawLinks() {
+	link = link.data(force.links(), function(d) { return d.source.id + "-" + d.target.id; });
+	link.enter().append("line");
+	link.exit().remove();
+}
+
+function drawArrows() {
+	svg.append("svg:defs").selectAll("marker")
+		.data(links)
+		.enter().append("svg:marker")
+		//.attr("id", function(d) { return "marker-" + d.source.index + "-" + d.target.index; })
+		.attr("id", "marker-here")
+		.attr("viewBox", "0 -5 10 10")
+		.attr("markerWidth", arrowThickness)
+		.attr("markerHeight", arrowThickness)
+		.attr("orient", "auto")
+		.append("svg:path")
+		.attr("d", "M0,-5L10,0L0,5");
+	
+	svg.selectAll("marker").data(links).exit().remove();
+	
+	link.attr("class", function(d) {
+		return "link "; // + "marker-" + d.source.index + "-" + d.target.index;
+	});
+	
+	link.attr("marker-end", function(d) {
+		return "url(#" + "marker-here" + ")";
+	});
+}
+
+function drawNodes() {
+	node = node.data(force.nodes(), function(d) { return d.id;});
+
+	node.enter().append("g")
+		.attr("class", "node")
+		.on("mouseover", mouseover)
+		.on("mouseout", mouseout)
+		.on("click", click)
+		.call(force.drag);
+
+	//TODO: parameterize 
+	node.append("rect")
+		.attr("width", boxWidth)
+		.attr("height", boxHeight)
+		.attr("x", -boxWidth / 2)
+		.attr("y", -boxHeight / 2);
+	 
+	//TODO: parameterize 
+	node.append("text")
+		.attr("x", -boxWidth/2 + 7)
+		.attr("dy", -boxHeight/2 + 12)
+		.text(function(d) { return d.name.substring(0, boxWidth/5); });
+
+	node.exit().remove();
+}
+
+function drawEdgeLabels() {
+	path_text = path_text.data(force.links(), function(d){ return d.type;});     
+	path_text.enter().append("svg:g").append("svg:text").attr("class","path-text").text(function(d) { return d.type; });
+	path_text.exit().remove();
+}
+
+function computeNodesFromEdges(links) {
+	var nodes = {}
+	links.forEach(function(link) {
+		link.source = nodes[link.source] || (nodes[link.source] = {name: link.source});
+		link.target = nodes[link.target] || (nodes[link.target] = {name: link.target});
+	});
+	return d3.values(nodes);
+}
+
+function convexHulls(nodes, index, offset) {
+	var h = {};
+	
+	// create point sets 
+	nodes.forEach(function(n){ 
+		if (index(n) > 0) {
+			if(!isNaN(n.x)) {
+			 	var i = index(n),
+			     	l = h[i] || (h[i] = []);
+				 	l.push([n.x-offset, n.y-offset]);
+				 	l.push([n.x-offset, n.y+offset]);
+				 	l.push([n.x+offset, n.y-offset]);
+				 	l.push([n.x+offset, n.y+offset]);
+			}
+	  	}
+	});
+	
+	// create convex hulls 
+	var hulls = [];
+	for (i in h) {
+	  hulls.push({group: i, path: d3.geom.hull(h[i])});
+	}
+	
+	return hulls;
+}
+
+function getGroup(n) { 
+	for (var i in expandedFunctions) { 
+		if(n.grouping == expandedFunctions[i]) {
+			return i + 1;
+		}
+	}
+	if (crawling) {
+		expandedFunctions.push(n.grouping);
+		return expandedFunctions.length;
+	}
+	return -1;
+}
+
+function drawCluster(d) {
+	return curve(d.path);
+}
+
+function neighboring(a, b) {
+	return (a === b) || links.some(function(d) {
+    	return (d.source === a && d.target === b)
+        	|| (d.source === b && d.target === a);
+  	});
+}
+
+function mouseover(d) {
+	d3.select(this).selectAll("rect").transition()
+		.duration(750)
+		.attr("fill", 'yellow');
+	node.transition().style("opacity", function(o) {
+	  return neighboring(d, o) ? 1 : 0.1;
+	});
+	link.transition().style("opacity", function(e) {
+	  return (e.source == d || e.target ==d) ? 1 : 0.1;
+	});
+	path_text.transition().style("opacity", function(e) {
+	  return (e.source == d || e.target ==d) ? 1 : 0.1;
+	});
+}
+
+function mouseout(d) {
+	d3.select(this).selectAll("rect").transition()
+		.duration(750)
+		.attr("fill", setDefaultColor);
+		node.transition().style("opacity", 1);
+		link.transition().style("opacity", 1);
+		path_text.transition().style("opacity", 1);
+}
+
+function removeNode(n) {
+    var i = 0;
+    while (i < force.links().length) {
+        if ((links[i].source == n)||(links[i].target == n)) links.splice(i,1);
+        else i++;
+    }
+    force.nodes().splice(n.index,1);
+    force.links(links);
+
+}
+function findNodeIndex(id) {
+	for (var i in nodes) {if (nodes[i]["name"] === id) return i};
+}
+
+function findNode(id) {
+  return nodes[findNodeIndex(id)];
+}
+
+function findNodeByNodeId(id) {
+	for (var i in nodes) {if (nodes[i].nodeid == id) return nodes[i] };
+}
+
+function isExpandedFunction(nm) {
+	for (var i in expandedFunctions) {
+	  	if (expandedFunctions[i] === nm) {
+	    	return true;
+		}
+	}
+	return false;
+}
+
+
+function click(d) {
+	
+	if (crawling) {
+		d3.json("/q/direct_edges?n=" + d.nodeid, function(resp) {
+			force.stop();
+			crawling = d.nodeid;
+			for (var i in resp.nodes) {
+				nd = resp.nodes[i];
+				found = findNodeByNodeId(nd.nodeid)
+				if (!found) {
+					nodes.push(nd);
+					found = nd;
+				}
+				found.seen = true;
+			}
+			for (var i in nodes) {
+				if (nodes[i].seen) {
+					nodes[i].seen = false;
+				} else {
+					removeNode(nodes[i]);
+				}
+			}
+			nodes = resp.nodes;
+			for (var i in resp.edges) {
+				resp.edges[i].source = findNodeByNodeId(resp.edges[i].source);
+				resp.edges[i].target = findNodeByNodeId(resp.edges[i].target);
+			}
+			links = resp.edges;
+			numNodes = nodes.length;
+			reinit();
+			console.log(crawling);
+		});
+		return;
+	}
+	
+	if (d.is_inside_function) {
+		focusNode = d;
+		d3.json("/q/node_info?n=" + d.nodeid, updateFocusNode);
+		return;
+	}
+	
+	force.stop();
+
+	d3.json("/q/nodes_in?n=" + encodeURIComponent(d.name), function(resp) {
+		var expandedNodes = resp.graph.nodes,
+			expandedEdges = resp.graph.edges;
+		
+		expandedFunctions.push(d.name);
+		
+		for (var i in expandedNodes) {
+			newNode = {"x": width/2, "y": height/2, "name": expandedNodes[i].name, "grouping": expandedNodes[i].grouping, "nodeid": i, "id": i, "is_inside_function": true};
+			expandedNodes[i] = newNode; //TODO: maybe not needed 
+			nodes.push(newNode);
+		}
+		
+		for (var i in expandedEdges) {
+			edge = expandedEdges[i];
+			
+			if (isExpandedFunction(edge.sourceGrouping)) {
+				nSrc = findNodeByNodeId(edge.source);
+			} else {
+				nSrc = findNode(edge.sourceGrouping);
+			}
+			
+			if (isExpandedFunction(edge.targetGrouping)) {
+				nTarget = findNodeByNodeId(edge.target);
+			} else {
+				nTarget = findNode(edge.targetGrouping);
+			}
+			
+			links.push({"source": nSrc, "target": nTarget, "type": edge.type});
+		}
+		
+		collapsed = findNode(d.name);
+		removeNode(collapsed);
+
+		reinit();
+		
+	});
+}
+
+function getParam(name){
+	   if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+	      return decodeURIComponent(name[1]);
+	}
+
+function getStats() {
+	d3.json("/q/stats", function(resp) {
+		d3.selectAll(".graph-name").html(resp.name + " (" + resp.numNodes + " nodes, " + resp.numEdges + " edges)");
+		if (resp.filters.length > 0) {
+			filters = d3.select("#filters").select("ul");
+			for (var i in resp.filters) {
+				filters.append("li").html(resp.filters[i]);
+			}
+		} else {
+			d3.select("#filters").style("display", "none");
+		}
+	});
+}
+
+getStats();
+
+if (crawling) {
+	handleCrawl();
+} else {
+	handleInitialLoad();
+}
+
+</script>
+</body>
+</html>
+

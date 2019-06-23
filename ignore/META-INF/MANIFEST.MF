@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: com.ibm.wala.util
+Bundle-SymbolicName: com.ibm.wala.util
+Export-Package: com.ibm.wala.dataflow.graph,com.ibm.wala.fixedpoint.im
+ pl,com.ibm.wala.fixpoint,com.ibm.wala.util,com.ibm.wala.util.collecti
+ ons,com.ibm.wala.util.config,com.ibm.wala.util.debug,com.ibm.wala.uti
+ l.graph,com.ibm.wala.util.graph.dominators,com.ibm.wala.util.graph.im
+ pl,com.ibm.wala.util.graph.labeled,com.ibm.wala.util.graph.traverse,c
+ om.ibm.wala.util.heapTrace,com.ibm.wala.util.intset,com.ibm.wala.util
+ .io,com.ibm.wala.util.math,com.ibm.wala.util.perf,com.ibm.wala.util.p
+ rocesses,com.ibm.wala.util.tables,com.ibm.wala.viz
+Bundle-Name: %Bundle-Name
+Bundle-Version: 1.5.3
+Bundle-ManifestVersion: 2
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-Vendor: %Bundle-Vendor
+

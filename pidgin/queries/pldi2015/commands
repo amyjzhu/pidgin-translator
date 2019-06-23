@@ -1,0 +1,17 @@
+# These are the commands used to produce the PDGs for the PLDI paper queries.
+# They should be run from the accrue-bytecode directory.
+
+time bin/runAnalysis.sh -cp $PIDGIN/classes/test/       -e test.programs.conference.ClientTest -n pdg -haf "type(2,1)" -useSingleAllocForImmutableWrappers
+time bin/runAnalysis.sh -cp $PIDGIN/classes/test/       -e test.programs.tax.TaxFreeMain       -n pdg -haf "type(2,1)" -useSingleAllocForImmutableWrappers
+time bin/runAnalysis.sh -cp data/upm.jar                -e com._17od.upm.Driver                -n pdg -haf "type(2,1)" -useSingleAllocForImmutableWrappers -useSingleAllocPerThrowableType 
+time bin/runAnalysis.sh -cp data/freecs.jar             -e freecs.Driver                       -n pdg -haf "type(2,1)" -useSingleAllocForImmutableWrappers -useSingleAllocPerThrowableType -useSingleAllocForPrimitiveArrays
+time bin/runAnalysis.sh -cp data/cms.jar                -e cms.Driver                          -n pdg -haf "type(2,1)" -useSingleAllocForImmutableWrappers -useSingleAllocPerThrowableType -useSingleAllocForPrimitiveArrays
+
+time bin/runAnalysis.sh -cp data/tomcat_6_0_16.jar      -e tomcat.Driver_CVE_2010_1157         -n pdg -haf "type(2,1) x CollectionsTypeSensitive(3,2) x StringBuilderFullObjSensitive(2)" -useSingleAllocForGenEx
+time bin/runAnalysis.sh -cp data/tomcat_6_trunk.jar     -e tomcat.Driver_CVE_2010_1157         -n pdg -haf "type(2,1) x CollectionsTypeSensitive(3,2) x StringBuilderFullObjSensitive(2)" -useSingleAllocForGenEx 
+time bin/runAnalysis.sh -cp data/tomcat_6_0_37.jar      -e tomcat.Driver_CVE_2014_0033         -n pdg -haf "type(2,1) x CollectionsTypeSensitive(3,2) x StringBuilderFullObjSensitive(2)" -useSingleAllocForGenEx
+time bin/runAnalysis.sh -cp data/tomcat_6_trunk.jar     -e tomcat.Driver_CVE_2014_0033         -n pdg -haf "type(2,1) x CollectionsTypeSensitive(3,2) x StringBuilderFullObjSensitive(2)" -useSingleAllocForGenEx
+time bin/runAnalysis.sh -cp data/tomcat_7_0_0.jar       -e tomcat.Driver_CVE_2011_0013         -n pdg -haf "type(2,1) x CollectionsTypeSensitive(3,2) x StringBuilderFullObjSensitive(2)" -useSingleAllocForGenEx
+time bin/runAnalysis.sh -cp data/tomcat_7_trunk.jar     -e tomcat.Driver_CVE_2011_0013         -n pdg -haf "type(2,1) x CollectionsTypeSensitive(3,2) x StringBuilderFullObjSensitive(2)" -useSingleAllocForGenEx 
+time bin/runAnalysis.sh -cp data/tomcat_7_0_0.jar       -e tomcat.Driver_CVE_2011_2204         -n pdg -haf "type(2,1) x CollectionsTypeSensitive(3,2) x StringBuilderFullObjSensitive(2)" -useSingleAllocForGenEx
+time bin/runAnalysis.sh -cp data/tomcat_7_trunk.jar     -e tomcat.Driver_CVE_2011_2204         -n pdg -haf "type(2,1) x CollectionsTypeSensitive(3,2) x StringBuilderFullObjSensitive(2)" -useSingleAllocForGenEx
