@@ -32,7 +32,15 @@ public class PrimitiveApplication extends Expression {
         this.primitive = pe;
     }
 
-//    @Override
+    public Expression getBaseGraph() {
+        return baseGraph;
+    }
+
+    public PrimitiveExpression getPrimitive() {
+        return primitive;
+    }
+
+    //    @Override
 //    public ProgramDependenceGraph evaluate(Environment env) {
 //        ProgramDependenceGraph g = baseGraph.evaluate(env);
 //        return primitive.evaluateCached(g, env);

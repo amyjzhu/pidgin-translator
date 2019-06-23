@@ -74,6 +74,7 @@ public class TranslateVisitor {
     String translate(FunctionApplication node) {
         // TODO find an example of the function
         // TODO probably institute some getters and setters also
+
         return "";
     }
 
@@ -87,9 +88,6 @@ public class TranslateVisitor {
         return "";
     }
 
-    String translate(OriginalGraph node) {
-        return "";
-    }
 
     String translate(PrimitiveApplication node) {
         return "";
@@ -152,10 +150,6 @@ public class TranslateVisitor {
     }
 
     String translate(PrimitiveExpression node) {
-        return "";
-    }
-
-    String translate(PrimitiveNodeMatchingExpression node) {
         return "";
     }
 

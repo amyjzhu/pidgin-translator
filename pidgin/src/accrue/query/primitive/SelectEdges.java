@@ -23,7 +23,11 @@ public class SelectEdges extends PrimitiveExpression {
         this.et = et;
     }
 
-//    @Override
+    public Argument<?> getEdgeType() {
+        return et;
+    }
+
+    //    @Override
 //    public ProgramDependenceGraph evaluate(ProgramDependenceGraph g, Environment env) {
 //        return PDGFactory.retainEdges(g, g.getEdgesOfType(Argument.getEdgeTypeForArg(et, env)));
 //    }

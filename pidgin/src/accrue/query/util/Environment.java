@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import accrue.query.expression.OriginalGraph;
+//import accrue.query.expression.OriginalGraph;
 
 /**
  * Environment mapping variables to Objects, TODO no types here

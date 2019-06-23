@@ -24,7 +24,11 @@ public class ForExpression extends PrimitiveExpression { // extends PrimitiveNod
     public ForExpression(Argument<?> name) {
         this.name = name;
     }
-//
+
+    public Argument<?> getName() {
+        return name;
+    }
+    //
 //    @Override
 //    public ProgramDependenceGraph evaluate(ProgramDependenceGraph g, Environment env) {
 //

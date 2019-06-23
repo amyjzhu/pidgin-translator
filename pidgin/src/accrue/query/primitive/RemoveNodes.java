@@ -22,8 +22,12 @@ public class RemoveNodes extends PrimitiveExpression {
     public RemoveNodes(Expression e) {
         this.e = e;
     }
-//
-//    @Override
+
+    public Expression getExpression() {
+        return e;
+    }
+
+    //    @Override
 //    public ProgramDependenceGraph evaluate(ProgramDependenceGraph g, Environment env) {
 ////        long start = System.currentTimeMillis();
 //        ProgramDependenceGraph rem = nodesToRemove(env);

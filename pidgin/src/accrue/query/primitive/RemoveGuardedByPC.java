@@ -31,7 +31,11 @@ public class RemoveGuardedByPC extends PrimitiveExpression {
         this.e = e;
     }
 
-//    @Override
+    public Expression getExpression() {
+        return e;
+    }
+
+    //    @Override
 //    public ProgramDependenceGraph evaluate(ProgramDependenceGraph g, Environment env) {
 //
 //        // For this we must have already computed the PC nodes

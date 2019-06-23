@@ -22,11 +22,13 @@ public class ExpressionQuery extends Query {
     public ExpressionQuery(Expression e) {
         this.e = e;
     }
-//
-//    @Override
-//    public ProgramDependenceGraph evaluate(Environment env) {
-//        return e.evaluate(env);
-//    }
+
+    @Override
+    public Object evaluate(Environment env) {
+        //return e.evaluate(env);
+        return null;
+        // TODO fix lol
+    }
 
     @Override
     public boolean equals(Object obj) {

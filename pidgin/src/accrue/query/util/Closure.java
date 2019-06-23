@@ -27,7 +27,7 @@ public class Closure {
         this.functionBody = functionBody;
         this.env = env;
     }
-
+    
     /**
      * Get the free variable environment
      * 

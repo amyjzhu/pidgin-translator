@@ -46,6 +46,11 @@ public class RemoveEdges extends PrimitiveExpression {
 //        return edgesToRemove(env);
 //    }
 
+
+    public Expression getExpression() {
+        return e;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (!(obj instanceof RemoveEdges)) {

@@ -28,7 +28,11 @@ public class ForProcedure extends PrimitiveExpression {
 
     }
 
-//    @Override
+    public Argument<?> getName() {
+        return name;
+    }
+
+    //    @Override
 //    public ProgramDependenceGraph evaluate(ProgramDependenceGraph g, Environment env) {
 //
 //        String str = Argument.getStringForArg(name, env);

@@ -39,14 +39,15 @@ public class LetFun extends Query {
         this.e = e;
         this.q = q;
     }
-//
-//    @Override
-//    public ProgramDependenceGraph evaluate(Environment env) {
+
+    @Override
+    public Object evaluate(Environment env) {
 //        Closure c = new Closure(e, env);
 //        Lambda lam = new Lambda(fun.getArgs(), c);
 //
 //        return q.evaluate(env.extend(fun.getName(), lam));
-//    }
+        return null;
+    }
 
     @Override
     public boolean equals(Object obj) {

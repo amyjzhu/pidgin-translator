@@ -41,12 +41,13 @@ public class Let extends Query {
         this.q = q;
     }
 
-//    @Override
-//    public ProgramDependenceGraph evaluate(Environment env) {
+    @Override
+    public Object evaluate(Environment env) {
 //        Closure c = new Closure(e, env);
 //        Lambda lam = new Lambda(Collections.<String> emptyList(), c);
 //        return q.evaluate(env.extend(name, lam));
-//    }
+        return null;
+    }
 
     @Override
     public boolean equals(Object obj) {

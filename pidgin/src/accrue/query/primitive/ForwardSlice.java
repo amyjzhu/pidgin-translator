@@ -36,7 +36,15 @@ public class ForwardSlice extends PrimitiveExpression {
         this.depth = d;
     }
 
-//    @Override
+    public Expression getExpression() {
+        return e;
+    }
+
+    public Argument<?> getDepth() {
+        return depth;
+    }
+
+    //    @Override
 //    public ProgramDependenceGraph evaluate(ProgramDependenceGraph g, Environment env) {
 //        return SlicingAlgorithms.forwardSlice(g, getStartNodes(env), getDepth(env));
 //    }

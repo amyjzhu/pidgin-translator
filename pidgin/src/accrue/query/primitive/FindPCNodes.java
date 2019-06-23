@@ -42,6 +42,14 @@ public class FindPCNodes extends PrimitiveExpression {
         this.edgeType = true;
     }
 
+    public BooleanExpression getExpression() {
+        return b;
+    }
+
+    public boolean isEdgeType() {
+        return edgeType;
+    }
+
     /**
      * Create a new findPCNodes expression for the given boolean expression
      * 

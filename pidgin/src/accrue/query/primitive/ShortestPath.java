@@ -32,8 +32,16 @@ public class ShortestPath extends PrimitiveExpression {
         this.e1 = e1;
         this.e2 = e2;
     }
-//
-//    @Override
+
+    public Expression getE1() {
+        return e1;
+    }
+
+    public Expression getE2() {
+        return e2;
+    }
+
+    //    @Override
 //    public ProgramDependenceGraph evaluate(ProgramDependenceGraph g, Environment env) {
 //        accrue.algorithm.restrict.ShortestPath sp = new accrue.algorithm.restrict.ShortestPath();
 //

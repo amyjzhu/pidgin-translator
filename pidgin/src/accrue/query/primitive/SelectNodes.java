@@ -23,8 +23,12 @@ public class SelectNodes extends PrimitiveExpression {
     public SelectNodes(Argument<?> nt) {
         this.nt = nt;
     }
-//
-//    @Override
+
+    public Argument<?> getNodeType() {
+        return nt;
+    }
+
+    //    @Override
 //    public ProgramDependenceGraph evaluate(ProgramDependenceGraph g, Environment env) {
 //        PDGNodeType t = getNodeType(env);
 //        return PDGFactory.graphSubgraph(g, g.getNodeOfType(t), g.getEdgesByNodeType(t));

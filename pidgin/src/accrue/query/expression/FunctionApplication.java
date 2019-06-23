@@ -21,6 +21,14 @@ public class FunctionApplication extends Expression {
      */
     private List<Argument<?>> actuals;
 
+    public String getName() {
+        return name;
+    }
+
+    public List<Argument<?>> getActuals() {
+        return actuals;
+    }
+
     /**
      * New function application expression
      * 

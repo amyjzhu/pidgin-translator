@@ -30,6 +30,10 @@ public class Argument<T> {
         this.arg = arg;
     }
 
+    public T getArg() {
+        return arg;
+    }
+
     /**
      * Create a new actual argument with no value
      */

@@ -35,7 +35,16 @@ public class BackwardSlice extends PrimitiveExpression {
         this.e = e;
         this.depth = d;
     }
-/*
+
+    public Expression getExpression() {
+        return e;
+    }
+
+    public Argument<?> getDepth() {
+        return depth;
+    }
+
+    /*
     @Override
     public ProgramDependenceGraph evaluate(ProgramDependenceGraph g, Environment env) {
         return SlicingAlgorithms.backwardSlice(g, getStartNodes(env), getDepth(env));

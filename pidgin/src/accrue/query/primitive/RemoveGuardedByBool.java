@@ -38,7 +38,11 @@ public class RemoveGuardedByBool extends PrimitiveExpression {
         this.b = b;
     }
 
-//    @Override
+    public BooleanExpression getExpression() {
+        return b;
+    }
+
+    //    @Override
 //    public ProgramDependenceGraph evaluate(ProgramDependenceGraph g, Environment env) {
 //
 //        Set<AbstractPDGNode> pcNodes = findPCNodes(b, g, env, true);

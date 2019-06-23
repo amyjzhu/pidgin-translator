@@ -40,7 +40,15 @@ public class RemoveGuardedBy extends PrimitiveExpression {
         this.et = et;
     }
 
-//    @Override
+    public Expression getExpression() {
+        return e;
+    }
+
+    public Argument<?> getEdgeType() {
+        return et;
+    }
+
+    //    @Override
 //    public ProgramDependenceGraph evaluate(ProgramDependenceGraph g, Environment env) {
 //
 //        FindPCNodesRestrictor findPC;

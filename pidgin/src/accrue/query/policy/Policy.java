@@ -24,6 +24,10 @@ public abstract class Policy implements TopLevel<Boolean> {
         this.q = q;
     }
 
+    public Query getQuery() {
+        return q;
+    }
+
     /**
      * Evaluate the policy, if it holds then return true otherwise throw an
      * Error.

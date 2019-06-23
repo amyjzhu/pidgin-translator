@@ -18,6 +18,10 @@ public class IsEmpty extends Policy {
         super(q);
     }
 
+    public Query getQuery() {
+        return q;
+    }
+
     @Override
     protected boolean assertion(Query q, Environment c) {
      //   ProgramDependenceGraph pdg = q.evaluate(c);
