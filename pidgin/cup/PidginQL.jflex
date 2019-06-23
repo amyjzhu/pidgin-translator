@@ -3,8 +3,8 @@
 package accrue.parser;
 
 import java_cup.runtime.Symbol;
-import accrue.pdg.node.PDGNodeType;
-import accrue.pdg.PDGEdgeType;
+import accrue.query.expression.NodeType;
+import accrue.query.expression.EdgeType;
 
 %%
 
@@ -82,38 +82,14 @@ comment = {traditional_comment} | {end_of_line_comment}
     "nodesInContext"             { return symbol(NODES_IN_CONTEXT); }
     "restrict"                   { return symbol(RESTRICT); }
 
+    /* TODO -- add more! */
     /* node types */
-    "LOCAL"                      { return symbol(NODE_TYPE, PDGNodeType.LOCAL); }
-    "OUTPUT_NODE"                { return symbol(NODE_TYPE, PDGNodeType.OUTPUT); }
-    "OTHER_EXPRESSION"           { return symbol(NODE_TYPE, PDGNodeType.OTHER_EXPRESSION); }
-    "FORMAL_ASSIGNMENT"          { return symbol(NODE_TYPE, PDGNodeType.FORMAL_ASSIGNMENT); }
-    "BASE_VALUE"                 { return symbol(NODE_TYPE, PDGNodeType.BASE_VALUE); }
-    "EXIT_PC_SUMMARY"            { return symbol(NODE_TYPE, PDGNodeType.EXIT_PC_SUMMARY); }
-    "ENTRY_PC_SUMMARY"           { return symbol(NODE_TYPE, PDGNodeType.ENTRY_PC_SUMMARY); }
-    "BOOLEAN_TRUE_PC"            { return symbol(NODE_TYPE, PDGNodeType.BOOLEAN_TRUE_PC); }
-    "BOOLEAN_FALSE_PC"           { return symbol(NODE_TYPE, PDGNodeType.BOOLEAN_FALSE_PC); }
-    "PC_MERGE"                   { return symbol(NODE_TYPE, PDGNodeType.PC_MERGE); }
-    "PC_OTHER"                   { return symbol(NODE_TYPE, PDGNodeType.PC_OTHER); }
-    "FORMAL_SUMMARY"             { return symbol(NODE_TYPE, PDGNodeType.FORMAL_SUMMARY); }
-    "THIS"                       { return symbol(NODE_TYPE, PDGNodeType.THIS); }
-    "EXIT_SUMMARY"               { return symbol(NODE_TYPE, PDGNodeType.EXIT_SUMMARY); }
-    "ABSTRACT_LOCATION"          { return symbol(NODE_TYPE, PDGNodeType.ABSTRACT_LOCATION); }
-    "EXIT_PC_JOIN"               { return symbol(NODE_TYPE, PDGNodeType.EXIT_PC_JOIN); }
-    "EXIT_ASSIGNMENT"            { return symbol(NODE_TYPE, PDGNodeType.EXIT_ASSIGNMENT); }
+    "DEFAULT_NODE"               { return symbol(NODE_TYPE, NodeType.DEFAULT); }
+
     
     /* edge types */
-    "EXP"                        { return symbol(EDGE_TYPE, PDGEdgeType.EXP); }
-    "COPY"                       { return symbol(EDGE_TYPE, PDGEdgeType.COPY); }
-    "INPUT"                      { return symbol(EDGE_TYPE, PDGEdgeType.INPUT); }
-    "OUTPUT_EDGE"                { return symbol(EDGE_TYPE, PDGEdgeType.OUTPUT); }
-    "MERGE"                      { return symbol(EDGE_TYPE, PDGEdgeType.MERGE); }
-    "IMPLICIT"                   { return symbol(EDGE_TYPE, PDGEdgeType.IMPLICIT); }
-    "POINTER"                    { return symbol(EDGE_TYPE, PDGEdgeType.POINTER); }
-    "TRUE"                       { return symbol(EDGE_TYPE, PDGEdgeType.TRUE); }
-    "FALSE"                      { return symbol(EDGE_TYPE, PDGEdgeType.FALSE); }
-    "MISSING"                    { return symbol(EDGE_TYPE, PDGEdgeType.MISSING); }
-    "CONJUNCTION"                { return symbol(EDGE_TYPE, PDGEdgeType.CONJUNCTION); }
-    "SWITCH"                     { return symbol(EDGE_TYPE, PDGEdgeType.SWITCH); }
+    "DEFAULT_EDGE"               { return symbol(EDGE_TYPE, EdgeType.DEFAULT); }
+
 
     /* literals */
     \"                           { string.setLength(0); yybegin(STRING); }
