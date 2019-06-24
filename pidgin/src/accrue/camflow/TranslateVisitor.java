@@ -12,6 +12,7 @@ import accrue.query.primitive.*;
 import accrue.query.query.*;
 import accrue.query.cheat.*;
 import accrue.query.util.*;
+import com.sun.org.apache.regexp.internal.RE;
 
 public class TranslateVisitor {
 
@@ -19,10 +20,17 @@ public class TranslateVisitor {
     private static final String WARNING = "PROVENANCE_RAISE_WARNING";
     // TODO should become a keyword (but unparseable)
     private static final String REMOVED = "removed";
+    private static final String HAS_LABEL_NODE_TEMPLATE = "has_label(node, %s)";
+    private static final String HAS_LABEL_IN_EDGE_TEMPLATE = "has_label(in_edge, %s)";
+    private static final String HAS_LABEL_OUT_EDGE_TEMPLATE = "has_label(out_edge, %s)";
+    private static final String IF_ADD_LABEL_TO_NODE_TEMPLATE = "if (%s) { add_label(node, %s); }";
+    private static final String IF_ADD_LABEL_TO_EDGE_TEMPLATE = "if (%s) { add_label(edge, %s); }";
 
     private Environment env;
     private Labels labels;
     private Set<String> labelsForPath = new HashSet<>();
+
+    // TODO generate propagation statements for all labels
     private Set<String> allLabels = new HashSet<>();
 
     String generate() {
@@ -131,9 +139,8 @@ public class TranslateVisitor {
         // let policy1 = pdg.removeGuardedByBool(isAuthor && !subPast) and addPaper in
         // policy1 is empty
         Set<String> checks = new HashSet<>();
-        String equalityCheckTemplate = "has_label(node, %s)";
-        for (String label : labelsForPath) { 
-            checks.add(String.format(equalityCheckTemplate, label));
+        for (String label : labelsForPath) {
+            checks.add(String.format(HAS_LABEL_NODE_TEMPLATE, label));
         }
         
         String checkExpr = "(" + String.join(" || ", checks) + ")";
@@ -167,32 +174,45 @@ public class TranslateVisitor {
     }
 
     String translate(ForwardSlice node) {
-        String forwardTemplateOut = "if (has_label(node, %s)) { add_label(out_edge, %s); }";
-        String forwardTemplateIn = "if (has_label(in_edge, %s)) { add_label(node, %s); }";
-        labels.addToPropagateLabels(forwardTemplateIn);
-        labels.addToPropagateLabels(forwardTemplateOut);
-
+        // TOOD move to template
+        String forwardTemplateOut = "if (" + HAS_LABEL_NODE_TEMPLATE + ") { add_label(out_edge, %s); }";
+        String forwardTemplateIn = "if (" + HAS_LABEL_IN_EDGE_TEMPLATE + ") { add_label(node, %s); }";
+        // TODO we can only use labels here, right?
+        String label = node.getLabel();
+        String out = String.format(forwardTemplateOut, label);
+        String in = String.format(forwardTemplateIn, label);
+        labels.addToPropagateLabels(out);
+        labels.addToPropagateLabels(in);
+        allLabels.add(label);
         /* TODO we might want to have
          * some kind of data structure that
           * will give us the relevant label used */
-        node.getLabel();
-        return "";
-    }
 
-    String translate(PrimitiveExpression node) {
-        return "";
+        return out + in;
     }
 
     String translate(RemoveEdges node) {
         // if it has this label add the removed label
         // AFTER all labels have been processed
+
+        String identifier = node.getLabel();
+        String remove = String.format(IF_ADD_LABEL_TO_NODE_TEMPLATE, identifier);
+
+        labels.addToAssertLabels(remove);
         allLabels.add(REMOVED);
-        return "";
+        return remove;
     }
 
     String translate(RemoveGuardedBy node) {
         // if fits criteria and is guarded by
-        return "";
+        String guard = translate(node.getExpression());
+
+        String result = String.format(IF_ADD_LABEL_TO_NODE_TEMPLATE, guard, REMOVED);
+        // TODO abstract this behaviour
+        labels.addToAssertLabels(result);
+        allLabels.add(REMOVED);
+
+        return result;
     }
 
     String translate(RemoveGuardedByBool node) {
@@ -201,19 +221,33 @@ public class TranslateVisitor {
         // maybe add the word "removed" as a label
         // and when checking empty, make sure not removed
         // and then make sure removed is a keyword
-        return "";
+        // TODO will this actually work to get a hasLabel or !hasLabel string?
+        String guard = translate(node.getExpression());
+
+        String result = String.format(IF_ADD_LABEL_TO_NODE_TEMPLATE, guard, REMOVED);
+
+        labels.addToAssertLabels(result);
+        allLabels.add(REMOVED);
+
+        return result;
     }
 
     String translate(RemoveGuardedByMultiThread node) {
+        // TODO - not sure necessary
         return "";
     }
 
     String translate(RemoveGuardedByPC node) {
+        // TODO - not sure necessary
         return "";
     }
 
     String translate(RemoveNodes node) {
         // if has this label, add removed label
+        //String label = node.getLabel();
+        String nodeType = translate(node.getExpression());
+
+
         return "";
     }
 

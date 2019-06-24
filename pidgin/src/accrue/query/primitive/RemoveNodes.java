@@ -27,6 +27,10 @@ public class RemoveNodes extends PrimitiveExpression {
         return e;
     }
 
+    public String getLabel() {
+        return e.getLabel();
+    }
+
     //    @Override
 //    public ProgramDependenceGraph evaluate(ProgramDependenceGraph g, Environment env) {
 ////        long start = System.currentTimeMillis();

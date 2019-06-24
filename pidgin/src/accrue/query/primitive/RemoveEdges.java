@@ -25,6 +25,13 @@ public class RemoveEdges extends PrimitiveExpression {
         this.e = e;
     }
 
+    @Override
+    public String getLabel() {
+        return e.getLabel();
+    }
+
+
+
 //    @Override
 //    public ProgramDependenceGraph evaluate(ProgramDependenceGraph g, Environment env) {
 //        return PDGFactory.removeEdges(g, edgesToRemove(env));
