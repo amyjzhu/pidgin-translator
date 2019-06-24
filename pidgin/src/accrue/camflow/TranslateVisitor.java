@@ -1,6 +1,8 @@
 package accrue.camflow;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import accrue.query.bool.*;
@@ -12,15 +14,36 @@ import accrue.query.cheat.*;
 import accrue.query.util.*;
 
 public class TranslateVisitor {
-    
-    private static final String WARNING = "PROVENANCE_RAISE_WARNING";
-    private Set<String> labelsForPath = new HashSet<>();
 
-    String prelude() {
+
+    private static final String WARNING = "PROVENANCE_RAISE_WARNING";
+    // TODO should become a keyword (but unparseable)
+    private static final String REMOVED = "removed";
+
+    private Environment env;
+    private Labels labels;
+    private Set<String> labelsForPath = new HashSet<>();
+    private Set<String> allLabels = new HashSet<>();
+
+    String generate() {
         return "";
+        // prelude should be generated at the end so we can declare all labels used
+        // remember to generate labels... in the order specified
+        // might want to keep a data structure with the different phases
+        // phase 1, phase 2, etc. and you add it to each phase
+
     }
 
-    String postlode() {
+    String prelude() {
+        return "QUERY_NAME(\"\");\n" +
+                "QUERY_DESCRIPTION(\"\");\n" +
+                "QUERY_AUTHOR(\"\");\n" +
+                "QUERY_VERSION(\"\");\n" +
+                "QUERY_LICENSE(\"\");\n" +
+                "register_query(init, in_edge, out_edge);";
+    }
+
+    String postlude() {
         return "";
     }
     
@@ -120,10 +143,6 @@ public class TranslateVisitor {
         
     }
 
-    String translate(Policy node) {
-        return "";
-    }
-
     String translate(BackwardSlice node) {
         // really just means like
         // what's the label?
@@ -142,10 +161,21 @@ public class TranslateVisitor {
     String translate(ForProcedure node) {
         // dump procedure
         // find it in the environment and dump it by name
+        // coerce into string
+        env.lookup(node.getName().value().toString()); // can we enforce that it's a string?
         return "";
     }
 
     String translate(ForwardSlice node) {
+        String forwardTemplateOut = "if (has_label(node, %s)) { add_label(out_edge, %s); }";
+        String forwardTemplateIn = "if (has_label(in_edge, %s)) { add_label(node, %s); }";
+        labels.addToPropagateLabels(forwardTemplateIn);
+        labels.addToPropagateLabels(forwardTemplateOut);
+
+        /* TODO we might want to have
+         * some kind of data structure that
+          * will give us the relevant label used */
+        node.getLabel();
         return "";
     }
 
@@ -155,7 +185,8 @@ public class TranslateVisitor {
 
     String translate(RemoveEdges node) {
         // if it has this label add the removed label
-        // AFTER all labels have been processed 
+        // AFTER all labels have been processed
+        allLabels.add(REMOVED);
         return "";
     }
 
@@ -241,5 +272,35 @@ public class TranslateVisitor {
 
     String translate(StringMatcher node) {
         return "";
+    }
+
+
+    private static class Labels {
+        // first
+        List<String> newLabels = new ArrayList<>();
+        // second
+        List<String> propagateLabels = new ArrayList<>();
+        // third
+        List<String> assertLabels = new ArrayList<>();
+
+        public void addToNewLabels(String label) {
+            newLabels.add(label);
+        }
+
+        public void addToPropagateLabels(String label) { propagateLabels.add(label); }
+
+        public void addToAssertLabels(String label) { assertLabels.add(label); }
+
+        public List<String> getNewLabels() {
+            return newLabels;
+        }
+
+        public List<String> getPropagateLabels() {
+            return propagateLabels;
+        }
+
+        public List<String> getAssertLabels() {
+            return assertLabels;
+        }
     }
 }

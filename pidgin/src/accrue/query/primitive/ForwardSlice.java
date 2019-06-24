@@ -44,6 +44,11 @@ public class ForwardSlice extends PrimitiveExpression {
         return depth;
     }
 
+    @Override
+    public String getLabel() {
+        return e.getLabel();
+    }
+
     //    @Override
 //    public ProgramDependenceGraph evaluate(ProgramDependenceGraph g, Environment env) {
 //        return SlicingAlgorithms.forwardSlice(g, getStartNodes(env), getDepth(env));

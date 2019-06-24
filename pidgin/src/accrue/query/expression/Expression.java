@@ -9,6 +9,8 @@ import accrue.util.SoftHashMap;
  * Expressions evaluate to a graph
  */
 public abstract class Expression {
+
+    public String label = "";
     
     @Override
     public abstract boolean equals(Object obj);
@@ -18,6 +20,10 @@ public abstract class Expression {
     
     @Override
     public abstract String toString();
+
+    public String getLabel() {
+        return label;
+    }
 
 
 //    /**

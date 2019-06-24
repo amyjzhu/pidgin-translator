@@ -54,6 +54,8 @@ public abstract class PrimitiveExpression {
 //     */
 //    public abstract ProgramDependenceGraph evaluate(ProgramDependenceGraph e, Environment env);
 
+    public String label;
+
     @Override
     public abstract boolean equals(Object obj);
 
@@ -62,4 +64,8 @@ public abstract class PrimitiveExpression {
 
     @Override
     public abstract String toString();
+
+    public String getLabel() {
+        return label;
+    }
 }
