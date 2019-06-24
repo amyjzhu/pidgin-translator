@@ -10,13 +10,12 @@ import accrue.query.expression.*;
 import accrue.query.policy.*;
 import accrue.query.primitive.*;
 import accrue.query.query.*;
-import accrue.query.cheat.*;
 import accrue.query.util.*;
-import com.sun.org.apache.regexp.internal.RE;
 
 public class TranslateVisitor {
 
 
+    // TODO unsure what the underlying data structure will look like
     private static final String WARNING = "PROVENANCE_RAISE_WARNING";
     // TODO should become a keyword (but unparseable)
     private static final String REMOVED = "removed";
@@ -99,6 +98,8 @@ public class TranslateVisitor {
 
     String translate(Expression node) {
         // TODO unsure what to do here....
+        // except that we need it for compilation argh
+        // may want to restructure the fields inside each AST class
         return "";
     }
 
@@ -181,8 +182,8 @@ public class TranslateVisitor {
         String label = node.getLabel();
         String out = String.format(forwardTemplateOut, label);
         String in = String.format(forwardTemplateIn, label);
-        labels.addToPropagateLabels(out);
-        labels.addToPropagateLabels(in);
+        labels.addToPropagateChecks(out);
+        labels.addToPropagateChecks(in);
         allLabels.add(label);
         /* TODO we might want to have
          * some kind of data structure that
@@ -198,7 +199,7 @@ public class TranslateVisitor {
         String identifier = node.getLabel();
         String remove = String.format(IF_ADD_LABEL_TO_NODE_TEMPLATE, identifier);
 
-        labels.addToAssertLabels(remove);
+        labels.addToAssertChecks(remove);
         allLabels.add(REMOVED);
         return remove;
     }
@@ -209,7 +210,7 @@ public class TranslateVisitor {
 
         String result = String.format(IF_ADD_LABEL_TO_NODE_TEMPLATE, guard, REMOVED);
         // TODO abstract this behaviour
-        labels.addToAssertLabels(result);
+        labels.addToAssertChecks(result);
         allLabels.add(REMOVED);
 
         return result;
@@ -226,7 +227,7 @@ public class TranslateVisitor {
 
         String result = String.format(IF_ADD_LABEL_TO_NODE_TEMPLATE, guard, REMOVED);
 
-        labels.addToAssertLabels(result);
+        labels.addToAssertChecks(result);
         allLabels.add(REMOVED);
 
         return result;
@@ -246,13 +247,18 @@ public class TranslateVisitor {
         // if has this label, add removed label
         //String label = node.getLabel();
         String nodeType = translate(node.getExpression());
+        // TODO not exactly the same, the original camquery had a switch/case
+        String result = String.format(IF_ADD_LABEL_TO_NODE_TEMPLATE, HAS_LABEL_NODE_TEMPLATE, nodeType);
 
+        allLabels.add(nodeType);
+        labels.addToAssertChecks(result);
 
         return "";
     }
 
     String translate(SelectEdges node) {
         // what does this do? assign for a let?
+        // Ultimately the same isn't it? Except with types
         return "";
     }
 
@@ -311,30 +317,30 @@ public class TranslateVisitor {
 
     private static class Labels {
         // first
-        List<String> newLabels = new ArrayList<>();
+        List<String> newChecks = new ArrayList<>();
         // second
-        List<String> propagateLabels = new ArrayList<>();
+        List<String> propagateChecks = new ArrayList<>();
         // third
-        List<String> assertLabels = new ArrayList<>();
+        List<String> assertChecks = new ArrayList<>();
 
-        public void addToNewLabels(String label) {
-            newLabels.add(label);
+        public void addToNewChecks(String label) {
+            newChecks.add(label);
         }
 
-        public void addToPropagateLabels(String label) { propagateLabels.add(label); }
+        public void addToPropagateChecks(String label) { propagateChecks.add(label); }
 
-        public void addToAssertLabels(String label) { assertLabels.add(label); }
+        public void addToAssertChecks(String label) { assertChecks.add(label); }
 
-        public List<String> getNewLabels() {
-            return newLabels;
+        public List<String> getNewChecks() {
+            return newChecks;
         }
 
-        public List<String> getPropagateLabels() {
-            return propagateLabels;
+        public List<String> getPropagateChecks() {
+            return propagateChecks;
         }
 
-        public List<String> getAssertLabels() {
-            return assertLabels;
+        public List<String> getAssertChecks() {
+            return assertChecks;
         }
     }
 }

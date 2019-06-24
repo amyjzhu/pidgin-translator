@@ -2,424 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40103ea6-cd65-48ad-87f6-dedecbcb9bea" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/pidgin-2015-11-23.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pidgin-2015-11-23.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/.settings/org.eclipse.jdt.ui.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/bin/pldiWALA.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/bin/runAllAWS.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/bin/runAllPointerTests.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/bin/runAnalysis.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/bin/runBenchmarks.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/bin/runCompareWala.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/bin/runPdgInstructionTests.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/bin/runPdgSigTests.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/bin/runPdgTests.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/bin/runRegressionInstructionTests.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/bin/runSingletonTests.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/bin/runTomcat.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/bin/runWALA.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/bin/setupEC2.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/bin/timeout3.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/build.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/conf/primordial.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/conf/wala.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/cup/HeapAbstractionFactoryLexer.jflex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/cup/HeapAbstractionFactoryParser.cup" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/data/Exclusions.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/data/primordial.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/data/wala.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/data/wala.properties.sc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/generated-sources/analysis/pointer/analyses/parser/HeapAbstractionFactoryLexer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/generated-sources/analysis/pointer/analyses/parser/HeapAbstractionFactoryParser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/generated-sources/analysis/pointer/analyses/parser/sym.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/lib/JFlex.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/lib/JSON-java.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/lib/java-cup-11a.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/lib/jcommander-1.35-src.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/lib/jcommander-1.35.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/lib/junit-4.11.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/lib/wala-fork.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/AnalysisUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/ClassInitFinder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/DataFlow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/InstructionDispatchDataFlow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/AnalysisResults.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/ExitType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/InterproceduralDataFlow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/IntraproceduralDataFlow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/accessible/AbstractLocationSet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/accessible/AccessibleLocationResults.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/accessible/AccessibleLocationsDataFlow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/accessible/AccessibleLocationsInterproceduralDataFlow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/bool/BooleanAbsVal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/bool/BooleanConstantDataFlow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/bool/BooleanConstantResults.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/bool/BooleanConstantVarContext.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/exceptions/PreciseExceptionAbsVal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/exceptions/PreciseExceptionDataFlow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/exceptions/PreciseExceptionInterproceduralDataFlow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/exceptions/PreciseExceptionResults.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/interval/IntervalAbsVal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/interval/IntervalDataFlow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/interval/IntervalInterProceduralDataFlow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/interval/IntervalResults.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/interval/IntervalVarContext.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/nonnull/NonNullAbsVal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/nonnull/NonNullDataFlow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/nonnull/NonNullInterProceduralDataFlow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/nonnull/NonNullResults.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/nonnull/NonNullVarContext.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/pdg/PDGAddEdgesDataflow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/pdg/PDGComputeNodesDataflow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/pdg/PDGContext.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/pdg/PDGInterproceduralDataFlow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/pdg/graph/CallSiteEdgeLabel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/pdg/graph/PDGEdgeType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/pdg/graph/ProgramDependenceGraph.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/pdg/graph/node/AbstractLocationPDGNode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/pdg/graph/node/PDGNode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/pdg/graph/node/PDGNodeFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/pdg/graph/node/PDGNodeType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/pdg/graph/node/ProcedurePDGNode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/pdg/graph/node/ProcedureSummaryPDGNodes.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/pdg/serialization/JSONSerializable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/pdg/serialization/JSONUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/pdg/serialization/PDGNodeClassName.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/reachability/ReachabilityAbsVal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/reachability/ReachabilityDataFlow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/reachability/ReachabilityInterProceduralDataFlow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/reachability/ReachabilityResults.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/util/AbstractLocation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/util/AbstractValue.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/util/TwoElementSemiLattice.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/util/Unit.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/util/VarContext.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/analyses/AllocationName.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/analyses/CallSiteSensitive.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/analyses/CallSiteSensitiveOutputStream.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/analyses/CollectionsTypeSensitive.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/analyses/ContextInsensitive.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/analyses/ContextStack.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/analyses/CrossProduct.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/analyses/FilterStringBuilderSpecialized.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/analyses/FullObjSensitive.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/analyses/HeapAbstractionFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/analyses/InstanceInitFullObjSensitive.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/analyses/MagicCallSiteSensitive.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/analyses/MagicFullObjSensitive.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/analyses/OneObjSensitive.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/analyses/StaticCallSiteSensitive.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/analyses/StringBuilderFullObjSensitive.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/analyses/TypeSensitive.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/analyses/WalaReceiverTypeContextSelector.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/duplicates/RemoveDuplicateStatements.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/engine/DependencyRecorder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/engine/PointsToAnalysis.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/engine/PointsToAnalysisMultiThreaded.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/engine/PointsToAnalysisSingleThreaded.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/graph/AbstractIntSet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/graph/AnalysisContextInterpreter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/graph/AnnotatedIntRelation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/graph/GraphDelta.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/graph/HafCallGraph.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/graph/IntRelation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/graph/ObjectField.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/graph/PointsToGraph.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/graph/PointsToGraphNode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/graph/ReferenceVariableCache.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/graph/ReferenceVariableReplica.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/graph/TypeFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/registrar/MethodSummaryNodes.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/registrar/ReferenceVariableFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/registrar/StatementRegistrar.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/registrar/StatementRegistrationPass.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/statements/AllocSiteNodeFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/statements/ArrayToLocalStatement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/statements/CallSiteLabel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/statements/CallStatement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/statements/ClassInitStatement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/statements/ExceptionAssignmentStatement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/statements/FieldToLocalStatement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/statements/LocalToArrayStatement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/statements/LocalToFieldStatement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/statements/LocalToLocalStatement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/statements/LocalToStaticFieldStatement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/statements/NewStatement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/statements/PhiStatement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/statements/PointsToStatement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/statements/ReturnStatement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/statements/SpecialCallStatement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/statements/StatementFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/statements/StaticCallStatement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/statements/StaticFieldToLocalStatement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/statements/VirtualCallStatement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/string/AbstractString.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/string/CollectStringStatements.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/string/StringAnalysisResults.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/string/StringBuilderVarType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/string/StringSolver.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/string/StringVariableFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/string/StringVariableMap.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/string/statements/AppendStringStatement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/string/statements/ConstantStringStatement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/string/statements/CopyStringStatement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/string/statements/MergeStringStatement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/analysis/string/statements/StringStatement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/main/AccrueAnalysisMain.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/main/AccrueAnalysisOptions.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/results/CollectIntervalResultsDataFlow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/results/CollectNonNullClassCastResultsDataFlow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/results/CollectResultsPass.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/results/CollectedResults.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/signatures/Signature Guidelines.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/signatures/SignatureIR.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/signatures/Signatures.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/signatures/SingletonExceptions.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/signatures/library/disabled/java/security/AccessController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/signatures/library/java/io/File.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/signatures/library/java/io/FileSystem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/signatures/library/java/io/PrintStream.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/signatures/library/java/io/UnixFileSystem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/signatures/library/java/lang/AbstractStringBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/signatures/library/java/lang/MockInputStream.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/signatures/library/java/lang/MockPrintStream.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/signatures/library/java/lang/String.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/signatures/library/java/lang/StringBuffer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/signatures/library/java/lang/StringBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/signatures/library/java/lang/System.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/signatures/library/java/security/AccessController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/types/TypeRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/util/Histogram.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/util/InstructionType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/util/IteratorSet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/util/OrderedPair.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/util/SingletonValueMap.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/util/WorkQueue.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/util/intmap/ConcurrentIntMap.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/util/intmap/ConcurrentMonotonicIntHashMap.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/util/intmap/DenseIntMap.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/util/intmap/IntMap.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/util/intmap/IntSetFromMap.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/util/intmap/MutableIntSetFromMap.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/util/intmap/ReadOnlyConcurrentIntMap.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/util/intmap/SimpleConcurrentIntMap.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/util/intmap/SparseIntMap.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/util/intset/ConcurrentMonotonicIntHashSet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/util/intset/DenseIntSet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/util/intset/EmptyIntSet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/util/intset/IntSetIntersection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/util/intset/IntSetMinus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/util/intset/IntSetUnion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/util/intset/MutableDenseIntSet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/util/print/CFGWriter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/util/print/IRWriter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/src/util/print/PrettyPrinter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/string/tests/ArrayLoadString.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/string/tests/ArrayLoadStringBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/string/tests/CheckCastString.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/string/tests/CheckCastStringBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/string/tests/GetFieldString.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/string/tests/GetStaticFinalString.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/string/tests/GetStaticString.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/string/tests/GetStaticStringBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/string/tests/GetStringBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/string/tests/Literal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/string/tests/PhiString.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/string/tests/PhiStringBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/string/tests/StringBuilderAppend.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/string/tests/StringBuilderInitCharSequence.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/string/tests/StringBuilderInitEmpty.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/string/tests/StringBuilderInitInt.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/string/tests/StringBuilderInitString.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/string/tests/StringInitEmpty.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/string/tests/StringInitOther.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/string/tests/StringInitString.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/string/tests/StringInitStringBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/string/tests/StringToString.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/string/tests/StringValueOfOther.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/string/tests/StringValueOfString.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/string/unit/TestStringAnalysis.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/ArrayCopy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/InferenceImprecisionForInterfaces.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/SimpleGame.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/SimpleNativeMethods.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/WALAExceptionImprecisionExample.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/duplicates/ArrayLoad.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/duplicates/Field.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/duplicates/Phi.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/duplicates/StaticField.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/instruction/ArrayLength.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/instruction/ArrayLength1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/instruction/ArrayLoad.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/instruction/ArrayLoad1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/instruction/ArrayStore.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/instruction/BinaryOp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/instruction/BinaryOpEx.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/instruction/CheckCast.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/instruction/Comparison.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/instruction/ConditionalBranch.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/instruction/Conversion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/instruction/GetCaughtException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/instruction/GetCaughtException1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/instruction/GetField.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/instruction/GetField1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/instruction/GetStatic.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/instruction/Goto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/instruction/InstanceOf.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/instruction/InvokeInterface.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/instruction/InvokeSpecial.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/instruction/InvokeStatic.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/instruction/InvokeVirtual.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/instruction/LoadMetadata.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/instruction/Monitor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/instruction/NewArray.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/instruction/NewObject.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/instruction/Phi.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/instruction/PutField.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/instruction/PutField1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/instruction/PutStatic.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/instruction/Return.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/instruction/Switch.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/instruction/Throw.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/instruction/Throw1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/instruction/UnaryNegOp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/integration/ListClasses.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/pdg/AccessControl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/pdg/CollectionsTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/pdg/Declassification.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/pdg/DoubleConditionalBranch.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/pdg/ExplicitFlow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/pdg/ImplicitFlow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/pdg/StringBuilderTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/pdg/StringBuilderTest2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/pdg/sig/ArrayCopy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/pdg/sig/BigIntegerIntValue.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/pdg/sig/CaseInsenstiveComparator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/pdg/sig/CaseInsenstiveComparator2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/pdg/sig/IntegerToString.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/pdg/sig/IntegerValueOfString.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/pdg/sig/StringConstructorCharArray.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/pdg/sig/StringConstructorEmpty.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/pdg/sig/StringConstructorString.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/pdg/sig/StringConstructorString2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/pdg/sig/StringGetBytes.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/pdg/sig/StringGetChars.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/pdg/sig/StringValueOfInt.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/pointer/ArrayToLocal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/pointer/ClassCast.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/pointer/ExceptionalReturn.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/pointer/FieldToLocal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/pointer/LocalToArray.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/pointer/LocalToField.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/pointer/LocalToStaticField.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/pointer/NewAndCall.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/pointer/Phi.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/pointer/Return.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/pointer/StaticFieldSubClass.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/pointer/StaticFieldToLocal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/pointer/SuperCall.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/pointer/ThrowCatch.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/test/pointer/TryCallCatch.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/test/unit/TestOptions.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/tests/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accrue-bytecode/walaAnalysis.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/algorithm/AllPathAlgorithms.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/algorithm/CFLReachable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/algorithm/CFLShortestPath.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/algorithm/FindPCNodesMultiThread.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/algorithm/ForwardPassMultiThread.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/algorithm/RemoveGuardedMultiThread.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/algorithm/ShortestPathAlgorithm.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/algorithm/SlicingAlgorithms.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/algorithm/UserInterfaceAlgorithms.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/algorithm/WorkQueue.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/algorithm/restrict/CFLPath.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/algorithm/restrict/CFLReachableRestrictor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/algorithm/restrict/ClearCache.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/algorithm/restrict/FindChokePoints.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/algorithm/restrict/FindFalsePCNodes.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/algorithm/restrict/FindPCNodesRestrictor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/algorithm/restrict/FindTruePCNodes.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/algorithm/restrict/ForwardPass.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/algorithm/restrict/OnlyPCEdges.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/algorithm/restrict/RemoveGuarded.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/algorithm/restrict/RemoveGuardedCF.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/algorithm/restrict/Restrictor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/algorithm/restrict/ShortestPath.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/pdg/PDGEdge.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/pdg/PDGEdgeInterface.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/pdg/PDGEdgeType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/pdg/PDGPath.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/pdg/ProgramDependenceGraph.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/pdg/graph/AbstractGraph.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/pdg/graph/Edge.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/pdg/graph/GraphOriginal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/pdg/graph/GraphSubgraph.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/pdg/graph/GraphUnnecessaryMerges.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/pdg/graph/PDGFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/pdg/graph/Path.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/pdg/node/AbstractLocationNode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/pdg/node/AbstractPDGNode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/pdg/node/ExprNode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/pdg/node/MissingCodeNode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/pdg/node/PDGNodeClassName.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/pdg/node/PDGNodeFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/pdg/node/PDGNodeInterface.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/pdg/node/PDGNodeType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/pdg/util/CallSiteEdgeLabel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/pdg/util/DotPrinter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/pdg/util/GeneratedExceptionType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/pdg/util/Position.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/query/expression/Expression.java" beforeDir="false" afterPath="$PROJECT_DIR$/pidgin/src/accrue/query/expression/Expression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/query/expression/FunctionApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/pidgin/src/accrue/query/expression/FunctionApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/query/expression/Intersection.java" beforeDir="false" afterPath="$PROJECT_DIR$/pidgin/src/accrue/query/expression/Intersection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/query/expression/PrimitiveApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/pidgin/src/accrue/query/expression/PrimitiveApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/query/expression/Union.java" beforeDir="false" afterPath="$PROJECT_DIR$/pidgin/src/accrue/query/expression/Union.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/query/expression/Variable.java" beforeDir="false" afterPath="$PROJECT_DIR$/pidgin/src/accrue/query/expression/Variable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/query/policy/IsEmpty.java" beforeDir="false" afterPath="$PROJECT_DIR$/pidgin/src/accrue/query/policy/IsEmpty.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/BackwardSlice.java" beforeDir="false" afterPath="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/BackwardSlice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/FindPCNodes.java" beforeDir="false" afterPath="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/FindPCNodes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/ForExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/ForExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/ForProcedure.java" beforeDir="false" afterPath="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/ForProcedure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/ForwardSlice.java" beforeDir="false" afterPath="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/ForwardSlice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/PrimitiveExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/PrimitiveExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/PrimitiveNodeMatchingExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/PrimitiveNodeMatchingExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/RemoveEdges.java" beforeDir="false" afterPath="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/RemoveEdges.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/RemoveGuardedBy.java" beforeDir="false" afterPath="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/RemoveGuardedBy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/RemoveGuardedByBool.java" beforeDir="false" afterPath="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/RemoveGuardedByBool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/RemoveGuardedByMultiThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/RemoveGuardedByMultiThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/RemoveGuardedByPC.java" beforeDir="false" afterPath="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/RemoveGuardedByPC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/RemoveNodes.java" beforeDir="false" afterPath="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/RemoveNodes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/SelectEdges.java" beforeDir="false" afterPath="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/SelectEdges.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/SelectNodes.java" beforeDir="false" afterPath="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/SelectNodes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/ShortestPath.java" beforeDir="false" afterPath="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/ShortestPath.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/query/query/ExpressionQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/pidgin/src/accrue/query/query/ExpressionQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/query/query/Let.java" beforeDir="false" afterPath="$PROJECT_DIR$/pidgin/src/accrue/query/query/Let.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/query/query/LetFun.java" beforeDir="false" afterPath="$PROJECT_DIR$/pidgin/src/accrue/query/query/LetFun.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/query/query/Query.java" beforeDir="false" afterPath="$PROJECT_DIR$/pidgin/src/accrue/query/query/Query.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/query/util/Argument.java" beforeDir="false" afterPath="$PROJECT_DIR$/pidgin/src/accrue/query/util/Argument.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/query/util/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/pidgin/src/accrue/query/util/Environment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/query/util/Lambda.java" beforeDir="false" afterPath="$PROJECT_DIR$/pidgin/src/accrue/query/util/Lambda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/server/GraphToJSON.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/server/LaunchServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/server/NewGraphQueryServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/server/NewVisualizationServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/server/ResponseType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/server/StaticAssetsServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/server/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/server/index.html.old" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/src/accrue/util/JSONHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/pidgin/src/accrue/util/JSONHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/test/test/cfl/MutuallyRecursive.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pidgin/test/test/cfl/TwoStaticCalls.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/deps/com.ibm.wala.core/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -431,23 +14,87 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/util/FunctionDecl.java">
+        <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/expression/Union.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="41" column="25" lean-forward="true" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
+            <state relative-caret-position="152">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
               <folding>
-                <element signature="e#735#736#0" expanded="true" />
-                <element signature="e#801#802#0" expanded="true" />
+                <element signature="e#688#689#0" expanded="true" />
+                <element signature="e#713#714#0" expanded="true" />
+                <element signature="e#746#747#0" expanded="true" />
+                <element signature="e#771#772#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/camflow/TranslateVisitor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="551">
+              <caret line="101" column="67" selection-start-line="101" selection-start-column="67" selection-end-line="101" selection-end-column="67" />
+              <folding>
+                <element signature="e#6166#6167#0" expanded="true" />
+                <element signature="e#6191#6192#0" expanded="true" />
+                <element signature="e#6243#6244#0" expanded="true" />
+                <element signature="e#6268#6269#0" expanded="true" />
+                <element signature="e#6305#6306#0" expanded="true" />
+                <element signature="e#6330#6331#0" expanded="true" />
+                <element signature="e#6366#6367#0" expanded="true" />
+                <element signature="e#6391#6392#0" expanded="true" />
+                <element signature="e#6430#6431#0" expanded="true" />
+                <element signature="e#6455#6456#0" expanded="true" />
+                <element signature="e#6493#6494#0" expanded="true" />
+                <element signature="e#6518#6519#0" expanded="true" />
+                <element signature="e#6560#6561#0" expanded="true" />
+                <element signature="e#6585#6586#0" expanded="true" />
+                <element signature="e#6628#6629#0" expanded="true" />
+                <element signature="e#6653#6654#0" expanded="true" />
+                <element signature="e#6690#6691#0" expanded="true" />
+                <element signature="e#6715#6716#0" expanded="true" />
+                <element signature="e#6759#6760#0" expanded="true" />
+                <element signature="e#6784#6785#0" expanded="true" />
+                <element signature="e#7582#7583#0" expanded="true" />
+                <element signature="e#7626#7627#0" expanded="true" />
+                <element signature="e#7858#7859#0" expanded="true" />
+                <element signature="e#7898#7899#0" expanded="true" />
+                <element signature="e#7950#7951#0" expanded="true" />
+                <element signature="e#7996#7997#0" expanded="true" />
+                <element signature="e#8045#8046#0" expanded="true" />
+                <element signature="e#8088#8089#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/util/JSONHelper.java">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" column="25" lean-forward="true" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+            <state relative-caret-position="57">
+              <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/RemoveNodes.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="494">
+              <caret line="30" column="28" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#627#628#0" expanded="true" />
+                <element signature="e#662#663#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/RemoveGuardedBy.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-955">
+              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -456,64 +103,51 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/util/SetDisjointUnion.java">
+        <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/RemoveEdges.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+            <state relative-caret-position="475">
+              <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#593#594#0" expanded="true" />
+                <element signature="e#630#631#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/util/OrderedPair.java">
+        <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/ForwardSlice.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+            <state relative-caret-position="342">
+              <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1027#1028#0" expanded="true" />
+                <element signature="e#1048#1049#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/util/SetIntersect.java">
+        <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/PrimitiveExpression.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+            <state relative-caret-position="733">
+              <caret line="68" column="21" selection-start-line="68" selection-start-column="21" selection-end-line="68" selection-end-column="21" />
+              <folding>
+                <element signature="e#2100#2101#0" expanded="true" />
+                <element signature="e#2121#2122#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/util/SetMinus.java">
+        <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/util/Environment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/util/SetWrapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/util/SoftHashMap.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/util/Lambda.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="65" column="20" selection-start-line="65" selection-start-column="20" selection-end-line="65" selection-end-column="20" />
+            <state relative-caret-position="532">
+              <caret line="58" column="39" selection-start-line="58" selection-start-column="39" selection-end-line="58" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -522,21 +156,40 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/util/StringMatcher.java">
+        <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/expression/Expression.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+            <state relative-caret-position="228">
+              <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#450#451#0" expanded="true" />
+                <element signature="e#478#479#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>findpcnodes</find>
       <find>entriesof</find>
       <find>cfl</find>
+      <find>pdgedge</find>
+      <find>NODE_TYPE</find>
+      <find>symbol</find>
+      <find>edget</find>
+      <find>let</find>
+      <find>evaluate</find>
+      <find>removeguardedb</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -546,41 +199,53 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/pidgin/queries/pldi2015/CVE-2011-0013_pre_fix.ql" />
-        <option value="$PROJECT_DIR$/pidgin/src/accrue/parser/PidginParser.java" />
         <option value="$PROJECT_DIR$/pidgin/src/accrue/camflow" />
         <option value="$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/registrar/ReferenceVariableFactory.java" />
-        <option value="$PROJECT_DIR$/pidgin/src/accrue/camflow/TranslateVisitor.java" />
-        <option value="$PROJECT_DIR$/pidgin/src/accrue/query/expression/Union.java" />
-        <option value="$PROJECT_DIR$/pidgin/src/accrue/query/expression/PrimitiveApplication.java" />
         <option value="$PROJECT_DIR$/pidgin/src/accrue/query/expression/Intersection.java" />
-        <option value="$PROJECT_DIR$/pidgin/src/accrue/query/expression/FunctionApplication.java" />
         <option value="$PROJECT_DIR$/pidgin/src/accrue/query/expression/Variable.java" />
-        <option value="$PROJECT_DIR$/pidgin/src/accrue/query/policy/IsEmpty.java" />
-        <option value="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/PrimitiveExpression.java" />
+        <option value="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/PrimitiveNodeMatchingExpression.java" />
+        <option value="$PROJECT_DIR$/pidgin/src/accrue/query/util/Lambda.java" />
+        <option value="$PROJECT_DIR$/pidgin/src/accrue/util/JSONHelper.java" />
+        <option value="$PROJECT_DIR$/pidgin/cup/PidginQL.cup" />
+        <option value="$PROJECT_DIR$/pidgin/src/accrue/query/cheat/Position.java" />
+        <option value="$PROJECT_DIR$/pidgin/src/accrue/parser/PidginParser.java" />
+        <option value="$PROJECT_DIR$/pidgin/src/accrue/query/cheat/NodesInContext.java" />
+        <option value="$PROJECT_DIR$/pidgin/src/accrue/query/query/Query.java" />
+        <option value="$PROJECT_DIR$/pidgin/src/accrue/query/expression/EdgeType.java" />
+        <option value="$PROJECT_DIR$/pidgin/src/accrue/query/expression/NodeType.java" />
+        <option value="$PROJECT_DIR$/pidgin/cup/PidginQL.jflex" />
+        <option value="$PROJECT_DIR$/pidgin/src/accrue/parser/PidginLexer.java" />
+        <option value="$PROJECT_DIR$/pidgin/src/accrue/query/util/Environment.java" />
+        <option value="$PROJECT_DIR$/pidgin/src/accrue/query/expression/OriginalGraph.java" />
+        <option value="$PROJECT_DIR$/pidgin/src/accrue/query/expression/FunctionApplication.java" />
         <option value="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/ForProcedure.java" />
+        <option value="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/ForExpression.java" />
         <option value="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/FindPCNodes.java" />
         <option value="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/BackwardSlice.java" />
-        <option value="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/PrimitiveNodeMatchingExpression.java" />
-        <option value="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/ForwardSlice.java" />
-        <option value="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/ForExpression.java" />
-        <option value="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/RemoveEdges.java" />
         <option value="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/RemoveGuardedBy.java" />
-        <option value="$PROJECT_DIR$/pidgin/src/accrue/query/expression/Expression.java" />
         <option value="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/RemoveGuardedByBool.java" />
         <option value="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/RemoveGuardedByMultiThread.java" />
         <option value="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/RemoveGuardedByPC.java" />
-        <option value="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/RemoveNodes.java" />
         <option value="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/SelectEdges.java" />
         <option value="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/SelectNodes.java" />
         <option value="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/ShortestPath.java" />
         <option value="$PROJECT_DIR$/pidgin/src/accrue/query/query/ExpressionQuery.java" />
         <option value="$PROJECT_DIR$/pidgin/src/accrue/query/query/Let.java" />
         <option value="$PROJECT_DIR$/pidgin/src/accrue/query/query/LetFun.java" />
-        <option value="$PROJECT_DIR$/pidgin/src/accrue/query/query/Query.java" />
         <option value="$PROJECT_DIR$/pidgin/src/accrue/query/util/Argument.java" />
-        <option value="$PROJECT_DIR$/pidgin/src/accrue/query/util/Environment.java" />
-        <option value="$PROJECT_DIR$/pidgin/src/accrue/query/util/Lambda.java" />
-        <option value="$PROJECT_DIR$/pidgin/src/accrue/util/JSONHelper.java" />
+        <option value="$PROJECT_DIR$/pidgin/src/accrue/query/util/Closure.java" />
+        <option value="$PROJECT_DIR$/pidgin/src/accrue/query/policy/Policy.java" />
+        <option value="$PROJECT_DIR$/pidgin/src/accrue/query/policy/IsEmpty.java" />
+        <option value="$PROJECT_DIR$/pidgin/src/accrue/query/expression/Union.java" />
+        <option value="$PROJECT_DIR$/pidgin/src/accrue/query/expression/PrimitiveApplication.java" />
+        <option value="$PROJECT_DIR$/pidgin/src/accrue/query/expression/Expression.java" />
+        <option value="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/ForwardSlice.java" />
+        <option value="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/PrimitiveExpression.java" />
+        <option value="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/RemoveEdges.java" />
+        <option value="$PROJECT_DIR$/pidgin/src/accrue/query/primitive/RemoveNodes.java" />
+        <option value="$PROJECT_DIR$/pidgin/src/accrue/camflow/TranslateVisitor.java" />
+        <option value="$PROJECT_DIR$/pidgin/.gitignore" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -591,16 +256,17 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="866" />
-    <option name="y" value="100" />
-    <option name="width" value="1888" />
-    <option name="height" value="1212" />
+    <option name="x" value="93" />
+    <option name="y" value="15" />
+    <option name="width" value="2039" />
+    <option name="height" value="1312" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -617,111 +283,7 @@
             <path>
               <item name="pidgin-2015-11-23" type="b2602c69:ProjectViewProjectNode" />
               <item name="pidgin-2015-11-23" type="462c0819:PsiDirectoryNode" />
-              <item name="pidgin" type="462c0819:PsiDirectoryNode" />
-              <item name="cup" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pidgin-2015-11-23" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pidgin-2015-11-23" type="462c0819:PsiDirectoryNode" />
-              <item name="pidgin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pidgin-2015-11-23" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pidgin-2015-11-23" type="462c0819:PsiDirectoryNode" />
-              <item name="pidgin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="accrue" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pidgin-2015-11-23" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pidgin-2015-11-23" type="462c0819:PsiDirectoryNode" />
-              <item name="pidgin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="accrue" type="462c0819:PsiDirectoryNode" />
-              <item name="parser" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pidgin-2015-11-23" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pidgin-2015-11-23" type="462c0819:PsiDirectoryNode" />
-              <item name="pidgin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="accrue" type="462c0819:PsiDirectoryNode" />
-              <item name="query" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pidgin-2015-11-23" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pidgin-2015-11-23" type="462c0819:PsiDirectoryNode" />
-              <item name="pidgin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="accrue" type="462c0819:PsiDirectoryNode" />
-              <item name="query" type="462c0819:PsiDirectoryNode" />
-              <item name="expression" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pidgin-2015-11-23" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pidgin-2015-11-23" type="462c0819:PsiDirectoryNode" />
-              <item name="pidgin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="accrue" type="462c0819:PsiDirectoryNode" />
-              <item name="query" type="462c0819:PsiDirectoryNode" />
-              <item name="policy" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pidgin-2015-11-23" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pidgin-2015-11-23" type="462c0819:PsiDirectoryNode" />
-              <item name="pidgin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="accrue" type="462c0819:PsiDirectoryNode" />
-              <item name="query" type="462c0819:PsiDirectoryNode" />
-              <item name="primitive" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pidgin-2015-11-23" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pidgin-2015-11-23" type="462c0819:PsiDirectoryNode" />
-              <item name="pidgin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="accrue" type="462c0819:PsiDirectoryNode" />
-              <item name="query" type="462c0819:PsiDirectoryNode" />
-              <item name="query" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pidgin-2015-11-23" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pidgin-2015-11-23" type="462c0819:PsiDirectoryNode" />
-              <item name="pidgin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="accrue" type="462c0819:PsiDirectoryNode" />
-              <item name="query" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pidgin-2015-11-23" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pidgin-2015-11-23" type="462c0819:PsiDirectoryNode" />
-              <item name="pidgin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="accrue" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pidgin-2015-11-23" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pidgin-2015-11-23" type="462c0819:PsiDirectoryNode" />
-              <item name="pidgin" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pidgin-2015-11-23" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pidgin-2015-11-23" type="462c0819:PsiDirectoryNode" />
-              <item name="pidgin" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pidgin-2015-11-23" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pidgin-2015-11-23" type="462c0819:PsiDirectoryNode" />
-              <item name="pidgin" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="unit" type="462c0819:PsiDirectoryNode" />
+              <item name="untitled" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pidgin-2015-11-23" type="b2602c69:ProjectViewProjectNode" />
@@ -731,7 +293,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -741,7 +302,7 @@
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="pidgin-2015-11-23" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561269521963" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561372287710" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/deps" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -749,6 +310,11 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -795,17 +361,21 @@
       <workItem from="1561108915888" duration="763000" />
       <workItem from="1561170487230" duration="902000" />
       <workItem from="1561266101153" duration="3215000" />
+      <workItem from="1561288524506" duration="4841000" />
+      <workItem from="1561341512576" duration="3415000" />
+      <workItem from="1561351718802" duration="55000" />
+      <workItem from="1561363915125" duration="6729000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48269000" />
+    <option name="totallyTimeSpent" value="63309000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="866" y="100" width="1888" height="1212" extended-state="0" />
+    <frame x="93" y="15" width="2039" height="1312" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24154852" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25440806" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -814,7 +384,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="0" weight="0.3282504" />
       <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Find" order="2" />
+      <window_info anchor="bottom" id="Find" order="2" sideWeight="0.4997481" weight="0.32958478" />
       <window_info anchor="bottom" id="Run" order="3" weight="0.32955715" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
@@ -823,14 +393,14 @@
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32985553" />
-      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" weight="0.39245585" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49924433" visible="true" weight="0.34083045" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50075567" side_tool="true" visible="true" weight="0.34083045" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Theme Preview" order="4" />
-      <window_info anchor="right" id="Maven" order="5" visible="true" weight="0.33315158" />
+      <window_info anchor="right" id="Maven" order="5" weight="0.33315158" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Database" order="8" />
@@ -840,365 +410,17 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/accrue-bytecode/src/analysis/pointer/analyses/CrossProduct.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="931">
-          <caret line="66" column="39" selection-start-line="65" selection-start-column="7" selection-end-line="66" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/.project">
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/util/SoftHashMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
-          <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/accrue-bytecode/src/analysis/dataflow/interprocedural/pdg/graph/ProgramDependenceGraph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="32" column="7" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/accrue-bytecode/cup/HeapAbstractionFactoryLexer.jflex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-158" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/accrue-bytecode/cup/HeapAbstractionFactoryParser.cup">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="635">
-          <caret line="95" column="35" selection-start-line="95" selection-start-column="35" selection-end-line="95" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/parser/sym.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/test/test/unit/TestPDGIndices.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="37" column="7" selection-start-line="37" selection-start-column="7" selection-end-line="37" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/TopLevel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/parser/PidginLexer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#47365#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/cup/PidginQL.jflex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1995" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/expression/PrimitiveApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="28" column="7" lean-forward="true" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/expression/Intersection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/expression/FunctionApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/expression/Union.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/expression/Variable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="82" column="33" lean-forward="true" selection-start-line="82" selection-start-column="33" selection-end-line="82" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/policy/IsEmpty.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/policy/Policy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/PrimitiveExpression.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/ForProcedure.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="57" column="6" selection-start-line="56" selection-start-column="6" selection-end-line="57" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1561268854727" expanded="true" signature="1666:1681" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/FindPCNodes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="211" column="7" lean-forward="true" selection-start-line="59" selection-start-column="3" selection-end-line="211" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/BackwardSlice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="79" column="4" lean-forward="true" selection-start-line="72" selection-start-column="4" selection-end-line="79" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/PrimitiveNodeMatchingExpression.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="37" column="8" lean-forward="true" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/ForwardSlice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="68" column="14" selection-start-line="68" selection-start-column="14" selection-end-line="68" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/ForExpression.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="41" column="7" lean-forward="true" selection-start-line="41" selection-start-column="7" selection-end-line="44" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/RemoveEdges.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="634">
-          <caret line="51" column="25" lean-forward="true" selection-start-line="51" selection-start-column="25" selection-end-line="51" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/RemoveGuardedBy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/expression/Expression.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="72" column="11" lean-forward="true" selection-start-line="72" selection-start-column="11" selection-end-line="80" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/RemoveGuardedByBool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/RemoveGuardedByMultiThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="77" column="7" lean-forward="true" selection-start-line="36" selection-start-column="12" selection-end-line="77" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/RemoveGuardedByPC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="57" lean-forward="true" selection-start-line="33" selection-start-column="4" selection-end-line="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/RemoveNodes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="53" lean-forward="true" selection-start-line="24" selection-end-line="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/SelectEdges.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="31" column="8" lean-forward="true" selection-start-line="25" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/SelectNodes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="56" lean-forward="true" selection-start-line="25" selection-end-line="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1561269497649" expanded="true" signature="528:1602" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/ShortestPath.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/query/ExpressionQuery.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="29" lean-forward="true" selection-start-line="24" selection-end-line="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/query/Let.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/query/LetFun.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="49" lean-forward="true" selection-start-line="41" selection-end-line="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/query/Query.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/util/Argument.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="824">
-          <caret line="185" column="7" lean-forward="true" selection-start-line="158" selection-start-column="2" selection-end-line="185" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/util/Closure.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-525">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/util/Environment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="73" column="49" lean-forward="true" selection-start-line="73" selection-start-column="49" selection-end-line="73" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#903#919#0" expanded="true" />
-          </folding>
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/util/Lambda.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="65" column="20" selection-start-line="65" selection-start-column="20" selection-end-line="65" selection-end-column="20" />
+        <state relative-caret-position="1140">
+          <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1212,10 +434,334 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/util/JSONHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="665">
+          <caret line="39" column="7" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/cheat/Position.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#637#638#0" expanded="true" />
+            <element signature="e#669#670#0" expanded="true" />
+            <element signature="e#1690#1691#0" expanded="true" />
+            <element signature="e#1733#1734#0" expanded="true" />
+            <element signature="e#1779#1780#0" expanded="true" />
+            <element signature="e#1826#1827#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/cheat/NodesInContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="e#1652#1653#0" expanded="true" />
+            <element signature="e#1755#1756#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/parser/PidginParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="476" column="9" selection-start-line="476" selection-start-column="9" selection-end-line="476" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#17071#17072#0" expanded="true" />
+            <element signature="e#17132#17133#0" expanded="true" />
+            <element signature="e#17921#17937#0" expanded="true" />
+            <element signature="e#18474#18475#0" expanded="true" />
+            <element signature="e#18544#18545#0" expanded="true" />
+            <element signature="e#19279#19280#0" expanded="true" />
+            <element signature="e#19309#19310#0" expanded="true" />
+            <element signature="e#63185#63198#0" expanded="true" />
+            <element signature="e#69041#69049#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/pidgin/lib/java-cup-11a.jar!/java_cup/runtime/Symbol.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/expression/EdgeType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/parser/PidginLexer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="551" column="8" lean-forward="true" selection-start-line="551" selection-start-column="8" selection-end-line="551" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#32477#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#17892#17893#0" expanded="true" />
+            <element signature="e#17946#17947#0" expanded="true" />
+            <element signature="e#17996#17997#0" expanded="true" />
+            <element signature="e#18055#18056#0" expanded="true" />
+            <element signature="e#18426#18427#0" expanded="true" />
+            <element signature="e#18454#18455#0" expanded="true" />
+            <element signature="e#18665#18666#0" expanded="true" />
+            <element signature="e#18714#18715#0" expanded="true" />
+            <element signature="e#21694#21695#0" expanded="true" />
+            <element signature="e#21725#21726#0" expanded="true" />
+            <element signature="e#21863#21864#0" expanded="true" />
+            <element signature="e#21898#21899#0" expanded="true" />
+            <element signature="e#22010#22011#0" expanded="true" />
+            <element signature="e#22087#22088#0" expanded="true" />
+            <element signature="e#22445#22446#0" expanded="true" />
+            <element signature="e#22487#22488#0" expanded="true" />
+            <element signature="e#22585#22586#0" expanded="true" />
+            <element signature="e#22625#22626#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pidgin/cup/PidginQL.jflex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="57" column="4" selection-start-line="57" selection-start-column="4" selection-end-line="57" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pidgin/cup/PidginQL.cup">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="187" column="11" selection-start-line="187" selection-start-column="11" selection-end-line="187" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/expression/OriginalGraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="7" column="4" selection-end-line="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/expression/Intersection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="7" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/ForProcedure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="30" column="29" lean-forward="true" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#618#619#0" expanded="true" />
+            <element signature="e#645#646#0" expanded="true" />
+            <marker date="1561292815806" expanded="true" signature="1733:1748" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/ForExpression.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#617#618#0" expanded="true" />
+            <element signature="e#644#645#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/FindPCNodes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="44" column="42" selection-start-line="44" selection-start-column="42" selection-end-line="44" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1307#1308#0" expanded="true" />
+            <element signature="e#1331#1332#0" expanded="true" />
+            <element signature="e#1366#1367#0" expanded="true" />
+            <element signature="e#1397#1398#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/BackwardSlice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="38" column="35" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#880#881#0" expanded="true" />
+            <element signature="e#904#905#0" expanded="true" />
+            <element signature="e#941#942#0" expanded="true" />
+            <element signature="e#969#970#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/RemoveGuardedByBool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="40" column="42" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1200#1201#0" expanded="true" />
+            <element signature="e#1224#1225#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/RemoveGuardedByMultiThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="53" column="34" lean-forward="true" selection-start-line="53" selection-start-column="34" selection-end-line="53" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#845#846#0" expanded="true" />
+            <element signature="e#869#870#0" expanded="true" />
+            <element signature="e#903#904#0" expanded="true" />
+            <element signature="e#928#929#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/RemoveGuardedByPC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="509">
+          <caret line="33" column="35" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#972#973#0" expanded="true" />
+            <element signature="e#996#997#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/SelectEdges.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="25" column="34" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#513#514#0" expanded="true" />
+            <element signature="e#538#539#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/SelectNodes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#558#559#0" expanded="true" />
+            <element signature="e#583#584#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/ShortestPath.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="36" column="18" lean-forward="true" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#742#743#0" expanded="true" />
+            <element signature="e#767#768#0" expanded="true" />
+            <element signature="e#800#801#0" expanded="true" />
+            <element signature="e#825#826#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/TopLevel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/query/ExpressionQuery.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#981#982#0" expanded="true" />
+            <element signature="e#1017#1018#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/query/Let.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="48" column="20" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1500#1501#0" expanded="true" />
+            <element signature="e#1611#1612#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/query/LetFun.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="42" column="13" lean-forward="true" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1572#1573#0" expanded="true" />
+            <element signature="e#1708#1709#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/query/Query.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" column="4" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/util/Argument.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="32" column="23" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#620#621#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/util/Closure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/util/FunctionDecl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="41" column="25" lean-forward="true" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
+        <state relative-caret-position="988">
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
           <folding>
             <element signature="e#735#736#0" expanded="true" />
             <element signature="e#801#802#0" expanded="true" />
@@ -1223,55 +769,215 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/util/SetDisjointUnion.java">
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/PrimitiveNodeMatchingExpression.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        <state relative-caret-position="646">
+          <caret line="34" column="8" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/util/OrderedPair.java">
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/policy/Policy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        <state relative-caret-position="418">
+          <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/util/SetIntersect.java">
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/policy/IsEmpty.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        <state relative-caret-position="361">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#383#384#0" expanded="true" />
+            <element signature="e#407#408#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/util/SetMinus.java">
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/expression/PrimitiveApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        <state relative-caret-position="627">
+          <caret line="34" column="38" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="38" />
+          <folding>
+            <element signature="e#912#913#0" expanded="true" />
+            <element signature="e#961#962#0" expanded="true" />
+            <element signature="e#993#994#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/util/SetWrapper.java">
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/expression/NodeType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        <state relative-caret-position="19">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/util/SoftHashMap.java">
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/expression/FunctionApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        <state relative-caret-position="342">
+          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#462#463#0" expanded="true" />
+            <element signature="e#489#490#0" expanded="true" />
+            <element signature="e#534#535#0" expanded="true" />
+            <element signature="e#564#565#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/util/JSONHelper.java">
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/bool/BooleanAnd.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="25" lean-forward="true" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+        <state relative-caret-position="1159">
+          <caret line="67" selection-start-line="67" selection-end-line="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/expression/Union.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="e#688#689#0" expanded="true" />
+            <element signature="e#713#714#0" expanded="true" />
+            <element signature="e#746#747#0" expanded="true" />
+            <element signature="e#771#772#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/util/Environment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="58" column="39" selection-start-line="58" selection-start-column="39" selection-end-line="58" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/expression/Expression.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#450#451#0" expanded="true" />
+            <element signature="e#478#479#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../../../mooc/jdk1.8.0_191/src.zip!/java/lang/Override.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="50" column="18" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/PrimitiveExpression.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="733">
+          <caret line="68" column="21" selection-start-line="68" selection-start-column="21" selection-end-line="68" selection-end-column="21" />
+          <folding>
+            <element signature="e#2100#2101#0" expanded="true" />
+            <element signature="e#2121#2122#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/ForwardSlice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1027#1028#0" expanded="true" />
+            <element signature="e#1048#1049#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/RemoveEdges.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#593#594#0" expanded="true" />
+            <element signature="e#630#631#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/RemoveGuardedBy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-955">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/query/primitive/RemoveNodes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="30" column="28" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#627#628#0" expanded="true" />
+            <element signature="e#662#663#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pidgin/src/accrue/camflow/TranslateVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="101" column="67" selection-start-line="101" selection-start-column="67" selection-end-line="101" selection-end-column="67" />
+          <folding>
+            <element signature="e#6166#6167#0" expanded="true" />
+            <element signature="e#6191#6192#0" expanded="true" />
+            <element signature="e#6243#6244#0" expanded="true" />
+            <element signature="e#6268#6269#0" expanded="true" />
+            <element signature="e#6305#6306#0" expanded="true" />
+            <element signature="e#6330#6331#0" expanded="true" />
+            <element signature="e#6366#6367#0" expanded="true" />
+            <element signature="e#6391#6392#0" expanded="true" />
+            <element signature="e#6430#6431#0" expanded="true" />
+            <element signature="e#6455#6456#0" expanded="true" />
+            <element signature="e#6493#6494#0" expanded="true" />
+            <element signature="e#6518#6519#0" expanded="true" />
+            <element signature="e#6560#6561#0" expanded="true" />
+            <element signature="e#6585#6586#0" expanded="true" />
+            <element signature="e#6628#6629#0" expanded="true" />
+            <element signature="e#6653#6654#0" expanded="true" />
+            <element signature="e#6690#6691#0" expanded="true" />
+            <element signature="e#6715#6716#0" expanded="true" />
+            <element signature="e#6759#6760#0" expanded="true" />
+            <element signature="e#6784#6785#0" expanded="true" />
+            <element signature="e#7582#7583#0" expanded="true" />
+            <element signature="e#7626#7627#0" expanded="true" />
+            <element signature="e#7858#7859#0" expanded="true" />
+            <element signature="e#7898#7899#0" expanded="true" />
+            <element signature="e#7950#7951#0" expanded="true" />
+            <element signature="e#7996#7997#0" expanded="true" />
+            <element signature="e#8045#8046#0" expanded="true" />
+            <element signature="e#8088#8089#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
         </state>
       </provider>
     </entry>
