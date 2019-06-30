@@ -1,4 +1,5 @@
 package parser.parsetree;
 
-public class NodeType {
+public enum NodeType {
+    DEFAULT,
 }

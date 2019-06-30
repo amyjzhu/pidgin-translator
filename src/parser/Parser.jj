@@ -1,0 +1,172 @@
+/**
+ * JavaCC file
+ */
+
+options {
+  JDK_VERSION = "1.8";
+  STATIC = false;
+}
+PARSER_BEGIN(JCCExpressionsParser)
+package parser;
+
+import ast.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class JCCExpressionsParser {
+}
+
+PARSER_END(JCCExpressionsParser)
+
+SKIP :
+{
+ 	" "
+|	"\r"
+|	"\t"
+|	"\n"
+|	< MULTI_LINE_COMMENT: "/*" (~["*"])* "*" ("*" | ~["*","/"] (~["*"])* "*")* "/" >
+|   < SINGLE_LINE_COMMENT: "//" (~["\n"])* >
+}
+
+TOKEN : /* KEYWORDS */
+{
+	<LET:		 "let" >
+|   <IN:         "in" >
+|   <GRAPH:         "pdg" >
+|   <FORWARDS:   "forwardSlice" >
+|   <BACKWARDS:  "backwardSlice" >
+|   <REMOVEN:    "removeNodes" >
+|   <REMOVEE:    "removeEdges" >
+|   <FOREXP:     "forExpression" >
+|   <FORPROC:    "forProcedure" >
+|   <ISEMPTY:    "is empty">
+|   <DEFAULT_T:  "default">
+|   <UNION:  "union">
+|   <INTERSECT:  "intersect">
+}
+TOKEN : /* SEPARATORS and OPERATORS*/
+{	<LPAREN: "(">
+|	<RPAREN: ")">
+|	<ASSIGN: "=">
+|	<QUESTION:	 "?">
+|	<COLON:	 ":" >
+|	<PLUS:	 "+" >
+|	<MINUS:  "-" >
+|	<MULT:   "*" >
+|	<SMALLER:"<">
+|	<NOT:	 "!">
+| 	<SEMICOLON:	 ";" >
+| 	<DOT:	 "." >
+}
+
+// Must declare aboe "identifier" which matches first
+TOKEN : /* TYPES */
+{ <INT: "int">
+| <BOOLEAN: "boolean">
+}
+
+TOKEN :
+{   < INTEGER_LITERAL: ( <DIGIT> )+ >
+|   < IDENTIFIER: <LETTER> (<LETTER> | "_" | <DIGIT>)* >
+|   < #LETTER: ["A" - "Z", "a" - "z"] >
+|   < #DIGIT: ["0" - "9"] >
+}
+
+Program Program() : {
+    List<Expression> expressions;
+	Expression e;
+	Policy p;
+}
+{
+	( e=Expression()
+		{ expressions.add(e); }
+	)*
+	p = Policy()
+	<EOF>
+	{ return new Program(ss, new Print(e)); }
+}
+
+Policy Policy() : {
+// TODO what is this p(A_0, ... A_n) variant?
+    Expression e;
+}{
+     e=Expression() <ISEMPTY> { return new Policy(); }
+}
+
+Statement Function() : {
+    Expression e;
+    Boolean isEmpty = false;
+    }{
+    <LET> <ASSIGN> e=Expression() ( <ISEMPTY> { isEmpty = true })?
+    { if (isEmpty) {
+        return new IsEmpty(Function(e)); }
+    else {
+        return new Function(e); }} // TOOD unsure how this works
+}
+
+Type Type() : {
+    Token t;
+} {
+    t= <BOOLEAN> { return new BooleanType(); }
+    | <INT> { return new IntegerType(); }
+}
+
+Argument Argument() : {
+    EdgeType et;
+    NodeType nt;
+} {
+      et=EdgeType() { return et; }
+     | nt=NodeType() { return nt; }
+     | i=Identifier() { return new Var(i); }// TODO JavaExpression
+}
+
+PrimaryExpression PrimaryExpression() : {
+    Argument e;
+}{
+// TODO Argument or Expression?
+    <FORWARDS> <LPAREN> e=Argument() <RPAREN> { return new Forwards(e); }
+     | <BACKWARDS> <LPAREN> e=Argument() <RPAREN> { return new Backkwards(e); }
+     | <REMOVEN> <LPAREN> e=Argument() <RPAREN> { return new Remove(true, e); }
+     | <REMOVEE> <LPAREN> e=Argument() <RPAREN> { return new Remove(false, e); }
+     | <FOREXP> <LPAREN> e=Argument() <RPAREN> { return new ForExpression(e); }
+     | <FORPROC> <LPAREN> e=Argument() <RPAREN> { return new ForProc(i); }
+}
+
+EdgeType EdgeType() : {} {
+    <DEFAULT_T> { return EdgeType.DEFAULT; }
+}
+
+EdgeType NodeType() : {} {
+    <DEFAULT_T> { return NodeType.DEFAULT; }
+}
+
+Expression Expression() : {
+    Function f;
+	Expression e, e2, e3;
+	List<Expression> eList = new ArrayList<>();
+	Identifier i;
+}
+{   e=<GRAPH> (<DOT> (e2=PrimaryExpression() { eList.add(e2); })+ )? {
+        if (!eList.empty()) { return new ; } else { return new Graph(); }}
+	| <LET> i=Identifier() <ASSIGN> e=Expression() <IN> e2=Expression() { return new Assign(i, e, e2); }
+	| i=Identifier() { return new Var(i); }
+	| f=Function() { return f; }
+
+}
+
+// creates left recursion
+// what examples exist?
+Expression SetOperation() : {
+    Expression e1, e2;
+} {
+    e1=Expression() <UNION> e2=Expression() { return new Union(e1, e2); }
+    | e1=Expression() <INTERSECT> e2=Expression() { return new Intersect(e1, e2); }
+}
+
+String Identifier() : {
+	Token i;
+}
+{
+	i = <IDENTIFIER>
+	{ return i.image; }
+}
