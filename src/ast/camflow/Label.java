@@ -1,4 +1,4 @@
 package ast.camflow;
 
-public class Label {
+public class Label extends CamflowObject {
 }

@@ -1,6 +1,6 @@
 package ast.camflow;
 
-public class RemoveCheck extends Check {
+public class Consequence extends CamflowObject {
 
     @Override
     public Label getLabel() {

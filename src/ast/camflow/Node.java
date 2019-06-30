@@ -1,4 +1,5 @@
 package ast.camflow;
 
-public class Node {
+public class Node extends GraphElement {
+
 }

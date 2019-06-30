@@ -1,4 +1,4 @@
 package ast.camflow;
 
-public class OutEdge {
+public class OutEdge extends Edge {
 }
