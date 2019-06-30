@@ -13,96 +13,109 @@ public class ParseTreeToCamflow {
 
     // TODO -- generate intermediary, and collect all labels
     // so we can generate label-propagation code
-    List<CamflowObject> translate(Expression e) {
+    CamflowObject translate(Expression e) {
         return null;
     }
 
-    List<CamflowObject> translate(Argument e) {
+    CamflowObject translate(Argument e) {
         return null;
     }
 
     // converts nodes to camflow-style nodes
 
-    List<CamflowObject> translate(Assign e) {
+    CamflowObject translate(Assign e) {
         return null;
     }
 
-    List<CamflowObject> translate(Backwards e) {
+    CamflowObject translate(Backwards e) {
         // this should handle all label propagation somehow
         // make sure it gets only one...
-        ast.camflow.Label l = translate(e.getFrom()).get(0).getLabel(); // should dispatch
+        ast.camflow.Label l = translate(e.getFrom()).getLabel(); // should dispatch
         labels.add(l);
         Consequence propagateToNode = new PropagateLabel(PropagateType.NEW, new Node(), l);
         Consequence propagateToEdge = new PropagateLabel(PropagateType.NEW, new InEdge(), l);
-        List<CamflowObject> returnList = new ArrayList<CamflowObject>;
-        returnList.add(new HasLabelNodeCheck(new OutEdge(), l, propagateToNode));
+        // TODO am I returning one item at a time to chain? 
+        Check checkNodeToEdge = new HasLabelNodeCheck(l, propagateToEdge);
+        Check checkEdgeToNode = new HasLabelEdgeCheck(l, propagateToNode);
+        return new ChainedChecks(Arrays.asList(checkEdgeToNode, checkNodeToEdge));
     }
 
-    List<CamflowObject> translate(Between e) {
+    CamflowObject translate(Between e) {
+        Forwards from = new Forwards(e.getFrom());
+        Backwards to = new Backwards(e.getTo());
+        ChainedChecks fromChecks = (ChainedChecks) translate(from);
+        ChainedChecks toChecks = (ChainedChecks) translate(to);
+        return new ChainedChecks(fromChecks, toChecks);
+    }
+
+    CamflowObject translate(BooleanCondition e) {
         return null;
     }
 
-    List<CamflowObject> translate(BooleanCondition e) {
+    CamflowObject translate(EdgeType e) {
         return null;
     }
 
-    List<CamflowObject> translate(EdgeType e) {
+    CamflowObject translate(ForExpression e) {
         return null;
     }
 
-    List<CamflowObject> translate(ForExpression e) {
+    CamflowObject translate(ForProcedure e) {
         return null;
     }
 
-    List<CamflowObject> translate(ForProcedure e) {
+    CamflowObject translate(Forwards e) {
+        ast.camflow.Label l = translate(e.getFrom()).getLabel(); // should dispatch
+        labels.add(l);
+        Consequence propagateToNode = new PropagateLabel(PropagateType.NEW, new Node(), l);
+        Consequence propagateToEdge = new PropagateLabel(PropagateType.NEW, new InEdge(), l);
+        // TODO am I returning one item at a time to chain?
+        Check checkNodeToEdge = new HasLabelNodeCheck(l, propagateToNode);
+        Check checkEdgeToNode = new HasLabelEdgeCheck(l, propagateToEdge);
+        return new ChainedChecks(Arrays.asList(checkEdgeToNode, checkNodeToEdge));
+    }
+
+    CamflowObject translate(Graph e) {
         return null;
     }
 
-    List<CamflowObject> translate(Forwards e) {
+    CamflowObject translate(Intersect e) {
         return null;
     }
 
-    List<CamflowObject> translate(Graph e) {
+    CamflowObject translate(IsEmpty e) {
         return null;
     }
 
-    List<CamflowObject> translate(Intersect e) {
+    CamflowObject translate(Label e) {
         return null;
     }
 
-    List<CamflowObject> translate(IsEmpty e) {
+    CamflowObject translate(NodeType e) {
         return null;
     }
 
-    List<CamflowObject> translate(Label e) {
+    CamflowObject translate(Policy e) {
         return null;
     }
 
-    List<CamflowObject> translate(NodeType e) {
+    CamflowObject translate(PrimitiveExpression e) {
         return null;
     }
 
-    List<CamflowObject> translate(Policy e) {
+    CamflowObject translate(Procedure e) {
         return null;
     }
 
-    List<CamflowObject> translate(PrimitiveExpression e) {
+    CamflowObject translate(Remove e) {
         return null;
     }
 
-    List<CamflowObject> translate(Procedure e) {
+    CamflowObject translate(Union e) {
         return null;
     }
 
-    List<CamflowObject> translate(Remove e) {
-        return null;
-    }
-
-    List<CamflowObject> translate(Union e) {
-        return null;
-    }
-
-    List<CamflowObject> translate(Var e) {
+    CamflowObject translate(Var e) {
         return null;
     }
 }
