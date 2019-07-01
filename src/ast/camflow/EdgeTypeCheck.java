@@ -1,7 +1,7 @@
 package ast.camflow;
 
-public class Union extends CamflowObject {
-    // todo not sure what to do with this
+public class EdgeTypeCheck extends Check {
+
 
     @Override
     public Label getLabel() {

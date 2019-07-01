@@ -1,4 +1,4 @@
 package parser.parsetree;
 
-public class Policy {
+public abstract class Policy {
 }

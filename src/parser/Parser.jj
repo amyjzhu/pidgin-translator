@@ -43,6 +43,7 @@ TOKEN : /* KEYWORDS */
 |   <DEFAULT_T:  "default">
 |   <UNION:  "union">
 |   <INTERSECT:  "intersect">
+|   <OR:  "or">
 }
 TOKEN : /* SEPARATORS and OPERATORS*/
 {	<LPAREN: "(">
@@ -88,18 +89,19 @@ Program Program() : {
 
 Policy Policy() : {
 // TODO what is this p(A_0, ... A_n) variant?
-    Expression e;
+    Expression e, e2;
+    List<Expression> es = new ArrayList<>();
 }{
-     e=Expression() <ISEMPTY> { return new Policy(); }
+     e=Expression() {es.add(e);} (<IN> e2=Expression() { es.add(e2);} )* <ISEMPTY> { return new IsEmpty(es); }
 }
 
 Statement Function() : {
     Expression e;
     Boolean isEmpty = false;
     }{
-    <LET> <ASSIGN> e=Expression() ( <ISEMPTY> { isEmpty = true })?
+    <LET> <ASSIGN> e=Expression() ( <ISEMPTY> { isEmpty = true; })?
     { if (isEmpty) {
-        return new IsEmpty(Function(e)); }
+        return new IsEmpty(Collections.singletonList(Function(e))); }
     else {
         return new Function(e); }} // TOOD unsure how this works
 }
@@ -120,17 +122,29 @@ Argument Argument() : {
      | i=Identifier() { return new Var(i); }// TODO JavaExpression
 }
 
+Argument JavaExpression() : {
+    Identifier i;
+    List<Identifier> is = new ArrayList<>();
+ }{
+// TODO how to handle?
+    i = Identifier() { is.add(i); } (i = Identifier() { is.add(i); }) *
+    { return is; }
+}
+
+
+// TODO there is no Boolean condition!!
 PrimaryExpression PrimaryExpression() : {
     Argument e;
 }{
 // TODO Argument or Expression?
     <FORWARDS> <LPAREN> e=Argument() <RPAREN> { return new Forwards(e); }
-     | <BACKWARDS> <LPAREN> e=Argument() <RPAREN> { return new Backkwards(e); }
+     | <BACKWARDS> <LPAREN> e=Argument() <RPAREN> { return new Backwards(e); }
      | <REMOVEN> <LPAREN> e=Argument() <RPAREN> { return new Remove(true, e); }
      | <REMOVEE> <LPAREN> e=Argument() <RPAREN> { return new Remove(false, e); }
-     | <FOREXP> <LPAREN> e=Argument() <RPAREN> { return new ForExpression(e); }
+     | <FOREXP> <LPAREN> e=JavaExpression() <RPAREN> { return new ForExpression(e); }
      | <FORPROC> <LPAREN> e=Argument() <RPAREN> { return new ForProc(i); }
 }
+
 
 EdgeType EdgeType() : {} {
     <DEFAULT_T> { return EdgeType.DEFAULT; }
@@ -144,11 +158,14 @@ Expression Expression() : {
     Function f;
 	Expression e, e2, e3;
 	List<Expression> eList = new ArrayList<>();
+	List<Expression> eList2 = new ArrayList<>();
 	Identifier i;
 }
 {   e=<GRAPH> (<DOT> (e2=PrimaryExpression() { eList.add(e2); })+ )? {
         if (!eList.empty()) { return new ; } else { return new Graph(); }}
-	| <LET> i=Identifier() <ASSIGN> e=Expression() <IN> e2=Expression() { return new Assign(i, e, e2); }
+	| <LET> i=Identifier() <ASSIGN> e=Expression() {eList.add(e); eList2.add(e)}
+	(<OR> e2=Expression() {eList.add(e2); } )*
+	(<IN> e3=Expression() {eList2.add(e3);})* { return new Assign(i, e2, e); }
 	| i=Identifier() { return new Var(i); }
 	| f=Function() { return f; }
 

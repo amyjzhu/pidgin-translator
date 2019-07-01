@@ -1,4 +1,4 @@
-package parser.parsetree;
+package util;
 
 public enum EdgeType {
     DEFAULT,

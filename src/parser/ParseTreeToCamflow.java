@@ -2,22 +2,21 @@ package parser;
 
 import ast.camflow.*;
 import parser.parsetree.*;
+import parser.parsetree.BooleanCondition;
 import parser.parsetree.Label;
-import parser.parsetree.Union;
+import util.NodeType;
+import util.EdgeType;
 
 import java.util.*;
 
 public class ParseTreeToCamflow {
 
     Set<ast.camflow.Label> labels = new HashSet<>();
+    Set<Function> functions = new HashSet<>();
 
     // TODO -- generate intermediary, and collect all labels
     // so we can generate label-propagation code
     CamflowObject translate(Expression e) {
-        return null;
-    }
-
-    CamflowObject translate(Argument e) {
         return null;
     }
 
@@ -80,19 +79,26 @@ public class ParseTreeToCamflow {
     }
 
     CamflowObject translate(Intersect e) {
-        return null;
+        return new SetOperation(SetOperation.Operation.INTERSECT, translate(e.getE1()), translate(e.getE2()));
     }
 
     CamflowObject translate(IsEmpty e) {
-        return null;
+
+        List<Check> checks = new ArrayList<>();
+        for (Expression ex: e.getToTest()) {
+            ast.camflow.Label l = translate(ex).getLabel();
+            new HasLabelNodeCheck(l, new Warn());
+        }
+
+        return new ChainedChecks(checks);
     }
 
     CamflowObject translate(Label e) {
-        return null;
+        return new ast.camflow.Label(e.getText());
     }
 
     CamflowObject translate(NodeType e) {
-        return null;
+        return new NodeTypeCheck(NodeType.DEFAULT);
     }
 
     CamflowObject translate(Policy e) {
@@ -104,7 +110,7 @@ public class ParseTreeToCamflow {
     }
 
     CamflowObject translate(Procedure e) {
-        return null;
+        return new Function(e.getName().getName(), e.getBody());
     }
 
     CamflowObject translate(Remove e) {
@@ -112,10 +118,14 @@ public class ParseTreeToCamflow {
     }
 
     CamflowObject translate(Union e) {
-        return null;
+        return new SetOperation(SetOperation.Operation.UNION, translate(e.getE1()), translate(e.getE2()));
     }
 
     CamflowObject translate(Var e) {
-        return null;
+        // TODO used this just as a label generator
+        // probably need to add to some list...
+        ast.camflow.Label label = new ast.camflow.Label(e.getName());
+        labels.add(label);
+        return label;
     }
 }
