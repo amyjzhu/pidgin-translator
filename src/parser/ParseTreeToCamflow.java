@@ -1,6 +1,7 @@
 package parser;
 
 import ast.camflow.*;
+import ast.camflow.check.*;
 import parser.parsetree.*;
 import parser.parsetree.BooleanCondition;
 import parser.parsetree.Label;
@@ -33,9 +34,10 @@ public class ParseTreeToCamflow {
         labels.add(l);
         Consequence propagateToNode = new PropagateLabel(PropagateType.NEW, new Node(), l);
         Consequence propagateToEdge = new PropagateLabel(PropagateType.NEW, new InEdge(), l);
-        // TODO am I returning one item at a time to chain? 
+        // TODO am I returning one item at a time to chain?
+        // TODO if they are backwards we should not propagate them down automatically...
         Check checkNodeToEdge = new HasLabelNodeCheck(l, propagateToEdge);
-        Check checkEdgeToNode = new HasLabelEdgeCheck(l, propagateToNode);
+        Check checkEdgeToNode = new HasLabelEdgeCheck(l, propagateToNode, false); // out edge
         return new ChainedChecks(Arrays.asList(checkEdgeToNode, checkNodeToEdge));
     }
 
@@ -52,29 +54,35 @@ public class ParseTreeToCamflow {
     }
 
     CamflowObject translate(EdgeType e) {
-        return null;
+        return new EdgeTypeCheck(e);
     }
 
     CamflowObject translate(ForExpression e) {
+        // check needs to invoke a procedure
+        // and get the result of the procedure
+        // TODO might need to add a new check type
         return null;
     }
 
     CamflowObject translate(ForProcedure e) {
-        return null;
+        // need a label
+        // we can just return the checks rather than any action...
+        return new ProgrammaticCheck(e.getProcedureName().getName(), null);
     }
 
     CamflowObject translate(Forwards e) {
         ast.camflow.Label l = translate(e.getFrom()).getLabel(); // should dispatch
         labels.add(l);
         Consequence propagateToNode = new PropagateLabel(PropagateType.NEW, new Node(), l);
-        Consequence propagateToEdge = new PropagateLabel(PropagateType.NEW, new InEdge(), l);
+        Consequence propagateToEdge = new PropagateLabel(PropagateType.NEW, new OutEdge(), l);
         // TODO am I returning one item at a time to chain?
-        Check checkNodeToEdge = new HasLabelNodeCheck(l, propagateToNode);
-        Check checkEdgeToNode = new HasLabelEdgeCheck(l, propagateToEdge);
+        Check checkNodeToEdge = new HasLabelNodeCheck(l, propagateToEdge);
+        Check checkEdgeToNode = new HasLabelEdgeCheck(l, propagateToNode, true);
         return new ChainedChecks(Arrays.asList(checkEdgeToNode, checkNodeToEdge));
     }
 
     CamflowObject translate(Graph e) {
+        // TODO this is basically meaningless
         return null;
     }
 
@@ -98,7 +106,7 @@ public class ParseTreeToCamflow {
     }
 
     CamflowObject translate(NodeType e) {
-        return new NodeTypeCheck(NodeType.DEFAULT);
+        return new NodeTypeCheck(e);
     }
 
     CamflowObject translate(Policy e) {
@@ -114,6 +122,12 @@ public class ParseTreeToCamflow {
     }
 
     CamflowObject translate(Remove e) {
+        // remove should do a boolean check
+        // add the removed label
+        // TODO this might be the wrong approach because which item has which role
+        new BooleanCondition();
+        new RemoveCheck();
+        new PropagateLabel(PropagateType.NEW, new Node(), ast.camflow.Label.REMOVE_LABEL);
         return null;
     }
 

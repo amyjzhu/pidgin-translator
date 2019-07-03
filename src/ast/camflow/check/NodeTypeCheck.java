@@ -1,5 +1,7 @@
-package ast.camflow;
+package ast.camflow.check;
 
+import ast.camflow.Label;
+import ast.camflow.check.Check;
 import util.*;
 
 public class NodeTypeCheck extends Check {

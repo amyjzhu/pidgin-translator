@@ -1,4 +1,7 @@
-package ast.camflow;
+package ast.camflow.check;
+
+import ast.camflow.CamflowObject;
+import ast.camflow.Label;
 
 import java.util.List;
 

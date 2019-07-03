@@ -1,5 +1,5 @@
 package ast.camflow;
 
-public class Edge extends GraphElement {
+public abstract class Edge extends GraphElement {
 
 }

@@ -1,6 +1,6 @@
 package ast.camflow;
 
-import parser.parsetree.Expression;
+import ast.camflow.check.Check;
 
 public class BooleanCondition {
     static enum Relation {

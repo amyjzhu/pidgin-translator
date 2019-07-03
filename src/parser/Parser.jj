@@ -126,7 +126,7 @@ Argument JavaExpression() : {
     Identifier i;
     List<Identifier> is = new ArrayList<>();
  }{
-// TODO how to handle?
+// TODO how to handle? parse like a regular string I guess
     i = Identifier() { is.add(i); } (i = Identifier() { is.add(i); }) *
     { return is; }
 }
@@ -135,6 +135,7 @@ Argument JavaExpression() : {
 // TODO there is no Boolean condition!!
 PrimaryExpression PrimaryExpression() : {
     Argument e;
+    Identifier i;
 }{
 // TODO Argument or Expression?
     <FORWARDS> <LPAREN> e=Argument() <RPAREN> { return new Forwards(e); }
@@ -142,11 +143,12 @@ PrimaryExpression PrimaryExpression() : {
      | <REMOVEN> <LPAREN> e=Argument() <RPAREN> { return new Remove(true, e); }
      | <REMOVEE> <LPAREN> e=Argument() <RPAREN> { return new Remove(false, e); }
      | <FOREXP> <LPAREN> e=JavaExpression() <RPAREN> { return new ForExpression(e); }
-     | <FORPROC> <LPAREN> e=Argument() <RPAREN> { return new ForProc(i); }
+     | <FORPROC> <LPAREN> i=Identifier() <RPAREN> { return new ForProcedure(new Var(i)); }
 }
 
 
 EdgeType EdgeType() : {} {
+// todo use edgetype.from if possible
     <DEFAULT_T> { return EdgeType.DEFAULT; }
 }
 
@@ -161,7 +163,7 @@ Expression Expression() : {
 	List<Expression> eList2 = new ArrayList<>();
 	Identifier i;
 }
-{   e=<GRAPH> (<DOT> (e2=PrimaryExpression() { eList.add(e2); })+ )? {
+{   e=<GRAPH> (<DOT> (e2=PrimaryExpression() { eList.add(e2); })+ )? { // todo OR? forProcedure needs to be collected under a label
         if (!eList.empty()) { return new ; } else { return new Graph(); }}
 	| <LET> i=Identifier() <ASSIGN> e=Expression() {eList.add(e); eList2.add(e)}
 	(<OR> e2=Expression() {eList.add(e2); } )*

@@ -1,7 +1,7 @@
 package parser.parsetree;
 
 public class Remove {
-    // remove condition
+    // remove condition ???
 
     Boolean isRemoveNode;
     Expression toRemove;

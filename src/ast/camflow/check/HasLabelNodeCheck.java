@@ -1,4 +1,8 @@
-package ast.camflow;
+package ast.camflow.check;
+
+import ast.camflow.Consequence;
+import ast.camflow.Label;
+import ast.camflow.check.HasLabelCheck;
 
 public class HasLabelNodeCheck extends HasLabelCheck {
 
