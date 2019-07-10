@@ -1,4 +1,4 @@
 package parser.parsetree;
 
-public class Graph {
+public class Graph implements Expression {
 }

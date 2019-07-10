@@ -1,6 +1,6 @@
 package parser.parsetree;
 
-public class Forwards extends Expression {
+public class Forwards extends PrimitiveExpression {
 
     Expression from;
 

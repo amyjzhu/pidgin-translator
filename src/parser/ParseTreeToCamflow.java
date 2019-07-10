@@ -12,7 +12,7 @@ import java.util.*;
 
 public class ParseTreeToCamflow {
 
-    Set<ast.camflow.Label> labels = new HashSet<>();
+    private Set<ast.camflow.Label> labels = new HashSet<>();
     Set<Function> functions = new HashSet<>();
 
     // TODO -- generate intermediary, and collect all labels
@@ -24,6 +24,10 @@ public class ParseTreeToCamflow {
     // converts nodes to camflow-style nodes
 
     CamflowObject translate(Assign e) {
+        // take all the checks
+        // join with whatever is appropriate
+        // turn into a bunch of checks and give it a certain label/addlabel
+
         return null;
     }
 

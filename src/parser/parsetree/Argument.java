@@ -1,4 +1,6 @@
 package parser.parsetree;
 
-public class Argument {
+public interface Argument extends Expression {
+
+
 }

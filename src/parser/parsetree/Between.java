@@ -1,6 +1,6 @@
 package parser.parsetree;
 
-public class Between extends Expression {
+public class Between implements Expression {
 
     Expression from;
     Expression to;

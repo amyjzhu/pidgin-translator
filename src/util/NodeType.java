@@ -1,10 +1,12 @@
 package util;
 
+import parser.parsetree.Argument;
+
 import java.util.Arrays;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public enum NodeType {
+public enum NodeType implements Argument {
     DEFAULT;
 
     static Map<String, NodeType> typeMap = Arrays.stream(NodeType.values()).collect(Collectors.toMap(NodeType::name, p -> p));

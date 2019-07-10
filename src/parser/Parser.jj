@@ -6,17 +6,20 @@ options {
   JDK_VERSION = "1.8";
   STATIC = false;
 }
-PARSER_BEGIN(JCCExpressionsParser)
+PARSER_BEGIN(PidginParser)
 package parser;
 
 import ast.*;
 import java.util.ArrayList;
 import java.util.List;
+import parser.parsetree.*;
+import util.*;
+import java.util.Collections;
 
-public class JCCExpressionsParser {
+public class PidginParser {
 }
 
-PARSER_END(JCCExpressionsParser)
+PARSER_END(PidginParser)
 
 SKIP :
 {
@@ -27,6 +30,29 @@ SKIP :
 |	< MULTI_LINE_COMMENT: "/*" (~["*"])* "*" ("*" | ~["*","/"] (~["*"])* "*")* "/" >
 |   < SINGLE_LINE_COMMENT: "//" (~["\n"])* >
 }
+
+/* string */
+TOKEN:
+{
+  <QUOTE:"\""> : STRING_STATE
+}
+
+<STRING_STATE> MORE:
+{
+  "\\" : ESC_STATE
+}
+
+<STRING_STATE> TOKEN:
+{
+  <ENDQUOTE:<QUOTE>> : DEFAULT
+| <CHAR:~["\"","\\"]>
+}
+
+<ESC_STATE> TOKEN:
+{
+  <CNTRL_ESC:["\"","\\","/","b","f","n","r","t"]> : STRING_STATE
+}
+/* string ends */
 
 TOKEN : /* KEYWORDS */
 {
@@ -45,7 +71,7 @@ TOKEN : /* KEYWORDS */
 |   <INTERSECT:  "intersect">
 |   <OR:  "or">
 }
-TOKEN : /* SEPARATORS and OPERATORS*/
+TOKEN : /* SElPARATORS and OPERATORS*/
 {	<LPAREN: "(">
 |	<RPAREN: ")">
 |	<ASSIGN: "=">
@@ -73,76 +99,84 @@ TOKEN :
 |   < #DIGIT: ["0" - "9"] >
 }
 
+
+
+
+
 Program Program() : {
-    List<Expression> expressions;
+    List<Expression> expressions = new ArrayList();
 	Expression e;
 	Policy p;
 }
 {
-	( e=Expression()
+	( LOOKAHEAD(2) e=Expression()
 		{ expressions.add(e); }
 	)*
 	p = Policy()
 	<EOF>
-	{ return new Program(ss, new Print(e)); }
+	{ return new Program(expressions, p); }
 }
 
 Policy Policy() : {
 // TODO what is this p(A_0, ... A_n) variant?
     Expression e, e2;
-    List<Expression> es = new ArrayList<>();
+    List<Expression> es = new ArrayList();
 }{
      e=Expression() {es.add(e);} (<IN> e2=Expression() { es.add(e2);} )* <ISEMPTY> { return new IsEmpty(es); }
 }
 
-Statement Function() : {
+Procedure Procedure() : {
+    String i;
     Expression e;
     Boolean isEmpty = false;
     }{
-    <LET> <ASSIGN> e=Expression() ( <ISEMPTY> { isEmpty = true; })?
-    { if (isEmpty) {
-        return new IsEmpty(Collections.singletonList(Function(e))); }
-    else {
-        return new Function(e); }} // TOOD unsure how this works
-}
+    <LET> i=Identifier() <ASSIGN> e=Expression()
+    ( LOOKAHEAD(2) <ISEMPTY> { isEmpty = true; })?
+    { //if (isEmpty) {
+    //    return new IsEmpty(Collections.singletonList(new Procedure(i, e))); } // TODO weird edge case with is empty syntax
+    //else  {
+        return new Procedure(i, e);
+    }
+} // TOOD unsure how this works
 
-Type Type() : {
-    Token t;
-} {
-    t= <BOOLEAN> { return new BooleanType(); }
-    | <INT> { return new IntegerType(); }
-}
+//Type Type() : {
+//    Token t;
+//} {
+//    t= <BOOLEAN> { return new BooleanType(); }
+//    | <INT> { return new IntegerType(); }
+//}
 
 Argument Argument() : {
     EdgeType et;
     NodeType nt;
+    String i;
 } {
+     LOOKAHEAD(2)
       et=EdgeType() { return et; }
      | nt=NodeType() { return nt; }
      | i=Identifier() { return new Var(i); }// TODO JavaExpression
 }
 
-Argument JavaExpression() : {
-    Identifier i;
-    List<Identifier> is = new ArrayList<>();
- }{
-// TODO how to handle? parse like a regular string I guess
-    i = Identifier() { is.add(i); } (i = Identifier() { is.add(i); }) *
-    { return is; }
-}
+//Argument JavaExpression() : {
+//    String i;
+// }{
+//// TODO how to handle? parse like a regular string I guess
+//    i = Identifier() { is.add(i); } (i = Identifier() { is.add(i); }) *
+//    { return is; }
+//}
 
 
 // TODO there is no Boolean condition!!
-PrimaryExpression PrimaryExpression() : {
+PrimitiveExpression PrimitiveExpression() : {
     Argument e;
-    Identifier i;
+    String i;
 }{
 // TODO Argument or Expression?
     <FORWARDS> <LPAREN> e=Argument() <RPAREN> { return new Forwards(e); }
      | <BACKWARDS> <LPAREN> e=Argument() <RPAREN> { return new Backwards(e); }
      | <REMOVEN> <LPAREN> e=Argument() <RPAREN> { return new Remove(true, e); }
      | <REMOVEE> <LPAREN> e=Argument() <RPAREN> { return new Remove(false, e); }
-     | <FOREXP> <LPAREN> e=JavaExpression() <RPAREN> { return new ForExpression(e); }
+     | <FOREXP> <LPAREN> i=string() <RPAREN> { return new ForExpression(i); }
      | <FORPROC> <LPAREN> i=Identifier() <RPAREN> { return new ForProcedure(new Var(i)); }
 }
 
@@ -152,24 +186,25 @@ EdgeType EdgeType() : {} {
     <DEFAULT_T> { return EdgeType.DEFAULT; }
 }
 
-EdgeType NodeType() : {} {
+NodeType NodeType() : {} {
     <DEFAULT_T> { return NodeType.DEFAULT; }
 }
 
 Expression Expression() : {
-    Function f;
+    Procedure f;
 	Expression e, e2, e3;
-	List<Expression> eList = new ArrayList<>();
-	List<Expression> eList2 = new ArrayList<>();
-	Identifier i;
+	List<Expression> eList = new ArrayList();
+	List<Expression> eList2 = new ArrayList();
+	String i;
 }
-{   e=<GRAPH> (<DOT> (e2=PrimaryExpression() { eList.add(e2); })+ )? { // todo OR? forProcedure needs to be collected under a label
-        if (!eList.empty()) { return new ; } else { return new Graph(); }}
-	| <LET> i=Identifier() <ASSIGN> e=Expression() {eList.add(e); eList2.add(e)}
-	(<OR> e2=Expression() {eList.add(e2); } )*
-	(<IN> e3=Expression() {eList2.add(e3);})* { return new Assign(i, e2, e); }
+{   <GRAPH> (<DOT> (e2=PrimitiveExpression() { eList.add(e2); })+ )? { // todo OR? forProcedure needs to be collected under a label
+if (!eList.isEmpty()) { return new parser.parsetree.Graph(); } else { return new Graph(); }}
+	| LOOKAHEAD(2)
+	<LET> i=Identifier() <ASSIGN> e=Expression() {eList.add(e); eList2.add(e);}
+	( LOOKAHEAD(2) <OR> e2=Expression() {eList.add(e2); } )*
+	(LOOKAHEAD(2) <IN> e3=Expression() {eList2.add(e3);})* { return new Assign(new Var(i), eList2, eList); }
 	| i=Identifier() { return new Var(i); }
-	| f=Function() { return f; }
+	| f=Procedure() { return f; }
 
 }
 
@@ -178,7 +213,7 @@ Expression Expression() : {
 Expression SetOperation() : {
     Expression e1, e2;
 } {
-    e1=Expression() <UNION> e2=Expression() { return new Union(e1, e2); }
+    LOOKAHEAD(2) e1=Expression() <UNION> e2=Expression() { return new Union(e1, e2); }
     | e1=Expression() <INTERSECT> e2=Expression() { return new Intersect(e1, e2); }
 }
 
@@ -188,4 +223,49 @@ String Identifier() : {
 {
 	i = <IDENTIFIER>
 	{ return i.image; }
+}
+
+
+// https://stackoverflow.com/questions/11878392/parsing-strings-with-javacc
+String string() :
+{
+  StringBuilder builder = new StringBuilder();
+}
+{
+  <QUOTE> ( getChar(builder) )* <ENDQUOTE>
+  {
+    return builder.toString();
+  }
+}
+
+/**
+ * Match char inside quoted string.
+ */
+void getChar(StringBuilder builder):
+{
+  Token t;
+}
+{
+  ( t = <CHAR> | t = <CNTRL_ESC> )
+  {
+    if (t.image.length() < 2)
+    {
+      // CHAR
+      builder.append(t.image.charAt(0));
+    }
+    else if (t.image.length() < 6)
+    {
+      // ESC
+      char c = t.image.charAt(1);
+      switch (c)
+      {
+        case 'b': builder.append((char) 8); break;
+        case 'f': builder.append((char) 12); break;
+        case 'n': builder.append((char) 10); break;
+        case 'r': builder.append((char) 13); break;
+        case 't': builder.append((char) 9); break;
+        default: builder.append(c);
+      }
+    }
+  }
 }

@@ -1,5 +1,5 @@
 package parser.parsetree;
 
-public class Expression {
+public interface Expression {
     // give a .getLabel() method
 }

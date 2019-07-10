@@ -1,6 +1,6 @@
 package parser.parsetree;
 
-public class Intersect extends Expression {
+public class Intersect implements Expression {
 
     Expression e1;
     Expression e2; // todo variadic? or just desugar

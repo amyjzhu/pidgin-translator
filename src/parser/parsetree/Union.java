@@ -1,6 +1,6 @@
 package parser.parsetree;
 
-public class Union extends Expression {
+public class Union implements Expression {
 
     Expression e1;
     Expression e2;

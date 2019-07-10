@@ -4,6 +4,7 @@ import ast.camflow.check.HasLabelCheck;
 import ast.camflow.check.HasLabelEdgeCheck;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Prelude extends CamflowObject {
@@ -25,6 +26,7 @@ public class Prelude extends CamflowObject {
             new HasLabelEdgeCheck(l, actionNode, true);
         }
 
-        return
+        //return
+        return Arrays.asList(new HasLabelCheck[]{});
     }
 }

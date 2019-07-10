@@ -1,6 +1,6 @@
 package parser.parsetree;
 
-public class Remove {
+public class Remove extends PrimitiveExpression {
     // remove condition ???
 
     Boolean isRemoveNode;

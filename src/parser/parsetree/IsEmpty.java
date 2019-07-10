@@ -2,7 +2,7 @@ package parser.parsetree;
 
 import java.util.List;
 
-public class IsEmpty {
+public class IsEmpty extends Policy {
 
     List<Expression> toTest;
 

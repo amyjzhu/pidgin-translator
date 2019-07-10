@@ -1,4 +1,4 @@
 package parser.parsetree;
 
-public class BooleanCondition extends Expression {
+public class BooleanCondition implements Expression {
 }

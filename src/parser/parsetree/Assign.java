@@ -1,15 +1,16 @@
 package parser.parsetree;
 
-public class Assign {
+import java.util.List;
+
+public class Assign implements Expression {
 
     Var varName;
-    Expression and;
-    Expression or;
+    List<Expression> and;
+    List<Expression> or;
 
-    public Assign(String varName, Expression e1, Expression e2) {
-        this.varName = new Var(varName);
-        this.and = e1;
-        this.or = e2;
+    public Assign(Var varName, List<Expression> and, List<Expression> or) {
+        this.varName = varName;
+        this.and = and;
+        this.or = or;
     }
-
 }

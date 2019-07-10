@@ -1,21 +1,22 @@
 package parser.parsetree;
 
-public class Procedure {
+public class Procedure implements Expression {
 
-    Var name;
+    // TODO string or var?
+    String name;
 
-    String body;
+    Expression body;
 
-    public Procedure(Var name, String body) {
+    public Procedure(String name, Expression body) {
         this.name = name;
         this.body = body;
     }
 
-    public Var getName() {
+    public String getName() {
         return name;
     }
 
-    public String getBody() {
+    public Expression getBody() {
         return body;
     }
 }

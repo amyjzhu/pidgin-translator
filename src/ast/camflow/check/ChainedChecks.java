@@ -7,6 +7,7 @@ import java.util.List;
 
 public class ChainedChecks extends CamflowObject {
 
+    // TODO should this be one consequence... or is this an object of multiplictyb
     List<Check> checks;
 
     public ChainedChecks(ChainedChecks c1, ChainedChecks c2) {

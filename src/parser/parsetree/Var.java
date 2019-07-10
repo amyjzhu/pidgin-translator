@@ -1,6 +1,6 @@
 package parser.parsetree;
 
-public class Var {
+public class Var implements Argument {
     String name;
 
     public Var(String name) {

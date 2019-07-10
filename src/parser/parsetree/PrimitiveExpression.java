@@ -1,5 +1,5 @@
 package parser.parsetree;
 
-public class PrimitiveExpression extends Expression {
+public class PrimitiveExpression implements Expression {
     // extensibility ?
 }
