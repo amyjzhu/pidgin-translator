@@ -122,7 +122,7 @@ public class ParseTreeToCamflow {
     }
 
     CamflowObject translate(Procedure e) {
-        return new Function(e.getName().getName(), e.getBody());
+        return new Function(e.getName(), e.getBody().toString());
     }
 
     CamflowObject translate(Remove e) {
@@ -130,7 +130,7 @@ public class ParseTreeToCamflow {
         // add the removed label
         // TODO this might be the wrong approach because which item has which role
         new BooleanCondition();
-        new RemoveCheck();
+        new RemoveCheck(new ast.camflow.BooleanCondition());
         new PropagateLabel(PropagateType.NEW, new Node(), ast.camflow.Label.REMOVE_LABEL);
         return null;
     }
