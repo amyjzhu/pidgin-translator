@@ -1,4 +1,4 @@
-package ast.camflow;
+package ast.camflow.meta;
 
 import ast.camflow.check.Check;
 

@@ -1,5 +1,7 @@
 package ast.camflow;
 
+import ast.camflow.meta.PropagateType;
+
 public class PropagateLabel extends Consequence {
 
     PropagateType type;
@@ -12,4 +14,15 @@ public class PropagateLabel extends Consequence {
         this.theLabel = theLabel;
     }
 
+    public PropagateType getType() {
+        return type;
+    }
+
+    public GraphElement getAttachTo() {
+        return attachTo;
+    }
+
+    public Label getTheLabel() {
+        return theLabel;
+    }
 }

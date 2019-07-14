@@ -2,6 +2,7 @@ package parser;
 
 import ast.camflow.*;
 import ast.camflow.check.*;
+import ast.camflow.meta.PropagateType;
 import parser.parsetree.*;
 import parser.parsetree.BooleanCondition;
 import parser.parsetree.Label;
@@ -9,6 +10,7 @@ import util.NodeType;
 import util.EdgeType;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class ParseTreeToCamflow {
 
@@ -28,7 +30,15 @@ public class ParseTreeToCamflow {
         // join with whatever is appropriate
         // turn into a bunch of checks and give it a certain label/addlabel
 
-        return null;
+        // todo reinforce that these will be checks...
+        List<CamflowObject> and = e.getAnd().stream().map(this::translate).collect(Collectors.toList());
+        List<CamflowObject> or = e.getOr().stream().map(this::translate).collect(Collectors.toList());
+
+        SetOperation andOp = new SetOperation(SetOperation.Operation.INTERSECT, and);
+        SetOperation orOp = new SetOperation(SetOperation.Operation.UNION, or);
+        return new SetOperation(SetOperation.Operation.INTERSECT, andOp, orOp);
+        // TODO this is wrong
+        //List<Check> andCheck = and.stream().filter(c -> c instanceof Check).collect(Collectors.toList());
     }
 
     CamflowObject translate(Backwards e) {
@@ -128,11 +138,10 @@ public class ParseTreeToCamflow {
     CamflowObject translate(Remove e) {
         // remove should do a boolean check
         // add the removed label
+        CamflowObject remove = translate(e.getToRemove());
         // TODO this might be the wrong approach because which item has which role
-        new BooleanCondition();
-        new RemoveCheck(new ast.camflow.BooleanCondition());
-        new PropagateLabel(PropagateType.NEW, new Node(), ast.camflow.Label.REMOVE_LABEL);
-        return null;
+        PropagateLabel consequence = new PropagateLabel(PropagateType.NEW, new Node(), ast.camflow.Label.REMOVE_LABEL);
+        return new RemoveCheck(new IsEqual(remove), consequence);
     }
 
     CamflowObject translate(Union e) {

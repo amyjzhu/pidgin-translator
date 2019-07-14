@@ -27,65 +27,67 @@ public interface PidginParserConstants {
   /** RegularExpression Id. */
   int IN = 13;
   /** RegularExpression Id. */
-  int GRAPH = 14;
+  int AND = 14;
   /** RegularExpression Id. */
-  int FORWARDS = 15;
+  int GRAPH = 15;
   /** RegularExpression Id. */
-  int BACKWARDS = 16;
+  int FORWARDS = 16;
   /** RegularExpression Id. */
-  int REMOVEN = 17;
+  int BACKWARDS = 17;
   /** RegularExpression Id. */
-  int REMOVEE = 18;
+  int REMOVEN = 18;
   /** RegularExpression Id. */
-  int FOREXP = 19;
+  int REMOVEE = 19;
   /** RegularExpression Id. */
-  int FORPROC = 20;
+  int FOREXP = 20;
   /** RegularExpression Id. */
-  int ISEMPTY = 21;
+  int FORPROC = 21;
   /** RegularExpression Id. */
-  int DEFAULT_T = 22;
+  int ISEMPTY = 22;
   /** RegularExpression Id. */
-  int UNION = 23;
+  int DEFAULT_T = 23;
   /** RegularExpression Id. */
-  int INTERSECT = 24;
+  int UNION = 24;
   /** RegularExpression Id. */
-  int OR = 25;
+  int INTERSECT = 25;
   /** RegularExpression Id. */
-  int LPAREN = 26;
+  int OR = 26;
   /** RegularExpression Id. */
-  int RPAREN = 27;
+  int LPAREN = 27;
   /** RegularExpression Id. */
-  int ASSIGN = 28;
+  int RPAREN = 28;
   /** RegularExpression Id. */
-  int QUESTION = 29;
+  int ASSIGN = 29;
   /** RegularExpression Id. */
-  int COLON = 30;
+  int QUESTION = 30;
   /** RegularExpression Id. */
-  int PLUS = 31;
+  int COLON = 31;
   /** RegularExpression Id. */
-  int MINUS = 32;
+  int PLUS = 32;
   /** RegularExpression Id. */
-  int MULT = 33;
+  int MINUS = 33;
   /** RegularExpression Id. */
-  int SMALLER = 34;
+  int MULT = 34;
   /** RegularExpression Id. */
-  int NOT = 35;
+  int SMALLER = 35;
   /** RegularExpression Id. */
-  int SEMICOLON = 36;
+  int NOT = 36;
   /** RegularExpression Id. */
-  int DOT = 37;
+  int SEMICOLON = 37;
   /** RegularExpression Id. */
-  int INT = 38;
+  int DOT = 38;
   /** RegularExpression Id. */
-  int BOOLEAN = 39;
+  int INT = 39;
   /** RegularExpression Id. */
-  int INTEGER_LITERAL = 40;
+  int BOOLEAN = 40;
   /** RegularExpression Id. */
-  int IDENTIFIER = 41;
+  int INTEGER_LITERAL = 41;
   /** RegularExpression Id. */
-  int LETTER = 42;
+  int IDENTIFIER = 42;
   /** RegularExpression Id. */
-  int DIGIT = 43;
+  int LETTER = 43;
+  /** RegularExpression Id. */
+  int DIGIT = 44;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -110,6 +112,7 @@ public interface PidginParserConstants {
     "<CNTRL_ESC>",
     "\"let\"",
     "\"in\"",
+    "\"and\"",
     "\"pdg\"",
     "\"forwardSlice\"",
     "\"backwardSlice\"",

@@ -13,4 +13,16 @@ public class Assign implements Expression {
         this.and = and;
         this.or = or;
     }
+
+    public Var getVarName() {
+        return varName;
+    }
+
+    public List<Expression> getAnd() {
+        return and;
+    }
+
+    public List<Expression> getOr() {
+        return or;
+    }
 }

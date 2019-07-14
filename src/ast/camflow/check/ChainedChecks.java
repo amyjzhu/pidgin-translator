@@ -19,6 +19,10 @@ public class ChainedChecks extends CamflowObject {
         this.checks = checks;
     }
 
+    public List<Check> getChecks() {
+        return checks;
+    }
+
     @Override
     public Label getLabel() {
         return null;

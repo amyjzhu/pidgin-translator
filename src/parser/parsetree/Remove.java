@@ -10,4 +10,12 @@ public class Remove extends PrimitiveExpression {
         this.isRemoveNode = isRemoveNode;
         this.toRemove = toRemove;
     }
+
+    public Boolean getRemoveNode() {
+        return isRemoveNode;
+    }
+
+    public Expression getToRemove() {
+        return toRemove;
+    }
 }

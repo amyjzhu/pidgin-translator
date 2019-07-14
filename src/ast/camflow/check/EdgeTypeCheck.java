@@ -1,5 +1,6 @@
 package ast.camflow.check;
 
+import ast.camflow.Edge;
 import ast.camflow.Label;
 import ast.camflow.check.Check;
 import util.EdgeType;

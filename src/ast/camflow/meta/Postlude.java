@@ -1,4 +1,7 @@
-package ast.camflow;
+package ast.camflow.meta;
+
+import ast.camflow.CamflowObject;
+import ast.camflow.Label;
 
 public class Postlude extends CamflowObject {
 

@@ -26,4 +26,9 @@ public class HasLabelNodeCheck extends HasLabelCheck {
     public Label getLabel() {
         return null;
     }
+
+    @Override
+    public Consequence getAction() {
+        return action;
+    }
 }

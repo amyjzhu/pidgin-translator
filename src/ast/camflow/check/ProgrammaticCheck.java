@@ -7,6 +7,7 @@ public class ProgrammaticCheck extends Check {
 
     String text;
 
+    // forProcudure, forExpression, etc
     public ProgrammaticCheck(String text, Consequence action) {
         this.text = text;
         this.action = action;

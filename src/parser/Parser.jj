@@ -9,7 +9,6 @@ options {
 PARSER_BEGIN(PidginParser)
 package parser;
 
-import ast.*;
 import java.util.ArrayList;
 import java.util.List;
 import parser.parsetree.*;
@@ -58,6 +57,7 @@ TOKEN : /* KEYWORDS */
 {
 	<LET:		 "let" >
 |   <IN:         "in" >
+|   <AND:        "and" >
 |   <GRAPH:         "pdg" >
 |   <FORWARDS:   "forwardSlice" >
 |   <BACKWARDS:  "backwardSlice" >
@@ -100,9 +100,6 @@ TOKEN :
 }
 
 
-
-
-
 Program Program() : {
     List<Expression> expressions = new ArrayList();
 	Expression e;
@@ -111,7 +108,7 @@ Program Program() : {
 {
 	( LOOKAHEAD(2) e=Expression()
 		{ expressions.add(e); }
-	)*
+	)* (<IN> | <AND>)?
 	p = Policy()
 	<EOF>
 	{ return new Program(expressions, p); }
@@ -131,7 +128,7 @@ Procedure Procedure() : {
     Boolean isEmpty = false;
     }{
     <LET> i=Identifier() <ASSIGN> e=Expression()
-    ( LOOKAHEAD(2) <ISEMPTY> { isEmpty = true; })?
+    //( LOOKAHEAD(2) <ISEMPTY> { isEmpty = true; })?
     { //if (isEmpty) {
     //    return new IsEmpty(Collections.singletonList(new Procedure(i, e))); } // TODO weird edge case with is empty syntax
     //else  {
@@ -199,11 +196,11 @@ Expression Expression() : {
 }
 {   <GRAPH> (<DOT> (e2=PrimitiveExpression() { eList.add(e2); })+ )? { // todo OR? forProcedure needs to be collected under a label
 if (!eList.isEmpty()) { return new parser.parsetree.Graph(); } else { return new Graph(); }}
+	| i=Identifier() { return new Var(i); }
 	| LOOKAHEAD(2)
 	<LET> i=Identifier() <ASSIGN> e=Expression() {eList.add(e); eList2.add(e);}
 	( LOOKAHEAD(2) <OR> e2=Expression() {eList.add(e2); } )*
 	(LOOKAHEAD(2) <IN> e3=Expression() {eList2.add(e3);})* { return new Assign(new Var(i), eList2, eList); }
-	| i=Identifier() { return new Var(i); }
 	| f=Procedure() { return f; }
 
 }

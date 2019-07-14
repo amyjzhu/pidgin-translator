@@ -1,5 +1,6 @@
-package ast.camflow;
+package ast.camflow.meta;
 
+import ast.camflow.*;
 import ast.camflow.check.HasLabelCheck;
 import ast.camflow.check.HasLabelEdgeCheck;
 
